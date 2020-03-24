@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1021240996810",
+    "firebase_url": "https://dinoquestion-and-kids-cd0b6.firebaseio.com",
+    "project_id": "dinoquestion-and-kids-cd0b6",
+    "storage_bucket": "dinoquestion-and-kids-cd0b6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1021240996810:android:df7f870fa5d49ec4d9d533",
+        "android_client_info": {
+          "package_name": "com.example.dinoquestionandkids"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1021240996810-n1pr4rl96i13o5fe7ota7nv9md34kv80.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.dinoquestionandkids",
+            "certificate_hash": "d236366173a0272b5d740a3d6fe8616c611dcb6b"
+          }
+        },
+        {
+          "client_id": "1021240996810-4q8s9imhsout70p7rcdunae8h5lihmck.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpVr4_Gr3Grsc3bzs3t3OVeIYLItF0uek"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1021240996810-4q8s9imhsout70p7rcdunae8h5lihmck.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
