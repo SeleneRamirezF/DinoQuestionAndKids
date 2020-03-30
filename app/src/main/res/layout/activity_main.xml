@@ -9,14 +9,14 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:layout_width="400dp"
-        android:layout_height="400dp"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
         android:layout_gravity="center"
         android:src="@drawable/inicio" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="400dp"
+        android:layout_height="80dp"
         android:layout_gravity="center"
         android:src="@drawable/tituloInicio" />
 
@@ -31,17 +31,17 @@
             android:id="@+id/btnAccesoLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ya tengo cuenta"
-            android:background="@color/colorPrimary"
-            android:textColor="@android:color/white"/>
+            android:background="@drawable/boton_redondo"
+            android:text="Iniciar sesion"
+            android:textColor="@android:color/white" />
 
         <Button
             android:id="@+id/btnAccesoRegistro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="registrar usuario"
-            android:background="@color/colorAccent"
-            android:layout_marginVertical="40dp"
+            android:background="@drawable/boton_redondo2"
+            android:layout_marginVertical="30dp"
             android:textColor="@android:color/white"/>
 
 
