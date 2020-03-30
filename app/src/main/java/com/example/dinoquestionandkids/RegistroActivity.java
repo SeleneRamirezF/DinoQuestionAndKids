@@ -20,7 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity {
+public class RegistroActivity extends AppCompatActivity {
 
     //variables
     private EditText etNombre;
@@ -60,10 +60,10 @@ public class MainActivity extends AppCompatActivity {
                     if(contrasena.length() >= 6){
                         registrarUsuario();
                     }else{
-                        Toast.makeText(MainActivity.this, "La contraseña debe que tener un mínimo de 6 caracteres", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegistroActivity.this, "La contraseña debe que tener un mínimo de 6 caracteres", Toast.LENGTH_SHORT).show();
                     }
                 }else{
-                    Toast.makeText(MainActivity.this, "Ningún campo puede estar vacio", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegistroActivity.this, "Ningún campo puede estar vacio", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         btnAccesoLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                startActivity(new Intent(RegistroActivity.this, LoginActivity.class));
             }
         });
     }
@@ -106,16 +106,16 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<Void> task2) {
                             if(task2.isSuccessful()) {
-                                startActivity(new Intent (MainActivity.this, Activity2.class));
+                                startActivity(new Intent (RegistroActivity.this, Activity2.class));
                                 finish();
                             }else{
-                                Toast.makeText(MainActivity.this, "No se han podido crear los datos", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(RegistroActivity.this, "No se han podido crear los datos", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
-                    Toast.makeText(MainActivity.this, "Usuario registrado", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegistroActivity.this, "Usuario registrado", Toast.LENGTH_SHORT).show();
                 }else{
-                    Toast.makeText(MainActivity.this, "No se han podido registrar este usuario", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegistroActivity.this, "No se han podido registrar este usuario", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         if (miauth.getCurrentUser() != null){
-            startActivity(new Intent(MainActivity.this, Activity2.class));
+            startActivity(new Intent(RegistroActivity.this, Activity2.class));
             finish();
         }
     }

@@ -8,27 +8,18 @@
     android:padding="20dp"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/etNombre"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Nombre"/>
+    <ImageView
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:layout_gravity="center"
+        android:src="@drawable/inicio" />
 
-    <EditText
-        android:id="@+id/etCorreo"
-        android:layout_width="match_parent"
+    <ImageView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:hint="Correo"
-        android:inputType="textEmailAddress"/>
+        android:layout_gravity="center"
+        android:src="@drawable/tituloInicio" />
 
-    <EditText
-        android:id="@+id/etContrasena"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:hint="Contraseña"
-        android:inputType="textPassword"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,21 +28,23 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/btnRegistro"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="registrar usuario"
-            android:background="@color/colorAccent"
-            android:textColor="@android:color/white"/>
-
-        <Button
             android:id="@+id/btnAccesoLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="ya tengo cuenta"
             android:background="@color/colorPrimary"
-            android:layout_marginTop="10dp"
             android:textColor="@android:color/white"/>
+
+        <Button
+            android:id="@+id/btnAccesoRegistro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="registrar usuario"
+            android:background="@color/colorAccent"
+            android:layout_marginVertical="40dp"
+            android:textColor="@android:color/white"/>
+
+
 
     </LinearLayout>
 
