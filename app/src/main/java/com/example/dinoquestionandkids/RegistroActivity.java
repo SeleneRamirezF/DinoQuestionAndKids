@@ -27,18 +27,16 @@ public class RegistroActivity extends AppCompatActivity {
     private EditText etCorreo;
     private EditText etContrasena;
     private Button btnRegistro;
-    private Button btnAccesoLogin;
     private String nombre, correo, contrasena;
-
-    FirebaseAuth miauth;
-    DatabaseReference miBD;
+    private FirebaseAuth miauth;
+    private DatabaseReference miBD;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_registro);
 
-        //instencias de la base de datos para la autentificacion y para guardar los datos
+        //instances de la base de datos para la autentificacion y para guardar los datos
         miauth = FirebaseAuth.getInstance();
         miBD = FirebaseDatabase.getInstance().getReference();
 
@@ -68,13 +66,6 @@ public class RegistroActivity extends AppCompatActivity {
             }
         });
 
-        //creacion al vuelo de la accion de clicar el boton de login
-        btnAccesoLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(RegistroActivity.this, LoginActivity.class));
-            }
-        });
     }
 
     //metodo para cargar los datos introducidos por el usuario
@@ -83,7 +74,6 @@ public class RegistroActivity extends AppCompatActivity {
         etCorreo = (EditText) findViewById(R.id.etCorreo);
         etContrasena = (EditText) findViewById(R.id.etContrasena);
         btnRegistro = (Button) findViewById(R.id.btnRegistro);
-        btnAccesoLogin = (Button) findViewById(R.id.btnAccesoLogin);
     }
 
     //este metodo realiza la comprobacion de si el usuario ya existe y si no existe lo crea
@@ -120,7 +110,7 @@ public class RegistroActivity extends AppCompatActivity {
             }
         });
     }
-
+    /*
     //metodo para que la aplicacion reconozca si ya se inicio sesión con anterioridad y asi entrar directamente a la app
     @Override
     protected void onStart() {
@@ -130,4 +120,5 @@ public class RegistroActivity extends AppCompatActivity {
             finish();
         }
     }
+    */
 }

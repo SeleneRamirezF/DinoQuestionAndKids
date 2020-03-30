@@ -18,7 +18,7 @@
         android:layout_width="400dp"
         android:layout_height="80dp"
         android:layout_gravity="center"
-        android:src="@drawable/tituloInicio" />
+        android:src="@drawable/titulo_inicio" />
 
 
     <LinearLayout
@@ -33,16 +33,18 @@
             android:layout_height="wrap_content"
             android:background="@drawable/boton_redondo"
             android:text="Iniciar sesion"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/btnAccesoRegistro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="registrar usuario"
-            android:background="@drawable/boton_redondo2"
             android:layout_marginVertical="30dp"
-            android:textColor="@android:color/white"/>
+            android:background="@drawable/boton_redondo2"
+            android:text="registrarse"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
 
 
 
