@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnRegistro;
     private Button btnAccesoLogin;
     private String nombre, correo, contrasena;
+    
     FirebaseAuth miauth;
     DatabaseReference miBD;
 
