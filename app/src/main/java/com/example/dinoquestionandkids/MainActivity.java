@@ -1,6 +1,7 @@
 package com.example.dinoquestionandkids;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,6 +11,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.SignInButton;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -26,6 +33,9 @@ public class MainActivity extends AppCompatActivity {
     private Button btnAccesoRegistro;
     private Button btnAccesoLogin;
     private FirebaseAuth miauth;
+    private GoogleApiClient googleApiClient;
+    private SignInButton signInButton;
+    public static final int SIGN_IN_CODE = 777;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, LoginActivity.class));
             }
         });
+
+
     }
 
     //metodo para cargar los datos introducidos por el usuario
@@ -67,4 +79,6 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
     }
+
+
 }
