@@ -3,13 +3,19 @@ package com.example.dinoquestionandkids;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.firebase.ui.auth.IdpResponse;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+import com.google.android.gms.common.api.GoogleApi;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,6 +29,7 @@ public class Activity2 extends AppCompatActivity {
     private TextView tvNombre;
     private TextView tvCorreo;
     private DatabaseReference miBD;
+    private Button btn1, btn2, btn3, btn4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +50,36 @@ public class Activity2 extends AppCompatActivity {
         });
 
         obtenetInfoUsuario();
+
+        //acciones de los botones
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Activity2.this, LineaTemporalActivity.class));
+            }
+        });
+
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Activity2.this, DinosauriosActivity.class));
+            }
+        });
+
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Activity2.this, JuegoActivity.class));
+            }
+        });
+
+        btn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Activity2.this, PuzzleActivity.class));
+            }
+        });
+
     }
 
     private void cargarViews(){
@@ -51,6 +88,7 @@ public class Activity2 extends AppCompatActivity {
         tvCorreo = (TextView) findViewById(R.id.tvCorreo);
     }
 
+    //metodo para obtener los datos del usuario
     private void obtenetInfoUsuario(){
         String id = miAuth.getCurrentUser().getUid();
         miBD.child("Usuarios").child(id).addValueEventListener(new ValueEventListener() {
@@ -62,6 +100,12 @@ public class Activity2 extends AppCompatActivity {
                     tvNombre.setText(nombre);
                     tvCorreo.setText(correo);
                 }
+                //hacemos la parte de acceso a los datos cuando se inicia con google
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                if(user != null){
+                    tvNombre.setText(user.getDisplayName());
+                    tvCorreo.setText(user.getEmail());
+                }
             }
 
             @Override
@@ -69,5 +113,9 @@ public class Activity2 extends AppCompatActivity {
 
             }
         });
+
+
     }
+
+
 }

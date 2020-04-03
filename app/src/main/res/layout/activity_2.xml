@@ -9,30 +9,81 @@
     tools:context=".Activity2">
 
     <TextView
+        android:id="@+id/tvBienvenido"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bienvenid@"
+        android:textAlignment="center"
+        android:textSize="36sp"
+        android:textStyle="bold" />
+
+    <TextView
         android:id="@+id/tvNombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nombre de usuario"
+        android:hint="Nombre de usuario"
         android:textAlignment="center"
-        android:textSize="18sp"/>
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/tvCorreo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Correo"
-        android:layout_marginTop="10dp"
+        android:hint="Correo"
         android:textAlignment="center"
-        android:textSize="18sp"/>
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/btn1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@drawable/boton_redondo"
+        android:text="línea temporal"
+        android:textColor="@android:color/white"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/btn2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@drawable/boton_redondo"
+        android:text="dinosaurios"
+        android:textColor="@android:color/white"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/btn3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@drawable/boton_redondo"
+        android:text="juego"
+        android:textColor="@android:color/white"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/btn4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@drawable/boton_redondo"
+        android:text="puzzle"
+        android:textColor="@android:color/white"
+        android:textSize="18sp" />
 
     <Button
         android:id="@+id/btnCerrarSesion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="cerrar sesión"
-        android:layout_margin="20dp"
-        android:background="@color/colorPrimary"
+        android:layout_marginHorizontal="70dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/boton_redondo2"
         android:textColor="@android:color/white"/>
+
 
 
 </LinearLayout>

@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.firebase.ui.auth.AuthUI;
+import com.firebase.ui.auth.IdpResponse;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
@@ -21,10 +23,13 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
@@ -33,9 +38,8 @@ public class MainActivity extends AppCompatActivity {
     private Button btnAccesoRegistro;
     private Button btnAccesoLogin;
     private FirebaseAuth miauth;
-    private GoogleApiClient googleApiClient;
-    private SignInButton signInButton;
-    public static final int SIGN_IN_CODE = 777;
+    private SignInButton btnGoogle;
+    private static final int RC_SIGN_IN = 123;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,13 +65,31 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        //funcionalidad boton google
+        btnGoogle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //proveedor de autenticación
+                List<AuthUI.IdpConfig> providers = Arrays.asList(
+                        new AuthUI.IdpConfig.GoogleBuilder().build());
+                //Crear e iniciar el intent de inicio de sesión
+                startActivityForResult(
+                        AuthUI.getInstance()
+                                .createSignInIntentBuilder()
+                                .setAvailableProviders(providers)
+                                //para que google te de ha elegir entre diferentes cuentas para el registro
+                                .setIsSmartLockEnabled(false)
+                                .build(),
+                        RC_SIGN_IN);
+            }
+        });
     }
 
     //metodo para cargar los datos introducidos por el usuario
     private void cargarViews(){
         btnAccesoRegistro = (Button) findViewById(R.id.btnAccesoRegistro);
         btnAccesoLogin = (Button) findViewById(R.id.btnAccesoLogin);
+        btnGoogle = (SignInButton) findViewById(R.id.btnGoogle);
     }
 
     //metodo para que la aplicacion reconozca si ya se inicio sesión con anterioridad y asi entrar directamente a la app
@@ -79,6 +101,24 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
     }
+
+    //este metodo gestiona la respuesta del registro con google
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == RC_SIGN_IN) {
+            IdpResponse response = IdpResponse.fromResultIntent(data);
+            if (resultCode == RESULT_OK) {
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                Intent i = new Intent(MainActivity.this, Activity2.class);
+                startActivity(i);
+                finish();
+            } else {
+                Toast.makeText(MainActivity.this, "ERROR: "+ response.getError().getErrorCode(), Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
 
 
 }
