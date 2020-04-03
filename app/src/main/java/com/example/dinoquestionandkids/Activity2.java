@@ -86,6 +86,10 @@ public class Activity2 extends AppCompatActivity {
         btnCerrarSesion = (Button) findViewById(R.id.btnCerrarSesion);
         tvNombre = (TextView) findViewById(R.id.tvNombre);
         tvCorreo = (TextView) findViewById(R.id.tvCorreo);
+        btn1 = (Button) findViewById(R.id.btn1);
+        btn2 = (Button) findViewById(R.id.btn2);
+        btn3 = (Button) findViewById(R.id.btn3);
+        btn4 = (Button) findViewById(R.id.btn4);
     }
 
     //metodo para obtener los datos del usuario
