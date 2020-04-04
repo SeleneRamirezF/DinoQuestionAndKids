@@ -3,17 +3,12 @@ package com.example.dinoquestionandkids;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.firebase.ui.auth.IdpResponse;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInResult;
-import com.google.android.gms.common.api.GoogleApi;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -22,7 +17,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class Activity2 extends AppCompatActivity {
+public class MenuActivity extends AppCompatActivity {
 
     private Button btnCerrarSesion;
     private FirebaseAuth miAuth;
@@ -30,21 +25,24 @@ public class Activity2 extends AppCompatActivity {
     private TextView tvCorreo;
     private DatabaseReference miBD;
     private Button btn1, btn2, btn3, btn4;
+    private FirebaseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_2);
+        setContentView(R.layout.activity_menu);
 
         cargarViews();
         miAuth = FirebaseAuth.getInstance();
         miBD = FirebaseDatabase.getInstance().getReference();
+        //inicio con google
+        user = FirebaseAuth.getInstance().getCurrentUser();
 
         btnCerrarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 miAuth.signOut();
-                startActivity(new Intent(Activity2.this, MainActivity.class));
+                startActivity(new Intent(MenuActivity.this, MainActivity.class));
                 finish();
             }
         });
@@ -55,28 +53,28 @@ public class Activity2 extends AppCompatActivity {
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Activity2.this, LineaTemporalActivity.class));
+                startActivity(new Intent(MenuActivity.this, LineaTemporalActivity.class));
             }
         });
 
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Activity2.this, DinosauriosActivity.class));
+                startActivity(new Intent(MenuActivity.this, DinosauriosActivity.class));
             }
         });
 
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Activity2.this, JuegoActivity.class));
+                startActivity(new Intent(MenuActivity.this, JuegoActivity.class));
             }
         });
 
         btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Activity2.this, PuzzleActivity.class));
+                startActivity(new Intent(MenuActivity.this, PuzzleActivity.class));
             }
         });
 
@@ -98,17 +96,16 @@ public class Activity2 extends AppCompatActivity {
         miBD.child("Usuarios").child(id).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                //hacemos la parte de acceso a los datos cuando se inicia con google
+                if(user != null){
+                    tvNombre.setText(user.getDisplayName());
+                    tvCorreo.setText(user.getEmail());
+                }
                 if (dataSnapshot.exists()){
                     String nombre = dataSnapshot.child("nombre").getValue().toString();
                     String correo = dataSnapshot.child("correo").getValue().toString();
                     tvNombre.setText(nombre);
                     tvCorreo.setText(correo);
-                }
-                //hacemos la parte de acceso a los datos cuando se inicia con google
-                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                if(user != null){
-                    tvNombre.setText(user.getDisplayName());
-                    tvCorreo.setText(user.getEmail());
                 }
             }
 
@@ -117,9 +114,5 @@ public class Activity2 extends AppCompatActivity {
 
             }
         });
-
-
     }
-
-
 }

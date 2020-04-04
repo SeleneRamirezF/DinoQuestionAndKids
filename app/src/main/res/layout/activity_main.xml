@@ -16,8 +16,8 @@
         android:src="@drawable/inicio" />
 
     <ImageView
-        android:layout_width="400dp"
-        android:layout_height="80dp"
+        android:layout_width="390dp"
+        android:layout_height="68dp"
         android:layout_gravity="center"
         android:src="@drawable/titulo_inicio" />
 

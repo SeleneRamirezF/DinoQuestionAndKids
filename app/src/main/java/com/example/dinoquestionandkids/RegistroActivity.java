@@ -96,7 +96,7 @@ public class RegistroActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<Void> task2) {
                             if(task2.isSuccessful()) {
-                                startActivity(new Intent (RegistroActivity.this, Activity2.class));
+                                startActivity(new Intent (RegistroActivity.this, MenuActivity.class));
                                 finish();
                             }else{
                                 Toast.makeText(RegistroActivity.this, "No se han podido crear los datos", Toast.LENGTH_SHORT).show();
@@ -110,15 +110,5 @@ public class RegistroActivity extends AppCompatActivity {
             }
         });
     }
-    /*
-    //metodo para que la aplicacion reconozca si ya se inicio sesión con anterioridad y asi entrar directamente a la app
-    @Override
-    protected void onStart() {
-        super.onStart();
-        if (miauth.getCurrentUser() != null){
-            startActivity(new Intent(RegistroActivity.this, Activity2.class));
-            finish();
-        }
-    }
-    */
+
 }
