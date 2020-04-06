@@ -58,10 +58,10 @@ public class RegistroActivity extends AppCompatActivity {
                     if(contrasena.length() >= 6){
                         registrarUsuario();
                     }else{
-                        Toast.makeText(RegistroActivity.this, "La contraseña debe que tener un mínimo de 6 caracteres", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegistroActivity.this, getResources().getText(R.string.minimo_contraseña), Toast.LENGTH_SHORT).show();
                     }
                 }else{
-                    Toast.makeText(RegistroActivity.this, "Ningún campo puede estar vacio", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegistroActivity.this, getResources().getText(R.string.completarCampos), Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -84,9 +84,9 @@ public class RegistroActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
                     Map<String, Object> map = new HashMap<>();
-                    map.put("nombre", nombre);
-                    map.put("correo", correo);
-                    map.put("contraseña", contrasena);
+                    map.put((String)getResources().getText(R.string.nombre), nombre);
+                    map.put((String)getResources().getText(R.string.correo), correo);
+                    map.put((String)getResources().getText(R.string.contraseña), contrasena);
 
                     String id = miauth.getCurrentUser().getUid();
 
@@ -99,13 +99,13 @@ public class RegistroActivity extends AppCompatActivity {
                                 startActivity(new Intent (RegistroActivity.this, MenuActivity.class));
                                 finish();
                             }else{
-                                Toast.makeText(RegistroActivity.this, "No se han podido crear los datos", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(RegistroActivity.this, getResources().getText(R.string.no_datos), Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
-                    Toast.makeText(RegistroActivity.this, "Usuario registrado", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegistroActivity.this, getResources().getText(R.string.usuario_ok), Toast.LENGTH_SHORT).show();
                 }else{
-                    Toast.makeText(RegistroActivity.this, "No se han podido registrar este usuario", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegistroActivity.this, getResources().getText(R.string.usuario_no_registrado), Toast.LENGTH_SHORT).show();
                 }
             }
         });

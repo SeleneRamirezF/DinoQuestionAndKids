@@ -1,9 +1,29 @@
 <resources>
     <string name="app_name">DinoQuestion And Kids</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_linea_temporal">LineaTemporalActivity</string>
+    <string name="error">ERROR:</string>
+    <string name="completarCampos">Todos los campos deben estar completados</string>
+    <string name="niInicioSesion">No se ha podido iniciar sesión</string>
+
+    <string name="usuarios">Usuarios</string>
+    <string name="nombre">nombre</string>
+    <string name="correo">correo</string>
+
+    <string name="minimo_contraseña">La contraseña debe que tener un mínimo de 6 caracteres</string>
+    <string name="contraseña">contraseña</string>
+    <string name="no_datos">No se han podido crear los datos</string>
+    <string name="usuario_ok">Usuario registrado correctamente</string>
+    <string name="usuario_no_registrado">No se han podido registrar el usuario</string>
+
+
+
+
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
+    <string name="tab_text_3">Tab 3</string>
+    <string name="tab_text_4">Tab 4</string>
+    <string name="tab_text_5">Tab 5</string>
+    <string name="tab_text_6">Tab 6</string>
+    <string name="tab_text_7">Tab 7</string>
+    <string name="tab_text_8">Tab 8</string>
 </resources>

@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
                 finish();
             } else {
-                Toast.makeText(MainActivity.this, "ERROR: "+ response.getError().getErrorCode(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, getResources().getText(R.string.error) + " " + response.getError().getErrorCode(), Toast.LENGTH_SHORT).show();
             }
         }
     }

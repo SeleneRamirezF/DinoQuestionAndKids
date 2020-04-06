@@ -50,27 +50,28 @@ public class MenuActivity extends AppCompatActivity {
         obtenetInfoUsuario();
 
         //acciones de los botones
+        //linea temporal
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MenuActivity.this, LineaTemporalActivity.class));
             }
         });
-
+        //dinosaurios
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MenuActivity.this, DinosauriosActivity.class));
             }
         });
-
+        //juego
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MenuActivity.this, JuegoActivity.class));
             }
         });
-
+        //puzzle
         btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,7 +94,7 @@ public class MenuActivity extends AppCompatActivity {
     //metodo para obtener los datos del usuario
     private void obtenetInfoUsuario(){
         String id = miAuth.getCurrentUser().getUid();
-        miBD.child("Usuarios").child(id).addValueEventListener(new ValueEventListener() {
+        miBD.child((String) getResources().getText(R.string.usuarios)).child(id).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 //hacemos la parte de acceso a los datos cuando se inicia con google
@@ -102,8 +103,8 @@ public class MenuActivity extends AppCompatActivity {
                     tvCorreo.setText(user.getEmail());
                 }
                 if (dataSnapshot.exists()){
-                    String nombre = dataSnapshot.child("nombre").getValue().toString();
-                    String correo = dataSnapshot.child("correo").getValue().toString();
+                    String nombre = dataSnapshot.child((String) getResources().getText(R.string.nombre)).getValue().toString();
+                    String correo = dataSnapshot.child((String) getResources().getText(R.string.correo)).getValue().toString();
                     tvNombre.setText(nombre);
                     tvCorreo.setText(correo);
                 }
