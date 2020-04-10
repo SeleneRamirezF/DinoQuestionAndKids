@@ -14,9 +14,7 @@
     <string name="no_datos">No se han podido crear los datos</string>
     <string name="usuario_ok">Usuario registrado correctamente</string>
     <string name="usuario_no_registrado">No se han podido registrar el usuario</string>
-
-
-
+    <string name="cancel">El usuario canceló</string>
 
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
@@ -26,4 +24,5 @@
     <string name="tab_text_6">Tab 6</string>
     <string name="tab_text_7">Tab 7</string>
     <string name="tab_text_8">Tab 8</string>
+
 </resources>

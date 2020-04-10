@@ -20,34 +20,22 @@ import com.example.dinoquestionandkids.fragment.Fragment6;
 import com.example.dinoquestionandkids.fragment.Fragment7;
 import com.example.dinoquestionandkids.fragment.Fragment8;
 
-/**
- * A placeholder fragment containing a simple view.
- */
 public class PlaceholderFragment extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
-
     private PageViewModel pageViewModel;
 
     public static Fragment newInstance(int index) {
         Fragment fragment = null;
         switch (index){
-            case 1: fragment = new Fragment1();
-                break;
-            case 2: fragment = new Fragment2();
-                break;
-            case 3: fragment = new Fragment3();
-                break;
-            case 4: fragment = new Fragment4();
-                break;
-            case 5: fragment = new Fragment5();
-                break;
-            case 6: fragment = new Fragment6();
-                break;
-            case 7: fragment = new Fragment7();
-                break;
-            case 8: fragment = new Fragment8();
-                break;
+            case 1: fragment = new Fragment1(); break;
+            case 2: fragment = new Fragment2(); break;
+            case 3: fragment = new Fragment3(); break;
+            case 4: fragment = new Fragment4(); break;
+            case 5: fragment = new Fragment5(); break;
+            case 6: fragment = new Fragment6(); break;
+            case 7: fragment = new Fragment7(); break;
+            case 8: fragment = new Fragment8(); break;
         }
         return fragment;
     }

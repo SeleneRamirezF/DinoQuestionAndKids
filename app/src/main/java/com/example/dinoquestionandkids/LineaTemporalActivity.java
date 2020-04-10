@@ -1,15 +1,19 @@
 package com.example.dinoquestionandkids;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.text.Html;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.dinoquestionandkids.informacion.InformacionActivity;
 import com.example.dinoquestionandkids.ui.main.SectionsPagerAdapter;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class LineaTemporalActivity extends AppCompatActivity{
 
@@ -17,6 +21,7 @@ public class LineaTemporalActivity extends AppCompatActivity{
     private ViewPager viewPager;
     private LinearLayout puntos;
     private TextView[] puntosSlide;
+    private FloatingActionButton btnInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +36,16 @@ public class LineaTemporalActivity extends AppCompatActivity{
         puntos = (LinearLayout) findViewById(R.id.idPuntos);
         agregarPuntos(0);
         viewPager.addOnPageChangeListener(viewListener);
+
+        //boton con acceso al activity de la información adicional
+        btnInfo = (FloatingActionButton) findViewById(R.id.btnInfo);
+        btnInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //nos manda a un activity de informacion adicional
+                startActivity(new Intent(LineaTemporalActivity.this, InformacionActivity.class));
+            }
+        });
     }
 
     //metodo que construye los puntos de posicionamiento
