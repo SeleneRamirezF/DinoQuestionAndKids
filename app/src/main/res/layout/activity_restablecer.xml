@@ -6,24 +6,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="20dp"
-    tools:context=".LoginActivity">
+    tools:context=".RestablecerActivity">
 
     <EditText
         android:id="@+id/etCorreo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:hint="Correo"
+        android:hint="Correo electrónico"
         android:inputType="textEmailAddress"/>
-
-    <EditText
-        android:id="@+id/etContrasena"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:hint="Contraseña"
-        android:inputType="textPassword"/>
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -32,21 +23,13 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/btnLogin"
+            android:id="@+id/btnRestablecer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="iniciar sesión"
+            android:text="restablecer contraseña"
             android:layout_marginTop="30dp"
             android:background="@drawable/boton_redondo2"
             android:textColor="@android:color/white"/>
-        <Button
-            android:id="@+id/btnReestablecer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="¿Olvidaste tu contraseña?"
-            android:layout_marginBottom="30dp"
-            android:textColor="@color/colorPrimaryDark"
-            android:background="@android:color/transparent"/>
 
     </LinearLayout>
 

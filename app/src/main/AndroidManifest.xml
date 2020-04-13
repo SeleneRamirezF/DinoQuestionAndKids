@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".informacion.Historia"></activity>
+        <activity android:name=".RestablecerActivity"></activity>
+        <activity android:name=".informacion.Historia" />
         <activity android:name=".informacion.InformacionActivity" />
         <activity
             android:name=".LineaTemporalActivity"
