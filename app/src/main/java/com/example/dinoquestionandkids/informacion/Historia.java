@@ -8,36 +8,39 @@ import java.io.Serializable;
 
 public class Historia implements Serializable {
 
-    private String nombre, descripcion;
+    private String descripcion;
+    private String nombre;
     private int imagen;
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+    public Historia() { }
 
-    public void setDescripcion(String descripcion) {
+    public Historia(String descripcion, String nombre, int imagen) {
         this.descripcion = descripcion;
-    }
-
-    public void setImagen(int imagen) {
+        this.nombre = nombre;
         this.imagen = imagen;
-    }
-
-    public String getNombre() {
-        return nombre;
     }
 
     public String getDescripcion() {
         return descripcion;
     }
 
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
     public int getImagen() {
         return imagen;
     }
 
-    public Historia(String nombre, String descripcion, int imagen) {
-        this.nombre = nombre;
-        this.descripcion = descripcion;
+    public void setImagen(int imagen) {
         this.imagen = imagen;
     }
 }

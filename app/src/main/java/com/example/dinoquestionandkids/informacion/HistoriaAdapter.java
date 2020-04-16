@@ -12,16 +12,25 @@ import java.util.ArrayList;
 
 public class HistoriaAdapter extends RecyclerView.Adapter<HistoriaAdapter.MiVistaHolder> {
 
-    ArrayList<Historia> historias;
+    private ArrayList<Historia> historias;
+    //private int resource;
+
+    public HistoriaAdapter(ArrayList<Historia> a) {
+        historias = a;
+        //this.resource = r;
+    }
 
     public class MiVistaHolder extends RecyclerView.ViewHolder {
-        private TextView nombre, descripcion;
+
+        private TextView nombre,descripcion;
         private ImageView logo;
+        //public View itmView;
 
         public MiVistaHolder(@NonNull View itemView) {
             super(itemView);
-            nombre = itemView.findViewById(R.id.tvNombre);
+            //this.itmView = itemView;
             descripcion = itemView.findViewById(R.id.tvDescripcion);
+            nombre = itemView.findViewById(R.id.tvNombre);
             logo = itemView.findViewById(R.id.tvLogo);
         }
     }
@@ -30,24 +39,21 @@ public class HistoriaAdapter extends RecyclerView.Adapter<HistoriaAdapter.MiVist
     @Override
     public HistoriaAdapter.MiVistaHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View v = inflater.inflate(R.layout.lista_historias , parent, false);
+        View v = inflater.inflate(R.layout.lista_historias, parent, false);
         return new MiVistaHolder(v);
     }
 
     @Override
     public void onBindViewHolder(@NonNull HistoriaAdapter.MiVistaHolder holder, int position) {
-        holder.nombre.setText(historias.get(position).getNombre());
+        //Historia historia = historias.get(position);
         holder.descripcion.setText(historias.get(position).getDescripcion());
+        holder.nombre.setText(historias.get(position).getNombre());
         holder.logo.setImageResource(historias.get(position).getImagen());
     }
 
     @Override
     public int getItemCount() {
         return historias.size();
-    }
-
-    public HistoriaAdapter(ArrayList<Historia> a) {
-        this.historias = a;
     }
 
 
