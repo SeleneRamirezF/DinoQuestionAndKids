@@ -30,48 +30,22 @@ public class InformacionActivity extends AppCompatActivity {
     private ArrayList<Historia> miLista;
     private HistoriaAdapter adapter;
     private DatabaseReference historia;
-    private static final String TAG = "PRUEBA";
-    private String origen, edades, geo, precambirco, fanerozioco, paleozoico, mesozoico, cenozoico;
-    //private int contador = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_informacion);
 
-        recView = findViewById(R.id.recView);
-        miLista = new ArrayList<Historia>();
+        recView = (RecyclerView) findViewById(R.id.recView);
+        miLista = new ArrayList<>();
 
         historia = FirebaseDatabase.getInstance().getReference().child("Historia");
-
         recView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false));
-        //recView.setLayoutManager(new LinearLayoutManager(this));
-        //adapter = new HistoriaAdapter(miLista);
         adapter = new HistoriaAdapter(miLista);
         recView.setAdapter(adapter);
 
-        //cargarEquipos();
         cargarHistoriasDatabase();
 
-    }
-
-    public void cargarEquipos() {
-        Historia almeria = new Historia("Almería", "El equipo de Almeria", R.drawable.inicio);
-        miLista.add(almeria);
-        Historia athmadrid = new Historia("Atletico de Madrid", "Uno de los equipo de madrid", R.drawable.inicio);
-        miLista.add(athmadrid);
-        Historia barcelona = new Historia("Barcelona", "El equipo de Barcelona", R.drawable.inicio);
-        miLista.add(barcelona);
-        Historia betis = new Historia("Betis", "Uno de los equipos de Sevilla", R.drawable.inicio);
-        miLista.add(betis);
-        Historia bilbao = new Historia("Bilbao", "El equipo de Bilbao", R.drawable.inicio);
-        miLista.add(bilbao);
-        Historia espania = new Historia("España", "El equipo de España", R.drawable.inicio);
-        miLista.add(espania);
-        Historia getafe = new Historia("Getafe", "Uno de los equipos de madrid", R.drawable.inicio);
-        miLista.add(getafe);
-        Historia madrid = new Historia("Real madrid", "Uno de los equipos de Madrid", R.drawable.inicio);
-        miLista.add(madrid);
     }
 
     private void cargarHistoriasDatabase(){
@@ -79,24 +53,16 @@ public class InformacionActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists()){
-                    /*
-                    for (DataSnapshot ds : dataSnapshot.getValue()){
-                        String texto = ds.getValue().toString();
-                        miLista.add(new Historia("nombre",texto, R.drawable.inicio));
-                    }
-                    */
                     for (DataSnapshot ds : dataSnapshot.getChildren()){
                         String texto = ds.getKey();
-                        miLista.add(new Historia(ds.getValue().toString(),texto, R.drawable.inicio));
-
-                        //Historia h = dataSnapshot.getValue(Historia.class);
-                        //miLista.add(h);
+                        String texto2 = ds.getValue().toString();
+                        String textoLimpio = texto2.substring(6, texto2.length()-1);
+                        miLista.add(new Historia(textoLimpio,texto, R.drawable.inicio));
+                        //Log.d("PRUEBA", textoLimpio);
                     }
-                    //adapter = new HistoriaAdapter(miLista, R.layout.activity_informacion);
                     recView.setAdapter(adapter);
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
