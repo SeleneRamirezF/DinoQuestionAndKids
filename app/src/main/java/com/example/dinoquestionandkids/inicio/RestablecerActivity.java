@@ -1,4 +1,4 @@
-package com.example.dinoquestionandkids;
+package com.example.dinoquestionandkids.inicio;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.dinoquestionandkids.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -21,9 +22,6 @@ public class RestablecerActivity extends AppCompatActivity {
     private String correo;
     private FirebaseAuth miAuth;
     private ProgressDialog miDialogo;
-
-    public RestablecerActivity() {
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +47,6 @@ public class RestablecerActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
 
     private void cargarViews() {

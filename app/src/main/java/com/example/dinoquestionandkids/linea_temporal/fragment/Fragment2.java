@@ -1,4 +1,4 @@
-package com.example.dinoquestionandkids.fragment;
+package com.example.dinoquestionandkids.linea_temporal.fragment;
 
 import android.os.Bundle;
 
@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 
 import com.example.dinoquestionandkids.R;
 
-public class Fragment7 extends Fragment {
+public class Fragment2 extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -18,12 +18,12 @@ public class Fragment7 extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public Fragment7() {
+    public Fragment2() {
         // Required empty public constructor
     }
 
-    public static Fragment7 newInstance(String param1, String param2) {
-        Fragment7 fragment = new Fragment7();
+    public static Fragment2 newInstance(String param1, String param2) {
+        Fragment2 fragment = new Fragment2();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -44,6 +44,6 @@ public class Fragment7 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_7, container, false);
+        return inflater.inflate(R.layout.fragment_2, container, false);
     }
 }

@@ -9,18 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".dinosaurios.Dino1Activity"></activity>
-        <activity android:name=".RestablecerActivity" />
+        <activity android:name=".dinosaurios.DinoInfoActivity"></activity>
+        <activity android:name=".inicio.RestablecerActivity" />
         <activity android:name=".informacion.Historia" />
         <activity android:name=".informacion.InformacionActivity" />
         <activity
-            android:name=".LineaTemporalActivity"
+            android:name=".linea_temporal.LineaTemporalActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".PuzzleActivity" />
         <activity android:name=".JuegoActivity" />
         <activity android:name=".dinosaurios.DinosauriosActivity" />
         <activity
-            android:name=".CargaActivity"
+            android:name=".inicio.CargaActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,8 +28,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegistroActivity" />
-        <activity android:name=".LoginActivity" />
+        <activity android:name=".inicio.RegistroActivity" />
+        <activity android:name=".inicio.LoginActivity" />
         <activity android:name=".MenuActivity" />
         <activity
             android:name=".MainActivity"

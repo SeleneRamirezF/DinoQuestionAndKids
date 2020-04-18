@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.example.dinoquestionandkids.R;
 
-public class Dino1Activity extends AppCompatActivity {
+public class DinoInfoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dino1);
+        setContentView(R.layout.activity_dinoinfo);
     }
 }

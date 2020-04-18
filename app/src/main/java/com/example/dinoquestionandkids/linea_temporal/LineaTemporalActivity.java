@@ -1,4 +1,4 @@
-package com.example.dinoquestionandkids;
+package com.example.dinoquestionandkids.linea_temporal;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.dinoquestionandkids.R;
 import com.example.dinoquestionandkids.informacion.InformacionActivity;
 import com.example.dinoquestionandkids.ui.main.SectionsPagerAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;

@@ -1,4 +1,4 @@
-package com.example.dinoquestionandkids.fragment;
+package com.example.dinoquestionandkids.linea_temporal.fragment;
 
 import android.os.Bundle;
 

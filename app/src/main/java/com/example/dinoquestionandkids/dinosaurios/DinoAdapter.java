@@ -18,7 +18,6 @@ public class DinoAdapter extends RecyclerView.Adapter<DinoAdapter.MiVistaHolder>
     final ListClickItem myListener;
 
     public class MiVistaHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-
         private ImageView logo;
 
         public MiVistaHolder(@NonNull View itemView) {

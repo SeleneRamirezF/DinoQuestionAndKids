@@ -1,24 +1,18 @@
 package com.example.dinoquestionandkids.ui.main;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import androidx.annotation.Nullable;
-import androidx.annotation.NonNull;
+
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-import com.example.dinoquestionandkids.R;
-import com.example.dinoquestionandkids.fragment.Fragment1;
-import com.example.dinoquestionandkids.fragment.Fragment2;
-import com.example.dinoquestionandkids.fragment.Fragment3;
-import com.example.dinoquestionandkids.fragment.Fragment4;
-import com.example.dinoquestionandkids.fragment.Fragment5;
-import com.example.dinoquestionandkids.fragment.Fragment6;
-import com.example.dinoquestionandkids.fragment.Fragment7;
-import com.example.dinoquestionandkids.fragment.Fragment8;
+
+import com.example.dinoquestionandkids.linea_temporal.fragment.Fragment1;
+import com.example.dinoquestionandkids.linea_temporal.fragment.Fragment2;
+import com.example.dinoquestionandkids.linea_temporal.fragment.Fragment3;
+import com.example.dinoquestionandkids.linea_temporal.fragment.Fragment4;
+import com.example.dinoquestionandkids.linea_temporal.fragment.Fragment5;
+import com.example.dinoquestionandkids.linea_temporal.fragment.Fragment6;
+import com.example.dinoquestionandkids.linea_temporal.fragment.Fragment7;
+import com.example.dinoquestionandkids.linea_temporal.fragment.Fragment8;
 
 public class PlaceholderFragment extends Fragment {
 

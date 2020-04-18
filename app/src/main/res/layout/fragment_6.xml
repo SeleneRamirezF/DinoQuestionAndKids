@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.Fragment6"
+    tools:context=".linea_temporal.fragment.Fragment6"
     android:background="@drawable/linea_temporal6">
 
 

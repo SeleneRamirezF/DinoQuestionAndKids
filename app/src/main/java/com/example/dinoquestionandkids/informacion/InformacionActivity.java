@@ -65,7 +65,7 @@ public class InformacionActivity extends AppCompatActivity {
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                Toast.makeText(InformacionActivity.this, "No se ha podido acceder a los datos", Toast.LENGTH_SHORT).show();
             }
         });
     }

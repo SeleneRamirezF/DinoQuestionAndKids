@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".dinosaurios.DinoInfoActivity">
+
+    <ImageView
+        android:id="@+id/ivDino"
+        android:layout_width="411dp"
+        android:layout_height="411dp"
+        tools:src="@drawable/dino_ejemplo" />
+
+    <TextView
+        android:id="@+id/tvNombreDino"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start|top"
+        android:text="Nombre"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/etDescripcionDino"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:text="Descripción de cada uno de los dinosaurios segun la posicion que sea clicada."/>
+
+</LinearLayout>

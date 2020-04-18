@@ -5,6 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/linea_temporal1"
-    tools:context=".fragment.Fragment1">
+    tools:context=".linea_temporal.fragment.Fragment1">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

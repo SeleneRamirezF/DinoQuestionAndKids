@@ -1,10 +1,13 @@
-package com.example.dinoquestionandkids;
+package com.example.dinoquestionandkids.inicio;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import com.example.dinoquestionandkids.MainActivity;
+import com.example.dinoquestionandkids.R;
 
 public class CargaActivity extends AppCompatActivity {
 
