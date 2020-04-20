@@ -9,16 +9,17 @@
 
     <ImageView
         android:id="@+id/ivDino"
-        android:layout_width="411dp"
-        android:layout_height="411dp"
-        tools:src="@drawable/dino_ejemplo" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/dino_ejemplo" />
 
     <TextView
         android:id="@+id/tvNombreDino"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="start|top"
-        android:text="Nombre"
+        android:hint="Nombre"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="24sp"
         android:textStyle="bold" />
@@ -29,6 +30,6 @@
         android:layout_height="wrap_content"
         android:gravity="start|top"
         android:inputType="textMultiLine"
-        android:text="Descripción de cada uno de los dinosaurios segun la posicion que sea clicada."/>
+        android:hint="Descripción de cada uno de los dinosaurios segun la posicion que sea clicada."/>
 
 </LinearLayout>

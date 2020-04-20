@@ -1,13 +1,20 @@
 package com.example.dinoquestionandkids.dinosaurios;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.example.dinoquestionandkids.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -15,6 +22,8 @@ public class DinosauriosActivity extends AppCompatActivity implements DinoAdapte
 
     private RecyclerView recView;
     private ArrayList<Dino> miLista;
+    private DinoAdapter adapter;
+    private Intent i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,12 +32,12 @@ public class DinosauriosActivity extends AppCompatActivity implements DinoAdapte
 
         recView = (RecyclerView) findViewById(R.id.recView);
         miLista = new ArrayList<>();
+
         recView.setLayoutManager(new GridLayoutManager(this, 2));
-        final DinoAdapter adapter = new DinoAdapter(miLista, this);
+        adapter = new DinoAdapter(miLista, this);
         recView.setAdapter(adapter);
 
         cargarDinos();
-
     }
 
     public void cargarDinos() {
@@ -60,8 +69,9 @@ public class DinosauriosActivity extends AppCompatActivity implements DinoAdapte
 
     @Override
     public void onListClickItem(int posicion) {
-        Intent i = new Intent(DinosauriosActivity.this, DinoInfoActivity.class);
-        i.putExtra("posicion", posicion);
+        i = new Intent(DinosauriosActivity.this, DinoInfoActivity.class);
+        i.putExtra("posicion", String.valueOf(posicion));
         startActivity(i);
     }
+
 }

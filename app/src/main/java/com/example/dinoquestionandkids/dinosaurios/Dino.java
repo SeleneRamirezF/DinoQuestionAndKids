@@ -15,4 +15,5 @@ public class Dino {
     public void setImagen(int imagen) {
         this.imagen = imagen;
     }
+
 }

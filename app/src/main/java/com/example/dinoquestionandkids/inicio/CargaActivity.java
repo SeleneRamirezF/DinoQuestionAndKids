@@ -21,6 +21,7 @@ public class CargaActivity extends AppCompatActivity {
             public void run() {
                 Intent i = new Intent(CargaActivity.this, MainActivity.class);
                 startActivity(i);
+                finish();
             }
         }, 1500);
     }
