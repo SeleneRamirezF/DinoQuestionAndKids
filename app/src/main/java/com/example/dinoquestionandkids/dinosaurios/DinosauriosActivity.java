@@ -41,29 +41,29 @@ public class DinosauriosActivity extends AppCompatActivity implements DinoAdapte
     }
 
     public void cargarDinos() {
-        Dino dino1 = new Dino(R.drawable.inicio);
+        Dino dino1 = new Dino(R.drawable.ankylosaurus);
         miLista.add(dino1);
-        Dino dino2 = new Dino(R.drawable.inicio);
+        Dino dino2 = new Dino(R.drawable.carnotaurus);
         miLista.add(dino2);
-        Dino dino3 = new Dino(R.drawable.inicio);
+        Dino dino3 = new Dino(R.drawable.compsognathus);
         miLista.add(dino3);
-        Dino dino4 = new Dino(R.drawable.inicio);
+        Dino dino4 = new Dino(R.drawable.diplodocus);
         miLista.add(dino4);
-        Dino dino5 = new Dino(R.drawable.inicio);
+        Dino dino5 = new Dino(R.drawable.iguanodon);
         miLista.add(dino5);
-        Dino dino6 = new Dino(R.drawable.inicio);
+        Dino dino6 = new Dino(R.drawable.microraptor);
         miLista.add(dino6);
-        Dino dino7 = new Dino(R.drawable.inicio);
+        Dino dino7 = new Dino(R.drawable.ornithomimus);
         miLista.add(dino7);
-        Dino dino8 = new Dino(R.drawable.inicio);
+        Dino dino8 = new Dino(R.drawable.pterodactylus);
         miLista.add(dino8);
-        Dino dino9 = new Dino(R.drawable.inicio);
+        Dino dino9 = new Dino(R.drawable.stegosaurus);
         miLista.add(dino9);
-        Dino dino10 = new Dino(R.drawable.inicio);
+        Dino dino10 = new Dino(R.drawable.triceratops);
         miLista.add(dino10);
-        Dino dino11 = new Dino(R.drawable.inicio);
+        Dino dino11 = new Dino(R.drawable.tyrannosaurusrex);
         miLista.add(dino11);
-        Dino dino12 = new Dino(R.drawable.inicio);
+        Dino dino12 = new Dino(R.drawable.velociraptor);
         miLista.add(dino12);
     }
 

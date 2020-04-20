@@ -49,6 +49,9 @@ public class DinoInfoActivity extends AppCompatActivity {
 
         cargarViews();
         cargarDinosauriosDatabase();
+
+        tvNombreDino.setKeyListener(null);
+        etDescripcionDino.setFocusable(false);
     }
 
     private void cargarViews(){
@@ -115,50 +118,51 @@ public class DinoInfoActivity extends AppCompatActivity {
                     if(posicion.equalsIgnoreCase("0")){
                         tvNombreDino.setText(texto0);
                         etDescripcionDino.setText(textoLimpio0);
-                        ivDino.setImageResource(R.drawable.dino_ejemplo);
+                        ivDino.setImageResource(R.drawable.ankylosaurus);
                     }else if(posicion.equalsIgnoreCase("1")){
                         tvNombreDino.setText(texto1);
                         etDescripcionDino.setText(textoLimpio1);
-                        ivDino.setImageResource(R.drawable.dino_ejemplo);
+                        ivDino.setImageResource(R.drawable.carnotaurus);
                     }else if(posicion.equalsIgnoreCase("2")){
                         tvNombreDino.setText(texto2);
                         etDescripcionDino.setText(textoLimpio2);
-                        ivDino.setImageResource(R.drawable.dino_ejemplo);
+                        ivDino.setImageResource(R.drawable.compsognathus);
                     }else if(posicion.equalsIgnoreCase("3")){
                         tvNombreDino.setText(texto3);
                         etDescripcionDino.setText(textoLimpio3);
-                        ivDino.setImageResource(R.drawable.dino_ejemplo);
+                        ivDino.setImageResource(R.drawable.diplodocus);
                     }else if(posicion.equalsIgnoreCase("4")){
                         tvNombreDino.setText(texto4);
                         etDescripcionDino.setText(textoLimpio4);
-                        ivDino.setImageResource(R.drawable.dino_ejemplo);
+                        ivDino.setImageResource(R.drawable.iguanodon);
                     }else if(posicion.equalsIgnoreCase("5")){
                         tvNombreDino.setText(texto5);
                         etDescripcionDino.setText(textoLimpio5);
-                        ivDino.setImageResource(R.drawable.dino_ejemplo);
+                        ivDino.setImageResource(R.drawable.microraptor);
                     }else if(posicion.equalsIgnoreCase("6")){
                         tvNombreDino.setText(texto6);
                         etDescripcionDino.setText(textoLimpio6);
+                        ivDino.setImageResource(R.drawable.ornithomimus);
                     }else if(posicion.equalsIgnoreCase("7")){
                         tvNombreDino.setText(texto7);
                         etDescripcionDino.setText(textoLimpio7);
-                        ivDino.setImageResource(R.drawable.dino_ejemplo);
+                        ivDino.setImageResource(R.drawable.pterodactylus);
                     }else if(posicion.equalsIgnoreCase("8")){
                         tvNombreDino.setText(texto8);
                         etDescripcionDino.setText(textoLimpio8);
-                        ivDino.setImageResource(R.drawable.dino_ejemplo);
+                        ivDino.setImageResource(R.drawable.stegosaurus);
                     }else if(posicion.equalsIgnoreCase("9")){
                         tvNombreDino.setText(texto9);
                         etDescripcionDino.setText(textoLimpio9);
-                        ivDino.setImageResource(R.drawable.dino_ejemplo);
+                        ivDino.setImageResource(R.drawable.triceratops);
                     }else if(posicion.equalsIgnoreCase("10")){
                         tvNombreDino.setText(texto10);
                         etDescripcionDino.setText(textoLimpio10);
-                        ivDino.setImageResource(R.drawable.dino_ejemplo);
+                        ivDino.setImageResource(R.drawable.tyrannosaurusrex);
                     }else if(posicion.equalsIgnoreCase("11")){
                         tvNombreDino.setText(texto11);
                         etDescripcionDino.setText(textoLimpio11);
-                        ivDino.setImageResource(R.drawable.dino_ejemplo);
+                        ivDino.setImageResource(R.drawable.velociraptor);
                     }
 
                 }
