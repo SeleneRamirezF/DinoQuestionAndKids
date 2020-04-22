@@ -45,8 +45,6 @@ public class JuegoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_juego);
 
-
-
         cargarViews();
 
         miAuth = FirebaseAuth.getInstance();
@@ -164,7 +162,7 @@ public class JuegoActivity extends AppCompatActivity {
                     }else if(nivel.equalsIgnoreCase("2")){
                         tvPregunta.setText(listaNivel2.get(contador));
                         rbUno.setText(listaNivel2.get(contador + 13));
-                        Log.d("PRUEBA", listaNivel2.get(0));
+                        //Log.d("PRUEBA", listaNivel2.get(0));
                     }else if(nivel.equalsIgnoreCase("3")){
                         tvPregunta.setText(listaNivel3.get(contador));
                         rbUno.setText(listaNivel3.get(contador + 13));
@@ -193,47 +191,5 @@ public class JuegoActivity extends AppCompatActivity {
         });
     }
 
-    private void mostrarDatos(){
 
-        String id = miAuth.getCurrentUser().getUid();
-        miBD.child((String) getResources().getText(R.string.usuarios)).child(id).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(user != null){
-                    nivel = dataSnapshot.child("nivel").getValue().toString();
-                }
-                if (dataSnapshot.exists()){
-                    nivel = dataSnapshot.child("nivel").getValue().toString();
-                }
-
-                if(nivel.equalsIgnoreCase("1")){
-                    tvPregunta.setText(listaNivel1.get(contador));
-                    rbUno.setText(listaNivel1.get(contador + 10));
-                }else if(nivel.equalsIgnoreCase("2")){
-                    tvPregunta.setText(listaNivel2.get(contador));
-                    rbUno.setText(listaNivel2.get(contador + 13));
-                    Log.d("PRUEBA", listaNivel2.get(0));
-                }else if(nivel.equalsIgnoreCase("3")){
-                    tvPregunta.setText(listaNivel3.get(contador));
-                    rbUno.setText(listaNivel3.get(contador + 13));
-                }else if(nivel.equalsIgnoreCase("4")){
-                    tvPregunta.setText(listaNivel4.get(contador));
-                    rbUno.setText(listaNivel4.get(contador + 13));
-                }else if(nivel.equalsIgnoreCase("5")){
-                    tvPregunta.setText(listaNivel5.get(contador));
-                    rbUno.setText(listaNivel5.get(contador + 13));
-                }else if(nivel.equalsIgnoreCase("6")){
-                    tvPregunta.setText(listaNivel6.get(contador));
-                    rbUno.setText(listaNivel6.get(contador + 13));
-                }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(JuegoActivity.this, "No se ha podido acceder a los datos", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-    }
 }
