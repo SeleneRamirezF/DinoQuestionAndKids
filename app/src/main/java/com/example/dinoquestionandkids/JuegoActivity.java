@@ -38,7 +38,8 @@ public class JuegoActivity extends AppCompatActivity {
     private String nivel, pregunta;
     private ArrayList<String> listaNivel1, listaNivel2, listaNivel3,
             listaNivel4, listaNivel5, listaNivel6;
-    private int contador = 0;
+    private int contador = 0, contador1 = 0;
+    private int  salto = 5,salto1 = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +70,7 @@ public class JuegoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 contador++;
+                contador1++;
                 //mostrarDatos();
                 obtenerPreguntas();
                 obtenetDatosUsuario();
@@ -157,29 +159,107 @@ public class JuegoActivity extends AppCompatActivity {
                     }
                     //mostrar los datos
                     if(nivel.equalsIgnoreCase("1")){
-                        tvPregunta.setText(listaNivel1.get(contador));
-                        rbUno.setText(listaNivel1.get(contador + 10));
+                        tvPregunta.setText(listaNivel1.get(contador1));
+                        if(contador1 <= 0){
+                            rbUno.setText(listaNivel1.get(contador1 + 10));
+                            rbDos.setText(listaNivel1.get(contador1 + 11));
+                            rbTres.setText(listaNivel1.get(contador1 + 12));
+                            rbCuatro.setText(listaNivel1.get(contador1 + 13));
+                        }else{
+                            rbUno.setText(listaNivel1.get(contador1 + salto + 8));
+                            rbDos.setText(listaNivel1.get(contador1 + salto + 9));
+                            rbTres.setText(listaNivel1.get(contador1 + salto + 10));
+                            rbCuatro.setText(listaNivel1.get(contador1 + salto + 11));
+                            salto = salto + salto1;
+                        }
+
                     }else if(nivel.equalsIgnoreCase("2")){
                         tvPregunta.setText(listaNivel2.get(contador));
-                        rbUno.setText(listaNivel2.get(contador + 13));
+                        if(contador <= 0){
+                            rbUno.setText(listaNivel2.get(contador + 13));
+                            rbDos.setText(listaNivel2.get(contador + 14));
+                            rbTres.setText(listaNivel2.get(contador + 15));
+                            rbCuatro.setText(listaNivel2.get(contador + 16));
+                        }else{
+                            rbUno.setText(listaNivel2.get(contador + salto + 11));
+                            rbDos.setText(listaNivel2.get(contador + salto + 12));
+                            rbTres.setText(listaNivel2.get(contador + salto + 13));
+                            rbCuatro.setText(listaNivel2.get(contador + salto + 14));
+                            salto = salto + salto1;
+                        }
+                        //Log.d("Salto", String.valueOf(salto));
                         //Log.d("PRUEBA", listaNivel2.get(0));
+
                     }else if(nivel.equalsIgnoreCase("3")){
                         tvPregunta.setText(listaNivel3.get(contador));
-                        rbUno.setText(listaNivel3.get(contador + 13));
+                        if(contador <= 0){
+                            rbUno.setText(listaNivel3.get(contador + 13));
+                            rbDos.setText(listaNivel3.get(contador + 14));
+                            rbTres.setText(listaNivel3.get(contador + 15));
+                            rbCuatro.setText(listaNivel3.get(contador + 16));
+                        }else{
+                            rbUno.setText(listaNivel3.get(contador + salto + 11));
+                            rbDos.setText(listaNivel3.get(contador + salto + 12));
+                            rbTres.setText(listaNivel3.get(contador + salto + 13));
+                            rbCuatro.setText(listaNivel3.get(contador + salto + 14));
+                            salto = salto + salto1;
+                        }
+                        Log.d("PRUEBA", String.valueOf(contador));
                     }else if(nivel.equalsIgnoreCase("4")){
                         tvPregunta.setText(listaNivel4.get(contador));
-                        rbUno.setText(listaNivel4.get(contador + 13));
+                        if(contador <= 0){
+                            rbUno.setText(listaNivel4.get(contador + 13));
+                            rbDos.setText(listaNivel4.get(contador + 14));
+                            rbTres.setText(listaNivel4.get(contador + 15));
+                            rbCuatro.setText(listaNivel4.get(contador + 16));
+                        }else{
+                            rbUno.setText(listaNivel4.get(contador + salto + 11));
+                            rbDos.setText(listaNivel4.get(contador + salto + 12));
+                            rbTres.setText(listaNivel4.get(contador + salto + 13));
+                            rbCuatro.setText(listaNivel4.get(contador + salto + 14));
+                            salto = salto + salto1;
+                        }
+
                     }else if(nivel.equalsIgnoreCase("5")){
                         tvPregunta.setText(listaNivel5.get(contador));
-                        rbUno.setText(listaNivel5.get(contador + 13));
+                        if(contador <= 0){
+                            rbUno.setText(listaNivel5.get(contador + 13));
+                            rbDos.setText(listaNivel5.get(contador + 14));
+                            rbTres.setText(listaNivel5.get(contador + 15));
+                            rbCuatro.setText(listaNivel5.get(contador + 16));
+                        }else{
+                            rbUno.setText(listaNivel5.get(contador + salto + 11));
+                            rbDos.setText(listaNivel5.get(contador + salto + 12));
+                            rbTres.setText(listaNivel5.get(contador + salto + 13));
+                            rbCuatro.setText(listaNivel5.get(contador + salto + 14));
+                            salto = salto + salto1;
+                        }
+
                     }else if(nivel.equalsIgnoreCase("6")){
                         tvPregunta.setText(listaNivel6.get(contador));
-                        rbUno.setText(listaNivel6.get(contador + 13));
+                        if(contador <= 0){
+                            rbUno.setText(listaNivel6.get(contador + 13));
+                            rbDos.setText(listaNivel6.get(contador + 14));
+                            rbTres.setText(listaNivel6.get(contador + 15));
+                            rbCuatro.setText(listaNivel6.get(contador + 16));
+                        }else{
+                            rbUno.setText(listaNivel5.get(contador + salto + 11));
+                            rbDos.setText(listaNivel5.get(contador + salto + 12));
+                            rbTres.setText(listaNivel5.get(contador + salto + 13));
+                            rbCuatro.setText(listaNivel5.get(contador + salto + 14));
+                            salto = salto + salto1;
+                        }
                     }
 
-                    if(contador > 10){
-                        contador = 0;
+                    if(contador1 >= 9){
+                        contador1 = -1;
+                        salto = 5;
                     }
+                    if(contador >= 12){
+                        contador = -1;
+                        salto = 5;
+                    }
+
 
 
                 }
