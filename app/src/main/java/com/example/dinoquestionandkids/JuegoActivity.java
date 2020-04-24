@@ -39,7 +39,7 @@ public class JuegoActivity extends AppCompatActivity {
     private ArrayList<String> listaNivel1, listaNivel2, listaNivel3,
             listaNivel4, listaNivel5, listaNivel6;
     private int contador = 0, contador1 = 0;
-    private int  salto = 5,salto1 = 3;
+    private int  salto11 = 5, salto = 5,salto1 = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -166,11 +166,11 @@ public class JuegoActivity extends AppCompatActivity {
                             rbTres.setText(listaNivel1.get(contador1 + 12));
                             rbCuatro.setText(listaNivel1.get(contador1 + 13));
                         }else{
-                            rbUno.setText(listaNivel1.get(contador1 + salto + 8));
-                            rbDos.setText(listaNivel1.get(contador1 + salto + 9));
-                            rbTres.setText(listaNivel1.get(contador1 + salto + 10));
-                            rbCuatro.setText(listaNivel1.get(contador1 + salto + 11));
-                            salto = salto + salto1;
+                            rbUno.setText(listaNivel1.get(contador1 + salto11 + 8));
+                            rbDos.setText(listaNivel1.get(contador1 + salto11 + 9));
+                            rbTres.setText(listaNivel1.get(contador1 + salto11 + 10));
+                            rbCuatro.setText(listaNivel1.get(contador1 + salto11 + 11));
+                            salto11 = salto11 + salto1;
                         }
 
                     }else if(nivel.equalsIgnoreCase("2")){
@@ -202,9 +202,12 @@ public class JuegoActivity extends AppCompatActivity {
                             rbDos.setText(listaNivel3.get(contador + salto + 12));
                             rbTres.setText(listaNivel3.get(contador + salto + 13));
                             rbCuatro.setText(listaNivel3.get(contador + salto + 14));
+                            //Log.d("SALTO1", String.valueOf(salto));
                             salto = salto + salto1;
+                            //Log.d("SALTO2", String.valueOf(salto));
                         }
-                        Log.d("PRUEBA", String.valueOf(contador));
+                        //Log.d("CONTADOR", String.valueOf(contador));
+                        //Log.d("PRUEBA", String.valueOf(salto));
                     }else if(nivel.equalsIgnoreCase("4")){
                         tvPregunta.setText(listaNivel4.get(contador));
                         if(contador <= 0){
@@ -243,24 +246,23 @@ public class JuegoActivity extends AppCompatActivity {
                             rbTres.setText(listaNivel6.get(contador + 15));
                             rbCuatro.setText(listaNivel6.get(contador + 16));
                         }else{
-                            rbUno.setText(listaNivel5.get(contador + salto + 11));
-                            rbDos.setText(listaNivel5.get(contador + salto + 12));
-                            rbTres.setText(listaNivel5.get(contador + salto + 13));
-                            rbCuatro.setText(listaNivel5.get(contador + salto + 14));
+                            rbUno.setText(listaNivel6.get(contador + salto + 11));
+                            rbDos.setText(listaNivel6.get(contador + salto + 12));
+                            rbTres.setText(listaNivel6.get(contador + salto + 13));
+                            rbCuatro.setText(listaNivel6.get(contador + salto + 14));
                             salto = salto + salto1;
                         }
                     }
 
                     if(contador1 >= 9){
                         contador1 = -1;
-                        salto = 5;
+                        salto11 = 5;
                     }
                     if(contador >= 12){
                         contador = -1;
                         salto = 5;
                     }
-
-
+                    
 
                 }
             }
