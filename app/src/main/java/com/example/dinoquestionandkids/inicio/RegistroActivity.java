@@ -30,6 +30,7 @@ public class RegistroActivity extends AppCompatActivity {
     private EditText etContrasena;
     private Button btnRegistro;
     private String nombre, correo, contrasena;
+    private String puntos = "0", nivel = "1", vidas = "3";
     private FirebaseAuth miauth;
     private DatabaseReference miBD;
 
@@ -54,7 +55,7 @@ public class RegistroActivity extends AppCompatActivity {
                 correo = etCorreo.getText().toString();
                 contrasena = etContrasena.getText().toString();
 
-                //confirmo que los campor estan rellenos
+                //confirmo que los campos estan rellenos
                 if(!nombre.isEmpty() && !correo.isEmpty() && !contrasena.isEmpty()){
                     //confirmo que la contraseña tiene una longitud minima
                     if(contrasena.length() >= 6){
@@ -89,6 +90,9 @@ public class RegistroActivity extends AppCompatActivity {
                     map.put((String)getResources().getText(R.string.nombre), nombre);
                     map.put((String)getResources().getText(R.string.correo), correo);
                     map.put((String)getResources().getText(R.string.contraseña), contrasena);
+                    map.put((String)"puntos", puntos);
+                    map.put((String)"nivel", nivel);
+                    map.put((String)"vidas", vidas);
 
                     String id = miauth.getCurrentUser().getUid();
 

@@ -9,7 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".dinosaurios.DinoInfoActivity"></activity>
+        <activity android:name=".juego.Juego6Activity"></activity>
+        <activity android:name=".juego.Juego5Activity" />
+        <activity android:name=".juego.Juego4Activity" />
+        <activity android:name=".juego.Juego3Activity" />
+        <activity android:name=".juego.Juego2Activity" />
+        <activity android:name=".dinosaurios.DinoInfoActivity" />
         <activity android:name=".inicio.RestablecerActivity" />
         <activity android:name=".informacion.Historia" />
         <activity android:name=".informacion.InformacionActivity" />
@@ -17,7 +22,7 @@
             android:name=".linea_temporal.LineaTemporalActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".PuzzleActivity" />
-        <activity android:name=".JuegoActivity" />
+        <activity android:name=".juego.JuegoActivity" />
         <activity android:name=".dinosaurios.DinosauriosActivity" />
         <activity
             android:name=".inicio.CargaActivity"
