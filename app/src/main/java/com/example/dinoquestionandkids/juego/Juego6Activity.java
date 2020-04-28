@@ -3,7 +3,6 @@ package com.example.dinoquestionandkids.juego;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.dinoquestionandkids.MenuActivity;
 import com.example.dinoquestionandkids.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -44,16 +43,16 @@ public class Juego6Activity extends AppCompatActivity {
     private RadioButton rbUno, rbDos, rbTres, rbCuatro;
     private Button btnComprobar;
     private String nivel, pregunta;
-    private ArrayList<String> listaNivel1, listaNivel2, listaNivel3,
-            listaNivel4, listaNivel5, listaNivel6;
-    private int contador = 0, contador1 = 0;
-    private int  salto11 = 5, salto = 5,salto1 = 3;
-    private int puntos = 0, vidas = 3, nuevoNivel;
+    private ArrayList<String> listaNivel6;
+    private int contador = 0;
+    private int  salto = 5,salto1 = 3;
+    private int puntos, vidas, nuevoNivel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_juego6);
+
         cargarViews();
 
         miAuth = FirebaseAuth.getInstance();
@@ -68,8 +67,8 @@ public class Juego6Activity extends AppCompatActivity {
         btnComprobar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 contador++;
-                //mostrarDatos();
                 obtenerPreguntas();
                 obtenetDatosUsuario();
 
@@ -86,7 +85,7 @@ public class Juego6Activity extends AppCompatActivity {
                         case 9:
                             if(rbTres.isChecked()){
                                 Toast.makeText(Juego6Activity.this, "CORRECTA", Toast.LENGTH_SHORT).show();
-                                puntos++;
+                                puntos = puntos+7;
                                 gestionDatos();
                             }else{
                                 Toast.makeText(Juego6Activity.this, "INCORRECTA", Toast.LENGTH_SHORT).show();
@@ -101,7 +100,7 @@ public class Juego6Activity extends AppCompatActivity {
                         case 12:
                             if(rbUno.isChecked()){
                                 Toast.makeText(Juego6Activity.this, "CORRECTA", Toast.LENGTH_SHORT).show();
-                                puntos++;
+                                puntos = puntos+7;
                                 gestionDatos();
                             }else{
                                 Toast.makeText(Juego6Activity.this, "INCORRECTA", Toast.LENGTH_SHORT).show();
@@ -114,7 +113,7 @@ public class Juego6Activity extends AppCompatActivity {
                         case 8:
                             if(rbDos.isChecked()){
                                 Toast.makeText(Juego6Activity.this, "CORRECTA", Toast.LENGTH_SHORT).show();
-                                puntos++;
+                                puntos = puntos+7;
                                 gestionDatos();
                             }else{
                                 Toast.makeText(Juego6Activity.this, "INCORRECTA", Toast.LENGTH_SHORT).show();
@@ -126,7 +125,7 @@ public class Juego6Activity extends AppCompatActivity {
                         case 13:
                             if(rbCuatro.isChecked()){
                                 Toast.makeText(Juego6Activity.this, "CORRECTA", Toast.LENGTH_SHORT).show();
-                                puntos++;
+                                puntos = puntos+7;
                                 gestionDatos();
                             }else{
                                 Toast.makeText(Juego6Activity.this, "INCORRECTA", Toast.LENGTH_SHORT).show();
@@ -136,14 +135,8 @@ public class Juego6Activity extends AppCompatActivity {
                             break;
                     }
                 }
-
-                //Log.d("PRUEBA DATOS CADENA", listaNivel1.get(6));
-
             }
         });
-
-        //actualizarDatosUsuario(20, 2, 3);//prueba de funcionamiento
-
     }
 
     private void cargarViews(){
@@ -167,18 +160,22 @@ public class Juego6Activity extends AppCompatActivity {
                 if(user != null){
                     etNombre.setText(user.getDisplayName());
                     etPuntos.setText(dataSnapshot.child("puntos").getValue().toString());
+                    puntos = Integer.parseInt(dataSnapshot.child("puntos").getValue().toString());
                     nivel = dataSnapshot.child("nivel").getValue().toString();
                 }
                 if (dataSnapshot.exists()){
                     etNombre.setText(dataSnapshot.child((String) getResources().getText(R.string.nombre)).getValue().toString());
                     etPuntos.setText(dataSnapshot.child("puntos").getValue().toString());
-                    String vidas = dataSnapshot.child("vidas").getValue().toString();
-                    if(vidas.equalsIgnoreCase("1")){
+                    String vida = dataSnapshot.child("vidas").getValue().toString();
+                    if(vida.equalsIgnoreCase("1")){
                         ivVidas.setImageResource(R.drawable.una_vida1);
-                    }else if(vidas.equalsIgnoreCase("2")){
+                        vidas = 1;
+                    }else if(vida.equalsIgnoreCase("2")){
                         ivVidas.setImageResource(R.drawable.dos_vidas);
-                    }else if(vidas.equalsIgnoreCase("3")){
+                        vidas = 2;
+                    }else if(vida.equalsIgnoreCase("3")){
                         ivVidas.setImageResource(R.drawable.tres_vidas);
+                        vidas = 3;
                     }
                     nivel = dataSnapshot.child("nivel").getValue().toString();
                 }
@@ -205,7 +202,6 @@ public class Juego6Activity extends AppCompatActivity {
                         listaNivel6.add(pregunta);
                     }
                     //mostrar los datos
-                   if(nivel.equalsIgnoreCase("6")){
                         tvPregunta.setText(listaNivel6.get(contador));
                         if(contador <= 0){
                             rbUno.setText(listaNivel6.get(contador + 13));
@@ -219,7 +215,6 @@ public class Juego6Activity extends AppCompatActivity {
                             rbCuatro.setText(listaNivel6.get(contador + salto + 14));
                             salto = salto + salto1;
                         }
-                    }
                     if(contador >= 12){
                         contador = -1;
                         salto = 5;
@@ -238,27 +233,22 @@ public class Juego6Activity extends AppCompatActivity {
         actualizarDatosUsuario(puntos, vidas, nuevoNivel);
 
         if(vidas == 0){
+            //TODO
             //mandar un mensaje permanente para informar de que ha perdido, quitar toast
             Toast.makeText(Juego6Activity.this, "HAS PERDIDO, INTENTALO OTRA VEZ", Toast.LENGTH_SHORT).show();
             actualizarDatosUsuario(0, 3, 1);
 
-            //creo un hilo de espera para cerrar el activity
-            Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                public void run() {
-                    // acciones que se ejecutan tras los milisegundos
-                    startActivity(new Intent(Juego6Activity.this, MenuActivity.class));
-                    finish();
-                }
-            }, 1000);
+            startActivity(new Intent(Juego6Activity.this, PerderActivity.class));
+            finish();
 
         }
-        if(nivel.equalsIgnoreCase("6") && puntos == 257){
+        if(puntos >= 257){
+            //TODO
             //mostrar mensage permanente, quitar toast
             Toast.makeText(Juego6Activity.this, "HAS GANADO EL JUEGO, ENHORABUENA!!!", Toast.LENGTH_SHORT).show();
-
             actualizarDatosUsuario(0, 3, 1);
-            startActivity(new Intent(Juego6Activity.this, MenuActivity.class));
+
+            startActivity(new Intent(Juego6Activity.this, GanarActivity.class));
             finish();
         }
 

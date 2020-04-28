@@ -44,11 +44,10 @@ public class Juego5Activity extends AppCompatActivity {
     private RadioButton rbUno, rbDos, rbTres, rbCuatro;
     private Button btnComprobar;
     private String nivel, pregunta;
-    private ArrayList<String> listaNivel1, listaNivel2, listaNivel3,
-            listaNivel4, listaNivel5, listaNivel6;
-    private int contador = 0, contador1 = 0;
-    private int  salto11 = 5, salto = 5,salto1 = 3;
-    private int puntos = 0, vidas = 3, nuevoNivel;
+    private ArrayList<String> listaNivel5;
+    private int contador = 0;
+    private int  salto = 5,salto1 = 3;
+    private int puntos, vidas, nuevoNivel;
 
 
     @Override
@@ -70,8 +69,8 @@ public class Juego5Activity extends AppCompatActivity {
         btnComprobar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 contador++;
-                //mostrarDatos();
                 obtenerPreguntas();
                 obtenetDatosUsuario();
 
@@ -90,7 +89,7 @@ public class Juego5Activity extends AppCompatActivity {
                         case 12:
                             if(rbTres.isChecked()){
                                 Toast.makeText(Juego5Activity.this, "CORRECTA", Toast.LENGTH_SHORT).show();
-                                puntos++;
+                                puntos = puntos+6;
                                 gestionDatos();
                             }else{
                                 Toast.makeText(Juego5Activity.this, "INCORRECTA", Toast.LENGTH_SHORT).show();
@@ -103,7 +102,7 @@ public class Juego5Activity extends AppCompatActivity {
                         case 9:
                             if(rbUno.isChecked()){
                                 Toast.makeText(Juego5Activity.this, "CORRECTA", Toast.LENGTH_SHORT).show();
-                                puntos++;
+                                puntos = puntos+6;
                                 gestionDatos();
                             }else{
                                 Toast.makeText(Juego5Activity.this, "INCORRECTA", Toast.LENGTH_SHORT).show();
@@ -116,7 +115,7 @@ public class Juego5Activity extends AppCompatActivity {
                         case 13:
                             if(rbDos.isChecked()){
                                 Toast.makeText(Juego5Activity.this, "CORRECTA", Toast.LENGTH_SHORT).show();
-                                puntos++;
+                                puntos = puntos+6;
                                 gestionDatos();
                             }else{
                                 Toast.makeText(Juego5Activity.this, "INCORRECTA", Toast.LENGTH_SHORT).show();
@@ -128,7 +127,7 @@ public class Juego5Activity extends AppCompatActivity {
                         case 8:
                             if(rbCuatro.isChecked()){
                                 Toast.makeText(Juego5Activity.this, "CORRECTA", Toast.LENGTH_SHORT).show();
-                                puntos++;
+                                puntos = puntos+6;
                                 gestionDatos();
                             }else{
                                 Toast.makeText(Juego5Activity.this, "INCORRECTA", Toast.LENGTH_SHORT).show();
@@ -138,15 +137,8 @@ public class Juego5Activity extends AppCompatActivity {
                             break;
                     }
                 }
-
-
-                //Log.d("PRUEBA DATOS CADENA", listaNivel1.get(6));
-
             }
         });
-
-        //actualizarDatosUsuario(20, 2, 3);//prueba de funcionamiento
-
     }
 
     private void cargarViews(){
@@ -170,18 +162,22 @@ public class Juego5Activity extends AppCompatActivity {
                 if(user != null){
                     etNombre.setText(user.getDisplayName());
                     etPuntos.setText(dataSnapshot.child("puntos").getValue().toString());
+                    puntos = Integer.parseInt(dataSnapshot.child("puntos").getValue().toString());
                     nivel = dataSnapshot.child("nivel").getValue().toString();
                 }
                 if (dataSnapshot.exists()){
                     etNombre.setText(dataSnapshot.child((String) getResources().getText(R.string.nombre)).getValue().toString());
                     etPuntos.setText(dataSnapshot.child("puntos").getValue().toString());
-                    String vidas = dataSnapshot.child("vidas").getValue().toString();
-                    if(vidas.equalsIgnoreCase("1")){
+                    String vida = dataSnapshot.child("vidas").getValue().toString();
+                    if(vida.equalsIgnoreCase("1")){
                         ivVidas.setImageResource(R.drawable.una_vida1);
-                    }else if(vidas.equalsIgnoreCase("2")){
+                        vidas = 1;
+                    }else if(vida.equalsIgnoreCase("2")){
                         ivVidas.setImageResource(R.drawable.dos_vidas);
-                    }else if(vidas.equalsIgnoreCase("3")){
+                        vidas = 2;
+                    }else if(vida.equalsIgnoreCase("3")){
                         ivVidas.setImageResource(R.drawable.tres_vidas);
+                        vidas = 3;
                     }
                     nivel = dataSnapshot.child("nivel").getValue().toString();
                 }
@@ -208,7 +204,6 @@ public class Juego5Activity extends AppCompatActivity {
                         listaNivel5.add(pregunta);
                     }
                     //mostrar los datos
-                    if(nivel.equalsIgnoreCase("5")){
                         tvPregunta.setText(listaNivel5.get(contador));
                         if(contador <= 0){
                             rbUno.setText(listaNivel5.get(contador + 13));
@@ -222,8 +217,6 @@ public class Juego5Activity extends AppCompatActivity {
                             rbCuatro.setText(listaNivel5.get(contador + salto + 14));
                             salto = salto + salto1;
                         }
-
-                    }
                     if(contador >= 12){
                         contador = -1;
                         salto = 5;
@@ -246,21 +239,14 @@ public class Juego5Activity extends AppCompatActivity {
             Toast.makeText(Juego5Activity.this, "HAS PERDIDO, INTENTALO OTRA VEZ", Toast.LENGTH_SHORT).show();
             actualizarDatosUsuario(0, 3, 1);
 
-            //creo un hilo de espera para cerrar el activity
-            Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                public void run() {
-                    // acciones que se ejecutan tras los milisegundos
-                    startActivity(new Intent(Juego5Activity.this, MenuActivity.class));
-                    finish();
-                }
-            }, 1000);
+            startActivity(new Intent(Juego5Activity.this, PerderActivity.class));
+            finish();
 
         }
-        if(nivel.equalsIgnoreCase("5") && puntos == 187){
-            contador = -1;
+        if(puntos >= 187){
+            contador = 0;
             salto = 5;
-            nuevoNivel++;
+            nuevoNivel = 6;
             actualizarDatosUsuario(puntos, vidas, nuevoNivel);
             Toast.makeText(Juego5Activity.this, "PASAS DE NIVEL, ENHORABUENA!!!", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(Juego5Activity.this, Juego6Activity.class));
