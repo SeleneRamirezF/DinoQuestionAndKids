@@ -42,7 +42,7 @@ public class Juego2Activity extends AppCompatActivity {
     private ImageView ivVidas;
     private TextView tvPregunta;
     private RadioButton rbUno, rbDos, rbTres, rbCuatro;
-    private Button btnComprobar;
+    private Button btnComprobar, btnBonus;
     private String nivel, pregunta;
     private ArrayList<String> listaNivel2;
     private int contador = 0;
@@ -56,6 +56,10 @@ public class Juego2Activity extends AppCompatActivity {
 
         cargarViews();
 
+        //poner icono en el actionbar
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
+
         miAuth = FirebaseAuth.getInstance();
         miBD = FirebaseDatabase.getInstance().getReference();
         user = FirebaseAuth.getInstance().getCurrentUser();
@@ -64,6 +68,19 @@ public class Juego2Activity extends AppCompatActivity {
         obtenetDatosUsuario();
 
         listaNivel2 = new ArrayList();
+
+        comprobarBonus();
+        btnBonus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(vidas <= 2){
+                    vidas = vidas+1;
+                    actualizarDatosUsuario(puntos, vidas, 2);
+                    obtenetDatosUsuario();
+                    btnBonus.setEnabled(false);
+                }
+            }
+        });
 
         btnComprobar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -151,6 +168,7 @@ public class Juego2Activity extends AppCompatActivity {
         rbCuatro = (RadioButton) findViewById(R.id.rbCuatro);
         btnComprobar = (Button) findViewById(R.id.btnComprobar);
         etNivel = (TextView) findViewById(R.id.etNivel);
+        btnBonus = (Button) findViewById(R.id.btnBonus);
     }
 
     private void obtenetDatosUsuario(){
@@ -276,6 +294,19 @@ public class Juego2Activity extends AppCompatActivity {
                 Log.d("ACTUALIZACIÓN DATOS", "ERROR");
             }
         });
+    }
+
+    private void comprobarBonus(){
+        //acciones sobre el boton de bonus
+        if(vidas <= 2){
+            btnBonus.setEnabled(true);
+        }else{
+            btnBonus.setEnabled(false);
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
     }
 
 

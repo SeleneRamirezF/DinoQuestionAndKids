@@ -42,7 +42,7 @@ public class Juego4Activity extends AppCompatActivity {
     private ImageView ivVidas;
     private TextView tvPregunta;
     private RadioButton rbUno, rbDos, rbTres, rbCuatro;
-    private Button btnComprobar;
+    private Button btnComprobar, btnBonus;
     private String nivel, pregunta;
     private ArrayList<String> listaNivel4;
     private int contador = 0;
@@ -54,16 +54,33 @@ public class Juego4Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_juego4);
 
-            cargarViews();
+        cargarViews();
 
-            miAuth = FirebaseAuth.getInstance();
-            miBD = FirebaseDatabase.getInstance().getReference();
-            user = FirebaseAuth.getInstance().getCurrentUser();
+        //poner icono en el actionbar
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
 
-            obtenerPreguntas();
-            obtenetDatosUsuario();
+        miAuth = FirebaseAuth.getInstance();
+        miBD = FirebaseDatabase.getInstance().getReference();
+        user = FirebaseAuth.getInstance().getCurrentUser();
 
-            listaNivel4 = new ArrayList();
+        obtenerPreguntas();
+        obtenetDatosUsuario();
+
+        listaNivel4 = new ArrayList();
+
+        comprobarBonus();
+        btnBonus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(vidas <= 2){
+                    vidas = vidas+1;
+                    actualizarDatosUsuario(puntos, vidas, nuevoNivel);
+                    obtenetDatosUsuario();
+                    btnBonus.setEnabled(false);
+                }
+            }
+        });
 
             btnComprobar.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -151,6 +168,7 @@ public class Juego4Activity extends AppCompatActivity {
             rbCuatro = (RadioButton) findViewById(R.id.rbCuatro);
             btnComprobar = (Button) findViewById(R.id.btnComprobar);
             etNivel = (TextView) findViewById(R.id.etNivel);
+            btnBonus = (Button) findViewById(R.id.btnBonus);
         }
 
         private void obtenetDatosUsuario(){
@@ -276,6 +294,19 @@ public class Juego4Activity extends AppCompatActivity {
                 }
             });
         }
+
+    private void comprobarBonus(){
+        //acciones sobre el boton de bonus
+        if(vidas <= 2){
+            btnBonus.setEnabled(true);
+        }else{
+            btnBonus.setEnabled(false);
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+    }
 
 
     }

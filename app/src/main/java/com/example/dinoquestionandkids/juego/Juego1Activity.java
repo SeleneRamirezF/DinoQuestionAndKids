@@ -56,6 +56,10 @@ public class Juego1Activity extends AppCompatActivity {
 
         cargarViews();
 
+        //poner icono en el actionbar
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
+
         miAuth = FirebaseAuth.getInstance();
         miBD = FirebaseDatabase.getInstance().getReference();
         user = FirebaseAuth.getInstance().getCurrentUser();
@@ -274,5 +278,7 @@ public class Juego1Activity extends AppCompatActivity {
         });
     }
 
-
+    @Override
+    public void onBackPressed() {
+    }
 }

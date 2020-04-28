@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dinoquestionandkids.R;
+import com.example.dinoquestionandkids.informacion.InformacionActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -25,7 +26,7 @@ public class JuegoActivity extends AppCompatActivity {
     private DatabaseReference miBD;
     private FirebaseUser user;
     private String nivel;
-    private Button btnComenzarJuego;
+    private Button btnComenzarJuego, btnInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +38,20 @@ public class JuegoActivity extends AppCompatActivity {
         user = FirebaseAuth.getInstance().getCurrentUser();
 
         btnComenzarJuego = (Button) findViewById(R.id.btnComenzarJuego);
+        btnInfo = (Button) findViewById(R.id.btnInfo);
+
+        //poner icono en el actionbar
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
 
         obtenerNivelUsuario();
+
+        btnInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(JuegoActivity.this, InformacionActivity.class));
+            }
+        });
 
         btnComenzarJuego.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,4 +100,6 @@ public class JuegoActivity extends AppCompatActivity {
             }
         });
     }
+
+
 }

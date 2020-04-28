@@ -39,6 +39,10 @@ public class InformacionActivity extends AppCompatActivity {
         recView = (RecyclerView) findViewById(R.id.recView);
         miLista = new ArrayList<>();
 
+        //poner icono en el actionbar
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
+
         historia = FirebaseDatabase.getInstance().getReference().child("Historia");
         recView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false));
         adapter = new HistoriaAdapter(miLista);

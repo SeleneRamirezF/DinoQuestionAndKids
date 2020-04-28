@@ -57,6 +57,10 @@ public class Juego5Activity extends AppCompatActivity {
 
         cargarViews();
 
+        //poner icono en el actionbar
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
+
         miAuth = FirebaseAuth.getInstance();
         miBD = FirebaseDatabase.getInstance().getReference();
         user = FirebaseAuth.getInstance().getCurrentUser();
@@ -275,6 +279,10 @@ public class Juego5Activity extends AppCompatActivity {
                 Log.d("ACTUALIZACIÓN DATOS", "ERROR");
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
     }
 
 

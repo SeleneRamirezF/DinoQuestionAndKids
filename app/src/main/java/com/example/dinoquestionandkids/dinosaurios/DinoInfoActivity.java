@@ -50,6 +50,10 @@ public class DinoInfoActivity extends AppCompatActivity {
         cargarViews();
         cargarDinosauriosDatabase();
 
+        //poner icono en el actionbar
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
+
         tvNombreDino.setKeyListener(null);
         etDescripcionDino.setFocusable(false);
     }

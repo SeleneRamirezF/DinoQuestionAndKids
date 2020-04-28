@@ -45,6 +45,10 @@ public class RegistroActivity extends AppCompatActivity {
 
         cargarViews();
 
+        //poner icono en el actionbar
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
+
         //creacion al vuelo de la accion de clicar el boton de registrar usuario
         btnRegistro.setOnClickListener(new View.OnClickListener() {
             @Override

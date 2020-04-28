@@ -15,6 +15,10 @@ public class GanarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ganar);
 
+        //poner icono en el actionbar
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
+
         //creo un hilo de espera para cerrar el activity
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {

@@ -79,7 +79,7 @@
         android:layout_height="wrap_content"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:hint="NIVEL 1"
+        android:hint="NIVEL "
         android:layout_marginTop="15dp"/>
 
     <LinearLayout
@@ -110,26 +110,22 @@ prueba para ver como se veria un texto la mar de largo"
             <RadioButton
                 android:id="@+id/rbUno"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="RadioButton" />
+                android:layout_height="wrap_content" />
 
             <RadioButton
                 android:id="@+id/rbDos"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="RadioButton" />
+                android:layout_height="wrap_content" />
 
             <RadioButton
                 android:id="@+id/rbTres"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="RadioButton" />
+                android:layout_height="wrap_content"/>
 
             <RadioButton
                 android:id="@+id/rbCuatro"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="RadioButton" />
+                android:layout_height="wrap_content"/>
         </RadioGroup>
     </LinearLayout>
 
@@ -146,6 +142,14 @@ prueba para ver como se veria un texto la mar de largo"
             android:text="Comprobar" />
     </LinearLayout>
 
+    <Button
+        android:id="@+id/btnBonus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:enabled="false"
+        android:text="bonus" />
 
 
 </LinearLayout>

@@ -38,6 +38,10 @@ public class DinosauriosActivity extends AppCompatActivity implements DinoAdapte
         recView.setAdapter(adapter);
 
         cargarDinos();
+
+        //poner icono en el actionbar
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
     }
 
     public void cargarDinos() {

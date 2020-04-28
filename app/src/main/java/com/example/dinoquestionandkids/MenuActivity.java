@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -13,6 +15,9 @@ import com.example.dinoquestionandkids.dinosaurios.DinosauriosActivity;
 import com.example.dinoquestionandkids.juego.Juego1Activity;
 import com.example.dinoquestionandkids.juego.JuegoActivity;
 import com.example.dinoquestionandkids.linea_temporal.LineaTemporalActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -37,9 +42,13 @@ public class MenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
 
         cargarViews();
+
+        //poner icono en el actionbar
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
+
         miAuth = FirebaseAuth.getInstance();
         miBD = FirebaseDatabase.getInstance().getReference();
-        //inicio con google
         user = FirebaseAuth.getInstance().getCurrentUser();
 
         btnCerrarSesion.setOnClickListener(new View.OnClickListener() {
@@ -120,4 +129,5 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
     }
+
 }

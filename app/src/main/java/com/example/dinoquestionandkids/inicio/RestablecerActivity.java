@@ -33,6 +33,10 @@ public class RestablecerActivity extends AppCompatActivity {
 
         cargarViews();
 
+        //poner icono en el actionbar
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
+
         btnRestablecer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
