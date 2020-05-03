@@ -16,7 +16,7 @@ import com.example.dinoquestionandkids.informacion.InformacionActivity;
 import com.example.dinoquestionandkids.ui.main.SectionsPagerAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class LineaTemporalActivity extends AppCompatActivity{
+public class LineaTemporalActivity extends AppCompatActivity {
 
     private SectionsPagerAdapter sectionsPagerAdapter;
     private ViewPager viewPager;
@@ -47,6 +47,8 @@ public class LineaTemporalActivity extends AppCompatActivity{
                 startActivity(new Intent(LineaTemporalActivity.this, InformacionActivity.class));
             }
         });
+
+
     }
 
     //metodo que construye los puntos de posicionamiento
@@ -82,4 +84,5 @@ public class LineaTemporalActivity extends AppCompatActivity{
 
         }
     };
+
 }

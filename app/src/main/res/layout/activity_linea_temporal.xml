@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/CoorLay"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".linea_temporal.LineaTemporalActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/view_pager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
         <LinearLayout
             android:id="@+id/idPuntos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_alignWithParentIfMissing="false"
             android:layout_alignParentBottom="true"
             android:layout_centerInParent="true"
             android:layout_centerHorizontal="true"
-            android:padding="10dp"/>
+            android:orientation="horizontal"
+            android:padding="10dp" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/btnInfo"
@@ -34,7 +34,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="345dp"
             android:layout_marginTop="75dp"
-            app:srcCompat="@android:drawable/ic_dialog_info" />
+            app:backgroundTint="@color/design_default_color_background"
+            app:rippleColor="@color/colorBlanco"
+            app:srcCompat="@drawable/info_icono" />
 
     </RelativeLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

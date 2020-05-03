@@ -92,9 +92,13 @@ public class Juego1Activity extends AppCompatActivity {
                                 Toast.makeText(Juego1Activity.this, "CORRECTA", Toast.LENGTH_SHORT).show();
                                 puntos++;
                                 gestionDatos();
+                                rbTres.setChecked(false);
                             }else{
                                 Toast.makeText(Juego1Activity.this, "INCORRECTA", Toast.LENGTH_SHORT).show();
                                 vidas--;
+                                rbUno.setChecked(false);
+                                rbDos.setChecked(false);
+                                rbCuatro.setChecked(false);
                                 gestionDatos();
                             }
                             break;
@@ -104,9 +108,13 @@ public class Juego1Activity extends AppCompatActivity {
                                 Toast.makeText(Juego1Activity.this, "CORRECTA", Toast.LENGTH_SHORT).show();
                                 puntos++;
                                 gestionDatos();
+                                rbUno.setChecked(false);
                             }else{
                                 Toast.makeText(Juego1Activity.this, "INCORRECTA", Toast.LENGTH_SHORT).show();
                                 vidas--;
+                                rbTres.setChecked(false);
+                                rbDos.setChecked(false);
+                                rbCuatro.setChecked(false);
                                 gestionDatos();
                             }
                             break;
@@ -117,9 +125,13 @@ public class Juego1Activity extends AppCompatActivity {
                                 Toast.makeText(Juego1Activity.this, "CORRECTA", Toast.LENGTH_SHORT).show();
                                 puntos++;
                                 gestionDatos();
+                                rbDos.setChecked(false);
                             }else{
                                 Toast.makeText(Juego1Activity.this, "INCORRECTA", Toast.LENGTH_SHORT).show();
                                 vidas--;
+                                rbUno.setChecked(false);
+                                rbTres.setChecked(false);
+                                rbCuatro.setChecked(false);
                                 gestionDatos();
                             }
                             break;
@@ -129,9 +141,13 @@ public class Juego1Activity extends AppCompatActivity {
                                 Toast.makeText(Juego1Activity.this, "CORRECTA", Toast.LENGTH_SHORT).show();
                                 puntos++;
                                 gestionDatos();
+                                rbCuatro.setChecked(false);
                             }else{
                                 Toast.makeText(Juego1Activity.this, "INCORRECTA", Toast.LENGTH_SHORT).show();
                                 vidas--;
+                                rbDos.setChecked(false);
+                                rbUno.setChecked(false);
+                                rbTres.setChecked(false);
                                 gestionDatos();
                             }
                             break;
@@ -184,9 +200,7 @@ public class Juego1Activity extends AppCompatActivity {
                 }
                 etNivel.setText("NIVEL " + nivel);
                 //Toast.makeText(JuegoActivity.this, "Estas en el nivel "+nivel, Toast.LENGTH_SHORT).show();
-
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Toast.makeText(Juego1Activity.this, "No se ha podido acceder a los datos", Toast.LENGTH_SHORT).show();
@@ -232,17 +246,13 @@ public class Juego1Activity extends AppCompatActivity {
     }
 
     private void gestionDatos(){
-
         actualizarDatosUsuario(puntos, vidas, nuevoNivel);
-
         if(vidas == 0){
             //mandar un mensaje permanente para informar de que ha perdido, quitar toast
             Toast.makeText(Juego1Activity.this, "HAS PERDIDO, INTENTALO OTRA VEZ", Toast.LENGTH_SHORT).show();
             actualizarDatosUsuario(0, 3, 1);
-
             startActivity(new Intent(Juego1Activity.this, PerderActivity.class));
             finish();
-
         }
         if(puntos == 7){
             contador1 = 0;
@@ -254,9 +264,7 @@ public class Juego1Activity extends AppCompatActivity {
             finish();
         }
     }
-
     private void actualizarDatosUsuario(int puntos, int vidas, int nuevoNivel){
-
         //actualizar datos
         String id = miAuth.getCurrentUser().getUid();
         Map<String, Object> map = new HashMap<>();
@@ -267,8 +275,8 @@ public class Juego1Activity extends AppCompatActivity {
         miBD.child("Usuarios").child(id).updateChildren(map).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
-                Log.d("ACTUALIZACIÓN DATOS", "OK");
-                Toast.makeText(Juego1Activity.this, "ACTUALIZACIÓN DATOS CORRECTAMENTE", Toast.LENGTH_SHORT).show();
+                //Log.d("ACTUALIZACIÓN DATOS", "OK");
+                //Toast.makeText(Juego1Activity.this, "ACTUALIZACIÓN DATOS CORRECTAMENTE", Toast.LENGTH_SHORT).show();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -277,7 +285,7 @@ public class Juego1Activity extends AppCompatActivity {
             }
         });
     }
-
+    //anulación del boton de 'atras'
     @Override
     public void onBackPressed() {
     }

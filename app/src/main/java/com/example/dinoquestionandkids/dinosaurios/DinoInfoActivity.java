@@ -177,7 +177,4 @@ public class DinoInfoActivity extends AppCompatActivity {
             }
         });
     }
-
-
-
 }

@@ -14,6 +14,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -104,10 +105,14 @@ public class Juego6Activity extends AppCompatActivity {
                                 Toast.makeText(Juego6Activity.this, "CORRECTA", Toast.LENGTH_SHORT).show();
                                 puntos = puntos+7;
                                 gestionDatos();
+                                rbTres.setChecked(false);
                             }else{
                                 Toast.makeText(Juego6Activity.this, "INCORRECTA", Toast.LENGTH_SHORT).show();
                                 vidas--;
                                 gestionDatos();
+                                rbUno.setChecked(false);
+                                rbDos.setChecked(false);
+                                rbCuatro.setChecked(false);
                             }
                             break;
                         case 2:
@@ -119,10 +124,14 @@ public class Juego6Activity extends AppCompatActivity {
                                 Toast.makeText(Juego6Activity.this, "CORRECTA", Toast.LENGTH_SHORT).show();
                                 puntos = puntos+7;
                                 gestionDatos();
+                                rbUno.setChecked(false);
                             }else{
                                 Toast.makeText(Juego6Activity.this, "INCORRECTA", Toast.LENGTH_SHORT).show();
                                 vidas--;
                                 gestionDatos();
+                                rbDos.setChecked(false);
+                                rbTres.setChecked(false);
+                                rbCuatro.setChecked(false);
                             }
                             break;
                         case 1:
@@ -132,10 +141,14 @@ public class Juego6Activity extends AppCompatActivity {
                                 Toast.makeText(Juego6Activity.this, "CORRECTA", Toast.LENGTH_SHORT).show();
                                 puntos = puntos+7;
                                 gestionDatos();
+                                rbDos.setChecked(false);
                             }else{
                                 Toast.makeText(Juego6Activity.this, "INCORRECTA", Toast.LENGTH_SHORT).show();
                                 vidas--;
                                 gestionDatos();
+                                rbUno.setChecked(false);
+                                rbTres.setChecked(false);
+                                rbCuatro.setChecked(false);
                             }
                             break;
                         case 6:
@@ -144,10 +157,14 @@ public class Juego6Activity extends AppCompatActivity {
                                 Toast.makeText(Juego6Activity.this, "CORRECTA", Toast.LENGTH_SHORT).show();
                                 puntos = puntos+7;
                                 gestionDatos();
+                                rbCuatro.setChecked(false);
                             }else{
                                 Toast.makeText(Juego6Activity.this, "INCORRECTA", Toast.LENGTH_SHORT).show();
                                 vidas--;
                                 gestionDatos();
+                                rbUno.setChecked(false);
+                                rbDos.setChecked(false);
+                                rbTres.setChecked(false);
                             }
                             break;
                     }
@@ -284,8 +301,8 @@ public class Juego6Activity extends AppCompatActivity {
         miBD.child("Usuarios").child(id).updateChildren(map).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
-                Log.d("ACTUALIZACIÓN DATOS", "OK");
-                Toast.makeText(Juego6Activity.this, "ACTUALIZACIÓN DATOS CORRECTAMENTE", Toast.LENGTH_SHORT).show();
+                //Log.d("ACTUALIZACIÓN DATOS", "OK");
+                //Toast.makeText(Juego6Activity.this, "ACTUALIZACIÓN DATOS CORRECTAMENTE", Toast.LENGTH_SHORT).show();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override

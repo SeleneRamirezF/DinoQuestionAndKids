@@ -5,18 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="20dp"
     tools:context=".MainActivity"
     android:background="#FFFFFF">
 
     <ImageView
-        android:layout_width="350dp"
-        android:layout_height="350dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:src="@drawable/inicio" />
 
     <ImageView
-        android:layout_width="390dp"
+        android:layout_width="match_parent"
         android:layout_height="68dp"
         android:layout_gravity="center"
         android:src="@drawable/titulo_inicio" />
@@ -25,6 +24,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginHorizontal="10dp"
         android:orientation="vertical">
 
         <Button
@@ -33,7 +33,6 @@
             android:layout_height="wrap_content"
             android:background="@drawable/boton_redondo"
             android:text="Iniciar sesion"
-            android:layout_marginTop="25dp"
             android:textColor="@android:color/white"
             android:textSize="18sp" />
 
@@ -46,6 +45,12 @@
             android:text="registrarse"
             android:textColor="@android:color/white"
             android:textSize="18sp" />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="¿QUIERES ENTRAR COMO INVITADO?\n(No tendás acceso a todas las características)"
+            android:textColor="@color/colorPrimaryDark"/>
 
         <com.google.android.gms.common.SignInButton
             android:id="@+id/btnGoogle"

@@ -5,19 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.dinoquestionandkids.dinosaurios.DinosauriosActivity;
-import com.example.dinoquestionandkids.juego.Juego1Activity;
 import com.example.dinoquestionandkids.juego.JuegoActivity;
 import com.example.dinoquestionandkids.linea_temporal.LineaTemporalActivity;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -112,10 +106,14 @@ public class MenuActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 //hacemos la parte de acceso a los datos cuando se inicia con google
                 if(user != null){
+                    btn3.setEnabled(false);
+                    btn4.setEnabled(false);
                     tvNombre.setText(user.getDisplayName());
                     tvCorreo.setText(user.getEmail());
                 }
                 if (dataSnapshot.exists()){
+                    btn3.setEnabled(true);
+                    btn4.setEnabled(true);
                     String nombre = dataSnapshot.child((String) getResources().getText(R.string.nombre)).getValue().toString();
                     String correo = dataSnapshot.child((String) getResources().getText(R.string.correo)).getValue().toString();
                     tvNombre.setText(nombre);

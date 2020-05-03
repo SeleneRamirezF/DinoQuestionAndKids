@@ -92,10 +92,14 @@ public class Juego3Activity extends AppCompatActivity {
                                 Toast.makeText(Juego3Activity.this, "CORRECTA", Toast.LENGTH_SHORT).show();
                                 puntos = puntos+4;
                                 gestionDatos();
+                                rbTres.setChecked(false);
                             }else{
                                 Toast.makeText(Juego3Activity.this, "INCORRECTA", Toast.LENGTH_SHORT).show();
                                 vidas--;
                                 gestionDatos();
+                                rbUno.setChecked(false);
+                                rbDos.setChecked(false);
+                                rbCuatro.setChecked(false);
                             }
                             break;
                         case 9:
@@ -104,10 +108,14 @@ public class Juego3Activity extends AppCompatActivity {
                                 Toast.makeText(Juego3Activity.this, "CORRECTA", Toast.LENGTH_SHORT).show();
                                 puntos = puntos+4;
                                 gestionDatos();
+                                rbUno.setChecked(false);
                             }else{
                                 Toast.makeText(Juego3Activity.this, "INCORRECTA", Toast.LENGTH_SHORT).show();
                                 vidas--;
                                 gestionDatos();
+                                rbDos.setChecked(false);
+                                rbTres.setChecked(false);
+                                rbCuatro.setChecked(false);
                             }
                             break;
                         case 3:
@@ -118,10 +126,14 @@ public class Juego3Activity extends AppCompatActivity {
                                 Toast.makeText(Juego3Activity.this, "CORRECTA", Toast.LENGTH_SHORT).show();
                                 puntos = puntos+4;
                                 gestionDatos();
+                                rbDos.setChecked(false);
                             }else{
                                 Toast.makeText(Juego3Activity.this, "INCORRECTA", Toast.LENGTH_SHORT).show();
                                 vidas--;
                                 gestionDatos();
+                                rbUno.setChecked(false);
+                                rbTres.setChecked(false);
+                                rbCuatro.setChecked(false);
                             }
                             break;
                         case 4:
@@ -131,10 +143,14 @@ public class Juego3Activity extends AppCompatActivity {
                                 Toast.makeText(Juego3Activity.this, "CORRECTA", Toast.LENGTH_SHORT).show();
                                 puntos = puntos+4;
                                 gestionDatos();
+                                rbCuatro.setChecked(false);
                             }else{
                                 Toast.makeText(Juego3Activity.this, "INCORRECTA", Toast.LENGTH_SHORT).show();
                                 vidas--;
                                 gestionDatos();
+                                rbUno.setChecked(false);
+                                rbDos.setChecked(false);
+                                rbTres.setChecked(false);
                             }
                             break;
                     }
@@ -270,8 +286,8 @@ public class Juego3Activity extends AppCompatActivity {
         miBD.child("Usuarios").child(id).updateChildren(map).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
-                Log.d("ACTUALIZACIÓN DATOS", "OK");
-                Toast.makeText(Juego3Activity.this, "ACTUALIZACIÓN DATOS CORRECTAMENTE", Toast.LENGTH_SHORT).show();
+                //Log.d("ACTUALIZACIÓN DATOS", "OK");
+                //Toast.makeText(Juego3Activity.this, "ACTUALIZACIÓN DATOS CORRECTAMENTE", Toast.LENGTH_SHORT).show();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
