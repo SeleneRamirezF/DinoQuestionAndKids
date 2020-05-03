@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#147888"
+    tools:context=".inicio.CargaActivity">
+
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/gif_inicio"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp"
+        tools:ignore="MissingConstraints" />
+
+    <!--
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="449dp"
+        android:layout_height="553dp"
+        android:paddingHorizontal="100dp"
+        android:paddingTop="380dp"
+        android:src="@drawable/carga_inicio"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-38dp"
+        tools:layout_editor_absoluteY="298dp" />
+-->
+</androidx.constraintlayout.widget.ConstraintLayout>
