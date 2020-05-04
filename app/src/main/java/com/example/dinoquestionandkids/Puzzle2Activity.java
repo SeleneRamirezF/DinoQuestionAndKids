@@ -1,0 +1,350 @@
+package com.example.dinoquestionandkids;
+
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.ViewTreeObserver;
+import android.widget.Button;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.Random;
+import androidx.appcompat.app.AppCompatActivity;
+
+
+public class Puzzle2Activity extends AppCompatActivity {
+
+    private static GestureDetectGridView miGridView;
+
+    private static final int COLUMNAS = 3;
+    private static final int DIMENSIONES = COLUMNAS * COLUMNAS;
+
+    private static int anchoColumna, altoColumna;
+
+    public static final String arriba = "up";
+    public static final String abajo = "down";
+    public static final String izquierda = "left";
+    public static final String derecha = "right";
+
+    private static String[] listaPiezas;
+    private static int n;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_puzzle2);
+
+        n = getIntent().getIntExtra("boton", -1);
+        //Log.d("BOTON",""+n);
+
+        inicio();
+        colocacionPiezas();
+        setDimensiones();
+
+
+    }
+
+    private void inicio() {
+        miGridView = (GestureDetectGridView) findViewById(R.id.grid);
+        miGridView.setNumColumns(COLUMNAS);
+
+        listaPiezas = new String[DIMENSIONES];
+        for (int i = 0; i < DIMENSIONES; i++) {
+            listaPiezas[i] = String.valueOf(i);
+        }
+    }
+
+    private void colocacionPiezas() {
+        int indice;
+        String cadenaTemp;
+        Random random = new Random();
+
+        for (int i = listaPiezas.length - 1; i > 0; i--) {
+            indice = random.nextInt(i + 1);
+            cadenaTemp = listaPiezas[indice];
+            listaPiezas[indice] = listaPiezas[i];
+            listaPiezas[i] = cadenaTemp;
+        }
+    }
+
+    private void setDimensiones() {
+        ViewTreeObserver vto = miGridView.getViewTreeObserver();
+        vto.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                miGridView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                int displayAncho = miGridView.getMeasuredWidth();
+                int displayAlto = miGridView.getMeasuredHeight();
+
+                int statusbarAlto = getStatusBarAlto(getApplicationContext());
+                int requiredAlto = displayAlto - statusbarAlto;
+
+                anchoColumna = displayAncho / COLUMNAS;
+                altoColumna = requiredAlto / COLUMNAS;
+
+                colocarPiezas(getApplicationContext());
+            }
+        });
+    }
+
+    private int getStatusBarAlto(Context context) {
+        int resultado = 0;
+        int id = context.getResources().getIdentifier("status_bar_height", "dimen",
+                "android");
+
+        if (id > 0) {
+            resultado = context.getResources().getDimensionPixelSize(id);
+        }
+
+        return resultado;
+    }
+
+    private static void colocarPiezas(Context context) {
+        ArrayList<Button> botones = new ArrayList<>();
+        Button boton;
+
+        if(n == 1){
+            for (int i = 0; i < listaPiezas.length; i++) {
+                boton = new Button(context);
+
+                if (listaPiezas[i].equals("0"))
+                    boton.setBackgroundResource(R.drawable.fila_1_col_1);
+                else if (listaPiezas[i].equals("1"))
+                    boton.setBackgroundResource(R.drawable.fila_1_col_2);
+                else if (listaPiezas[i].equals("2"))
+                    boton.setBackgroundResource(R.drawable.fila_1_col_3);
+                else if (listaPiezas[i].equals("3"))
+                    boton.setBackgroundResource(R.drawable.fila_2_col_1);
+                else if (listaPiezas[i].equals("4"))
+                    boton.setBackgroundResource(R.drawable.fila_2_col_2);
+                else if (listaPiezas[i].equals("5"))
+                    boton.setBackgroundResource(R.drawable.fila_2_col_3);
+                else if (listaPiezas[i].equals("6"))
+                    boton.setBackgroundResource(R.drawable.fila_3_col_1);
+                else if (listaPiezas[i].equals("7"))
+                    boton.setBackgroundResource(R.drawable.fila_3_col_2);
+                else if (listaPiezas[i].equals("8"))
+                    boton.setBackgroundResource(R.drawable.fila_3_col_3);
+
+                botones.add(boton);
+            }
+        }else if(n == 2){
+            for (int i = 0; i < listaPiezas.length; i++) {
+                boton = new Button(context);
+
+                if (listaPiezas[i].equals("0"))
+                    boton.setBackgroundResource(R.drawable.fila_1_col_1);
+                else if (listaPiezas[i].equals("1"))
+                    boton.setBackgroundResource(R.drawable.fila_1_col_2);
+                else if (listaPiezas[i].equals("2"))
+                    boton.setBackgroundResource(R.drawable.fila_1_col_3);
+                else if (listaPiezas[i].equals("3"))
+                    boton.setBackgroundResource(R.drawable.fila_2_col_1);
+                else if (listaPiezas[i].equals("4"))
+                    boton.setBackgroundResource(R.drawable.fila_2_col_2);
+                else if (listaPiezas[i].equals("5"))
+                    boton.setBackgroundResource(R.drawable.fila_2_col_3);
+                else if (listaPiezas[i].equals("6"))
+                    boton.setBackgroundResource(R.drawable.fila_3_col_1);
+                else if (listaPiezas[i].equals("7"))
+                    boton.setBackgroundResource(R.drawable.fila_3_col_2);
+                else if (listaPiezas[i].equals("8"))
+                    boton.setBackgroundResource(R.drawable.fila_3_col_3);
+
+                botones.add(boton);
+            }
+        }else if(n == 3){
+            for (int i = 0; i < listaPiezas.length; i++) {
+                boton = new Button(context);
+
+                if (listaPiezas[i].equals("0"))
+                    boton.setBackgroundResource(R.drawable.fila_1_col_1);
+                else if (listaPiezas[i].equals("1"))
+                    boton.setBackgroundResource(R.drawable.fila_1_col_2);
+                else if (listaPiezas[i].equals("2"))
+                    boton.setBackgroundResource(R.drawable.fila_1_col_3);
+                else if (listaPiezas[i].equals("3"))
+                    boton.setBackgroundResource(R.drawable.fila_2_col_1);
+                else if (listaPiezas[i].equals("4"))
+                    boton.setBackgroundResource(R.drawable.fila_2_col_2);
+                else if (listaPiezas[i].equals("5"))
+                    boton.setBackgroundResource(R.drawable.fila_2_col_3);
+                else if (listaPiezas[i].equals("6"))
+                    boton.setBackgroundResource(R.drawable.fila_3_col_1);
+                else if (listaPiezas[i].equals("7"))
+                    boton.setBackgroundResource(R.drawable.fila_3_col_2);
+                else if (listaPiezas[i].equals("8"))
+                    boton.setBackgroundResource(R.drawable.fila_3_col_3);
+
+                botones.add(boton);
+            }
+        }else if(n == 4){
+            for (int i = 0; i < listaPiezas.length; i++) {
+                boton = new Button(context);
+
+                if (listaPiezas[i].equals("0"))
+                    boton.setBackgroundResource(R.drawable.fila_1_col_1);
+                else if (listaPiezas[i].equals("1"))
+                    boton.setBackgroundResource(R.drawable.fila_1_col_2);
+                else if (listaPiezas[i].equals("2"))
+                    boton.setBackgroundResource(R.drawable.fila_1_col_3);
+                else if (listaPiezas[i].equals("3"))
+                    boton.setBackgroundResource(R.drawable.fila_2_col_1);
+                else if (listaPiezas[i].equals("4"))
+                    boton.setBackgroundResource(R.drawable.fila_2_col_2);
+                else if (listaPiezas[i].equals("5"))
+                    boton.setBackgroundResource(R.drawable.fila_2_col_3);
+                else if (listaPiezas[i].equals("6"))
+                    boton.setBackgroundResource(R.drawable.fila_3_col_1);
+                else if (listaPiezas[i].equals("7"))
+                    boton.setBackgroundResource(R.drawable.fila_3_col_2);
+                else if (listaPiezas[i].equals("8"))
+                    boton.setBackgroundResource(R.drawable.fila_3_col_3);
+
+                botones.add(boton);
+            }
+        }else if(n == 5){
+            for (int i = 0; i < listaPiezas.length; i++) {
+                boton = new Button(context);
+
+                if (listaPiezas[i].equals("0"))
+                    boton.setBackgroundResource(R.drawable.fila_1_col_1);
+                else if (listaPiezas[i].equals("1"))
+                    boton.setBackgroundResource(R.drawable.fila_1_col_2);
+                else if (listaPiezas[i].equals("2"))
+                    boton.setBackgroundResource(R.drawable.fila_1_col_3);
+                else if (listaPiezas[i].equals("3"))
+                    boton.setBackgroundResource(R.drawable.fila_2_col_1);
+                else if (listaPiezas[i].equals("4"))
+                    boton.setBackgroundResource(R.drawable.fila_2_col_2);
+                else if (listaPiezas[i].equals("5"))
+                    boton.setBackgroundResource(R.drawable.fila_2_col_3);
+                else if (listaPiezas[i].equals("6"))
+                    boton.setBackgroundResource(R.drawable.fila_3_col_1);
+                else if (listaPiezas[i].equals("7"))
+                    boton.setBackgroundResource(R.drawable.fila_3_col_2);
+                else if (listaPiezas[i].equals("8"))
+                    boton.setBackgroundResource(R.drawable.fila_3_col_3);
+
+                botones.add(boton);
+            }
+        }else if(n == 6){
+            for (int i = 0; i < listaPiezas.length; i++) {
+                boton = new Button(context);
+
+                if (listaPiezas[i].equals("0"))
+                    boton.setBackgroundResource(R.drawable.fila_1_col_1);
+                else if (listaPiezas[i].equals("1"))
+                    boton.setBackgroundResource(R.drawable.fila_1_col_2);
+                else if (listaPiezas[i].equals("2"))
+                    boton.setBackgroundResource(R.drawable.fila_1_col_3);
+                else if (listaPiezas[i].equals("3"))
+                    boton.setBackgroundResource(R.drawable.fila_2_col_1);
+                else if (listaPiezas[i].equals("4"))
+                    boton.setBackgroundResource(R.drawable.fila_2_col_2);
+                else if (listaPiezas[i].equals("5"))
+                    boton.setBackgroundResource(R.drawable.fila_2_col_3);
+                else if (listaPiezas[i].equals("6"))
+                    boton.setBackgroundResource(R.drawable.fila_3_col_1);
+                else if (listaPiezas[i].equals("7"))
+                    boton.setBackgroundResource(R.drawable.fila_3_col_2);
+                else if (listaPiezas[i].equals("8"))
+                    boton.setBackgroundResource(R.drawable.fila_3_col_3);
+
+                botones.add(boton);
+            }
+        }
+        miGridView.setAdapter(new CustomAdapter(botones, anchoColumna, altoColumna));
+    }
+
+    private static void intercambioPiezas(Context context, int posicionActual, int intercambio) {
+
+        String nuevaPosicion = listaPiezas[posicionActual + intercambio];
+        listaPiezas[posicionActual + intercambio] = listaPiezas[posicionActual];
+        listaPiezas[posicionActual] = nuevaPosicion;
+        colocarPiezas(context);
+
+        if (resuelto()){
+            Toast.makeText(context, "HAS GANADO ENHORABUENA!", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    public static void movimientoPiezas(Context context, String direccion, int posicion) {
+
+        //Piezas esquina superior izquierda
+        if (posicion == 0) {
+            if (direccion.equals(derecha)) intercambioPiezas(context, posicion, 1);
+            else if (direccion.equals(abajo)) intercambioPiezas(context, posicion, COLUMNAS);
+            else Toast.makeText(context, "Movimiento no válido", Toast.LENGTH_SHORT).show();
+
+        //Piezas centro superior
+        } else if (posicion > 0 && posicion < COLUMNAS - 1) {
+            if (direccion.equals(izquierda)) intercambioPiezas(context, posicion, -1);
+            else if (direccion.equals(abajo)) intercambioPiezas(context, posicion, COLUMNAS);
+            else if (direccion.equals(derecha)) intercambioPiezas(context, posicion, 1);
+            else Toast.makeText(context, "Movimiento no válido", Toast.LENGTH_SHORT).show();
+
+        //Piezas esquina superior derecha
+        } else if (posicion == COLUMNAS - 1) {
+            if (direccion.equals(izquierda)) intercambioPiezas(context, posicion, -1);
+            else if (direccion.equals(abajo)) intercambioPiezas(context, posicion, COLUMNAS);
+            else Toast.makeText(context, "Movimiento no válido", Toast.LENGTH_SHORT).show();
+
+        //Piezas lado izquierdo
+        } else if (posicion > COLUMNAS - 1 && posicion < DIMENSIONES - COLUMNAS &&
+                posicion % COLUMNAS == 0) {
+            if (direccion.equals(arriba)) intercambioPiezas(context, posicion, -COLUMNAS);
+            else if (direccion.equals(derecha)) intercambioPiezas(context, posicion, 1);
+            else if (direccion.equals(abajo)) intercambioPiezas(context, posicion, COLUMNAS);
+            else Toast.makeText(context, "Movimiento no válido", Toast.LENGTH_SHORT).show();
+
+        //Piezas lado derecho y esquina inferior derecha
+        } else if (posicion == COLUMNAS * 2 - 1 || posicion == COLUMNAS * 3 - 1) {
+            if (direccion.equals(arriba)) intercambioPiezas(context, posicion, -COLUMNAS);
+            else if (direccion.equals(izquierda)) intercambioPiezas(context, posicion, -1);
+            else if (direccion.equals(abajo)) {
+
+                //Tolera solo las piezas del lado derecho para intercambiar hacia abajo en
+                // lugar de las piezas de la esquina inferior derecha.
+                if (posicion <= DIMENSIONES - COLUMNAS - 1) intercambioPiezas(context, posicion,
+                        COLUMNAS);
+                else Toast.makeText(context, "Movimiento no válido", Toast.LENGTH_SHORT).show();
+            } else Toast.makeText(context, "Movimiento no válido", Toast.LENGTH_SHORT).show();
+
+        //Piezas esquina inferior izquierda
+        }else if(posicion == DIMENSIONES - COLUMNAS){
+            if (direccion.equals(arriba)) intercambioPiezas(context, posicion, -COLUMNAS);
+            else if (direccion.equals(derecha)) intercambioPiezas(context, posicion, 1);
+            else Toast.makeText(context, "Movimiento no válido", Toast.LENGTH_SHORT).show();
+
+        //Piezas del centro inferior
+        }else if(posicion < DIMENSIONES - 1 && posicion > DIMENSIONES - COLUMNAS){
+            if (direccion.equals(arriba)) intercambioPiezas(context, posicion, -COLUMNAS);
+            else if (direccion.equals(izquierda)) intercambioPiezas(context, posicion, -1);
+            else if (direccion.equals(derecha)) intercambioPiezas(context, posicion, 1);
+            else Toast.makeText(context, "Movimiento no válido", Toast.LENGTH_SHORT).show();
+
+        //Piezas centrales
+        }else{
+            if (direccion.equals(arriba)) intercambioPiezas(context, posicion, -COLUMNAS);
+            else if (direccion.equals(izquierda)) intercambioPiezas(context, posicion, -1);
+            else if (direccion.equals(derecha)) intercambioPiezas(context, posicion, 1);
+            else intercambioPiezas(context, posicion, COLUMNAS);
+        }
+    }
+
+    private static boolean resuelto() {
+        boolean resuelto = false;
+        for(int i = 0; i < listaPiezas.length; i++){
+            if(listaPiezas[i].equals(String.valueOf(i))){
+                resuelto = true;
+            }else{
+                resuelto = false;
+                break;
+            }
+        }
+        return resuelto;
+    }
+
+}
