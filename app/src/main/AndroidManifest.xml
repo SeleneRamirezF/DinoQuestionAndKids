@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PuzzleActivity" />
+        <activity android:name=".puzzle.PuzzleActivity" />
+        <activity android:name=".puzzle.Puzzle2Activity" />
         <activity android:name=".juego.PerderActivity" />
         <activity android:name=".juego.GanarActivity" />
         <activity android:name=".juego.JuegoActivity" />
@@ -46,16 +47,6 @@
             android:name=".MainActivity"
             android:screenOrientation="fullSensor"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-
-        <provider
-            android:name="androidx.core.content.FileProvider"
-            android:authorities="${applicationId}.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths" />
-        </provider>
     </application>
 
 </manifest>
