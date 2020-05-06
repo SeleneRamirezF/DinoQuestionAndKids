@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -48,11 +49,19 @@ public class Juego1Activity extends AppCompatActivity {
     private int contador1 = 0;
     private int  salto11 = 5,salto1 = 3;
     private int puntos, vidas, nuevoNivel;
+    private MediaPlayer mp, mpAcierto, mpFallo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_juego1);
+
+        //poner sonido ciclado
+        mp = MediaPlayer.create(this, R.raw.juego_preguntas);
+        mp.start();
+        mp.setLooping(true);
+        mpAcierto = MediaPlayer.create(this, R.raw.juego_acierto);
+        mpFallo = MediaPlayer.create(this, R.raw.juego_fallo);
 
         cargarViews();
 
@@ -73,6 +82,11 @@ public class Juego1Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                rbUno.setChecked(false);
+                rbDos.setChecked(false);
+                rbTres.setChecked(false);
+                rbCuatro.setChecked(false);
+                
                 contador1++;
                 obtenerPreguntas();
                 obtenetDatosUsuario();
@@ -81,7 +95,7 @@ public class Juego1Activity extends AppCompatActivity {
 
                 /* las listas estan rellenas asi que cada vez que se pulse
                 se comprobará el nivel y se comparará con el resultado
-                según que boton se pulde */
+                según que boton se pulse */
 
                 if(nivel.equalsIgnoreCase("1")){
                     switch (contador1){
@@ -90,69 +104,78 @@ public class Juego1Activity extends AppCompatActivity {
                         case 10:
                             if(rbTres.isChecked()){
                                 Toast.makeText(Juego1Activity.this, "CORRECTA", Toast.LENGTH_SHORT).show();
+                                mpAcierto.start();
                                 puntos++;
                                 gestionDatos();
-                                rbTres.setChecked(false);
                             }else{
                                 Toast.makeText(Juego1Activity.this, "INCORRECTA", Toast.LENGTH_SHORT).show();
+                                mpFallo.start();
                                 vidas--;
-                                rbUno.setChecked(false);
-                                rbDos.setChecked(false);
-                                rbCuatro.setChecked(false);
                                 gestionDatos();
                             }
+                           // rbUno.setChecked(false);
+                          // rbDos.setChecked(false);
+                          //  rbTres.setChecked(false);
+                          //  rbCuatro.setChecked(false);
                             break;
                         case 2:
                         case 6:
                             if(rbUno.isChecked()){
                                 Toast.makeText(Juego1Activity.this, "CORRECTA", Toast.LENGTH_SHORT).show();
+                                mpAcierto.start();
                                 puntos++;
                                 gestionDatos();
-                                rbUno.setChecked(false);
                             }else{
                                 Toast.makeText(Juego1Activity.this, "INCORRECTA", Toast.LENGTH_SHORT).show();
+                                mpFallo.start();
                                 vidas--;
-                                rbTres.setChecked(false);
-                                rbDos.setChecked(false);
-                                rbCuatro.setChecked(false);
                                 gestionDatos();
                             }
+                          //  rbUno.setChecked(false);
+                          //  rbDos.setChecked(false);
+                         //   rbTres.setChecked(false);
+                          //  rbCuatro.setChecked(false);
                             break;
                         case 3:
                         case 4:
                         case 8:
                             if(rbDos.isChecked()){
                                 Toast.makeText(Juego1Activity.this, "CORRECTA", Toast.LENGTH_SHORT).show();
+                                mpAcierto.start();
                                 puntos++;
                                 gestionDatos();
-                                rbDos.setChecked(false);
                             }else{
                                 Toast.makeText(Juego1Activity.this, "INCORRECTA", Toast.LENGTH_SHORT).show();
+                                mpFallo.start();
                                 vidas--;
-                                rbUno.setChecked(false);
-                                rbTres.setChecked(false);
-                                rbCuatro.setChecked(false);
                                 gestionDatos();
                             }
+                          //  rbUno.setChecked(false);
+                          //  rbDos.setChecked(false);
+                         //   rbTres.setChecked(false);
+                         //   rbCuatro.setChecked(false);
                             break;
                         case 5:
                         case 7:
                             if(rbCuatro.isChecked()){
                                 Toast.makeText(Juego1Activity.this, "CORRECTA", Toast.LENGTH_SHORT).show();
+                                mpAcierto.start();
                                 puntos++;
                                 gestionDatos();
-                                rbCuatro.setChecked(false);
                             }else{
                                 Toast.makeText(Juego1Activity.this, "INCORRECTA", Toast.LENGTH_SHORT).show();
+                                mpFallo.start();
                                 vidas--;
-                                rbDos.setChecked(false);
-                                rbUno.setChecked(false);
-                                rbTres.setChecked(false);
                                 gestionDatos();
                             }
+                            //rbUno.setChecked(false);
+                           //rbDos.setChecked(false);
+                           // rbTres.setChecked(false);
+                           // rbCuatro.setChecked(false);
                             break;
                     }
                 }
+
             }
         });
 
@@ -251,6 +274,7 @@ public class Juego1Activity extends AppCompatActivity {
             //mandar un mensaje permanente para informar de que ha perdido, quitar toast
             Toast.makeText(Juego1Activity.this, "HAS PERDIDO, INTENTALO OTRA VEZ", Toast.LENGTH_SHORT).show();
             actualizarDatosUsuario(0, 3, 1);
+            pararMusica();
             startActivity(new Intent(Juego1Activity.this, PerderActivity.class));
             finish();
         }
@@ -260,6 +284,7 @@ public class Juego1Activity extends AppCompatActivity {
             nuevoNivel = 2;
             actualizarDatosUsuario(puntos, vidas, nuevoNivel);
             Toast.makeText(Juego1Activity.this, "PASAS DE NIVEL, ENHORABUENA!!!", Toast.LENGTH_SHORT).show();
+            pararMusica();
             startActivity(new Intent(Juego1Activity.this, Juego2Activity.class));
             finish();
         }
@@ -288,5 +313,9 @@ public class Juego1Activity extends AppCompatActivity {
     //anulación del boton de 'atras'
     @Override
     public void onBackPressed() {
+    }
+
+    private void pararMusica(){
+        mp.stop();
     }
 }
