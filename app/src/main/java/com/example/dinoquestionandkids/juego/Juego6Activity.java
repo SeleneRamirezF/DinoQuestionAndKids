@@ -14,16 +14,16 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,17 +42,26 @@ public class Juego6Activity extends AppCompatActivity {
     private ImageView ivVidas;
     private TextView tvPregunta;
     private RadioButton rbUno, rbDos, rbTres, rbCuatro;
+    private RadioGroup group;
     private Button btnComprobar, btnBonus;
     private String nivel, pregunta;
     private ArrayList<String> listaNivel6;
     private int contador = 0;
     private int  salto = 5,salto1 = 3;
     private int puntos, vidas, nuevoNivel;
+    private MediaPlayer mp, mpAcierto, mpFallo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_juego6);
+
+        //poner sonido ciclado
+        mp = MediaPlayer.create(this, R.raw.juego_puzzle);
+        mp.start();
+        mp.setLooping(true);
+        mpAcierto = MediaPlayer.create(this, R.raw.juego_acierto);
+        mpFallo = MediaPlayer.create(this, R.raw.juego_fallo);
 
         cargarViews();
 
@@ -103,17 +112,16 @@ public class Juego6Activity extends AppCompatActivity {
                         case 9:
                             if(rbTres.isChecked()){
                                 Toast.makeText(Juego6Activity.this, "CORRECTA", Toast.LENGTH_SHORT).show();
+                                mpAcierto.start();
                                 puntos = puntos+7;
                                 gestionDatos();
-                                rbTres.setChecked(false);
                             }else{
                                 Toast.makeText(Juego6Activity.this, "INCORRECTA", Toast.LENGTH_SHORT).show();
+                                mpFallo.start();
                                 vidas--;
                                 gestionDatos();
-                                rbUno.setChecked(false);
-                                rbDos.setChecked(false);
-                                rbCuatro.setChecked(false);
                             }
+                            group.clearCheck();
                             break;
                         case 2:
                         case 10:
@@ -122,50 +130,47 @@ public class Juego6Activity extends AppCompatActivity {
                         case 12:
                             if(rbUno.isChecked()){
                                 Toast.makeText(Juego6Activity.this, "CORRECTA", Toast.LENGTH_SHORT).show();
+                                mpAcierto.start();
                                 puntos = puntos+7;
                                 gestionDatos();
-                                rbUno.setChecked(false);
                             }else{
                                 Toast.makeText(Juego6Activity.this, "INCORRECTA", Toast.LENGTH_SHORT).show();
+                                mpFallo.start();
                                 vidas--;
                                 gestionDatos();
-                                rbDos.setChecked(false);
-                                rbTres.setChecked(false);
-                                rbCuatro.setChecked(false);
                             }
+                            group.clearCheck();
                             break;
                         case 1:
                         case 3:
                         case 8:
                             if(rbDos.isChecked()){
                                 Toast.makeText(Juego6Activity.this, "CORRECTA", Toast.LENGTH_SHORT).show();
+                                mpAcierto.start();
                                 puntos = puntos+7;
                                 gestionDatos();
-                                rbDos.setChecked(false);
                             }else{
                                 Toast.makeText(Juego6Activity.this, "INCORRECTA", Toast.LENGTH_SHORT).show();
+                                mpFallo.start();
                                 vidas--;
                                 gestionDatos();
-                                rbUno.setChecked(false);
-                                rbTres.setChecked(false);
-                                rbCuatro.setChecked(false);
                             }
+                            group.clearCheck();
                             break;
                         case 6:
                         case 13:
                             if(rbCuatro.isChecked()){
                                 Toast.makeText(Juego6Activity.this, "CORRECTA", Toast.LENGTH_SHORT).show();
+                                mpAcierto.start();
                                 puntos = puntos+7;
                                 gestionDatos();
-                                rbCuatro.setChecked(false);
                             }else{
                                 Toast.makeText(Juego6Activity.this, "INCORRECTA", Toast.LENGTH_SHORT).show();
+                                mpFallo.start();
                                 vidas--;
                                 gestionDatos();
-                                rbUno.setChecked(false);
-                                rbDos.setChecked(false);
-                                rbTres.setChecked(false);
                             }
+                            group.clearCheck();
                             break;
                     }
                 }
@@ -272,7 +277,7 @@ public class Juego6Activity extends AppCompatActivity {
             //mandar un mensaje permanente para informar de que ha perdido, quitar toast
             Toast.makeText(Juego6Activity.this, "HAS PERDIDO, INTENTALO OTRA VEZ", Toast.LENGTH_SHORT).show();
             actualizarDatosUsuario(0, 3, 1);
-
+            pararMusica();
             startActivity(new Intent(Juego6Activity.this, PerderActivity.class));
             finish();
 
@@ -282,7 +287,7 @@ public class Juego6Activity extends AppCompatActivity {
             //mostrar mensage permanente, quitar toast
             Toast.makeText(Juego6Activity.this, "HAS GANADO EL JUEGO, ENHORABUENA!!!", Toast.LENGTH_SHORT).show();
             actualizarDatosUsuario(0, 3, 1);
-
+            pararMusica();
             startActivity(new Intent(Juego6Activity.this, GanarActivity.class));
             finish();
         }
@@ -323,6 +328,10 @@ public class Juego6Activity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+    }
+
+    private void pararMusica(){
+        mp.stop();
     }
 
 }
