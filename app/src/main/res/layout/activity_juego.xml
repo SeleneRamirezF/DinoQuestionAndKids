@@ -7,10 +7,20 @@
     tools:context=".juego.JuegoActivity">
 
     <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_volumen"
+        app:layout_constraintBottom_toTopOf="@+id/btnComenzarJuego"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
         android:id="@+id/btnComenzarJuego"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="inicio juego"
+        android:text="@string/jugar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -22,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
-        android:text="Recuerda lo Aprendido"
+        android:text="@string/recuerda_lo_aprendido"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
