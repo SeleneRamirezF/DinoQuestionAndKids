@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="20dp"
+    android:background="@drawable/fondo"
     tools:context=".inicio.RestablecerActivity">
 
     <EditText
@@ -13,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:hint="Correo electrónico"
+        android:hint="@string/correo_hint"
         android:inputType="textEmailAddress"/>
 
     <LinearLayout
@@ -26,7 +27,7 @@
             android:id="@+id/btnRestablecer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="restablecer contraseña"
+            android:text="@string/restablecer_contrasena"
             android:layout_marginBottom="75dp"
             android:background="@drawable/boton_redondo2"
             android:textColor="@android:color/white"/>
