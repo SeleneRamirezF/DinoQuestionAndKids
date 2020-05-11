@@ -1,89 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    tools:context=".MenuActivity">
+    tools:context=".menu.MenuActivity"
+    android:background="@drawable/fondo">
 
-    <TextView
-        android:id="@+id/tvBienvenido"
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Bienvenid@"
-        android:textAlignment="center"
-        android:textSize="36sp"
-        android:textStyle="bold" />
+        android:theme="@style/AppTheme.AppBarOverlay"
+        android:background="#00796B">
 
-    <TextView
-        android:id="@+id/tvNombre"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#00796B"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Nombre de usuario"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginHorizontal="17dp">
 
-    <TextView
-        android:id="@+id/tvCorreo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Correo"
-        android:textAlignment="center"
-        android:textSize="18sp" />
+        <TextView
+            android:id="@+id/tvBienvenido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/bienvenido"
+            android:textAlignment="center"
+            android:textSize="43dp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"/>
 
-    <Button
-        android:id="@+id/btn1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:background="@drawable/boton_redondo"
-        android:text="línea temporal"
-        android:textColor="@android:color/white"
-        android:textSize="18sp" />
+        <TextView
+            android:id="@+id/tvNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"/>
 
-    <Button
-        android:id="@+id/btn2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:background="@drawable/boton_redondo"
-        android:text="dinosaurios"
-        android:textColor="@android:color/white"
-        android:textSize="18sp" />
+        <TextView
+            android:id="@+id/tvCorreo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:textAlignment="center"
+            android:textSize="18sp" />
 
-    <Button
-        android:id="@+id/btn3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:background="@drawable/boton_redondo"
-        android:text="juego"
-        android:textColor="@android:color/white"
-        android:textSize="18sp" />
+        <Button
+            android:id="@+id/btn1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@drawable/boton_redondo2"
+            android:text="@string/linea_temporal_menu"
+            android:textColor="@android:color/white"
+            android:textSize="18dp" />
 
-    <Button
-        android:id="@+id/btn4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:background="@drawable/boton_redondo"
-        android:text="puzzle"
-        android:textColor="@android:color/white"
-        android:textSize="18sp" />
+        <Button
+            android:id="@+id/btn2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@drawable/boton_redondo2"
+            android:text="@string/dinosaurios_menu"
+            android:textColor="@android:color/white"
+            android:textSize="18dp" />
 
-    <Button
-        android:id="@+id/btnCerrarSesion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="cerrar sesión"
-        android:layout_marginHorizontal="70dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/boton_redondo2"
-        android:textColor="@android:color/white"/>
+        <Button
+            android:id="@+id/btn3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@drawable/boton_redondo2"
+            android:text="@string/juego_menu"
+            android:textColor="@android:color/white"
+            android:textSize="18dp" />
 
+        <Button
+            android:id="@+id/btn4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@drawable/boton_redondo2"
+            android:text="@string/puzzle_menu"
+            android:textColor="@android:color/white"
+            android:textSize="18dp" />
 
+        <Button
+            android:id="@+id/btnCerrarSesion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cerrar_sesion"
+            android:layout_marginHorizontal="70dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/boton_redondo"
+            android:textColor="@android:color/white"/>
 
-</LinearLayout>
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

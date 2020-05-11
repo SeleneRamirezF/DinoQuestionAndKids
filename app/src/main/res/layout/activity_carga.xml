@@ -15,15 +15,4 @@
         tools:layout_editor_absoluteY="0dp"
         tools:ignore="MissingConstraints" />
 
-    <!--
-    <pl.droidsonroids.gif.GifImageView
-        android:layout_width="449dp"
-        android:layout_height="553dp"
-        android:paddingHorizontal="100dp"
-        android:paddingTop="380dp"
-        android:src="@drawable/carga_inicio"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="-38dp"
-        tools:layout_editor_absoluteY="298dp" />
--->
 </androidx.constraintlayout.widget.ConstraintLayout>

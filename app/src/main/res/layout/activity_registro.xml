@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="20dp"
+    android:background="@drawable/fondo"
     tools:context=".inicio.RegistroActivity">
 
     <EditText
@@ -13,23 +14,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:hint="Nombre"/>
+        android:hint="@string/nombre_hint"
+        android:textSize="19dp"
+        android:textColor="@android:color/black"/>
 
     <EditText
         android:id="@+id/etCorreo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:hint="Correo"
-        android:inputType="textEmailAddress"/>
+        android:hint="@string/correo_hint"
+        android:textSize="19dp"
+        android:inputType="textEmailAddress"
+        android:textColor="@android:color/black"/>
 
     <EditText
         android:id="@+id/etContrasena"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:hint="Contraseña"
+        android:hint="@string/contrasena_hint"
+        android:textSize="19dp"
         android:inputType="textPassword"
+        android:textColor="@android:color/black"
         />
 
     <LinearLayout
@@ -42,9 +49,10 @@
             android:id="@+id/btnRegistro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="registrar usuario"
+            android:text="@string/registrarse"
             android:background="@drawable/boton_redondo2"
             android:layout_marginBottom="75dp"
+            android:textSize="18dp"
             android:textColor="@android:color/white"/>
 
 

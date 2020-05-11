@@ -32,11 +32,10 @@
             android:id="@+id/btnInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="345dp"
+            android:layout_marginStart="338dp"
             android:layout_marginTop="75dp"
-            app:backgroundTint="@color/design_default_color_background"
-            app:rippleColor="@color/colorBlanco"
-            app:srcCompat="@drawable/info_icono" />
+            app:backgroundTint="@android:color/holo_red_dark"
+            app:srcCompat="@drawable/historia_info" />
 
     </RelativeLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

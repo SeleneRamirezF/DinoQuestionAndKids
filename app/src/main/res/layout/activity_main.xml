@@ -5,58 +5,65 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity"
-    android:background="#FFFFFF">
+    tools:context=".inicio.MainActivity"
+    android:background="@drawable/fondo">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:src="@drawable/inicio" />
+        android:src="@drawable/icono_sin_fondo"
+        android:layout_marginTop="20dp"/>
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="68dp"
+        android:layout_height="70dp"
         android:layout_gravity="center"
-        android:src="@drawable/titulo_inicio" />
+        android:src="@drawable/titulo_inicio_sin_fondo" />
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginHorizontal="10dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginTop="20dp">
 
         <Button
             android:id="@+id/btnAccesoLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/boton_redondo"
-            android:text="Iniciar sesion"
+            android:background="@drawable/boton_redondo2"
+            android:text="@string/inicio_sesion"
             android:textColor="@android:color/white"
-            android:textSize="18sp" />
+            android:textSize="19dp"
+            android:layout_marginHorizontal="25dp"/>
 
         <Button
             android:id="@+id/btnAccesoRegistro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginVertical="15dp"
-            android:background="@drawable/boton_redondo2"
-            android:text="registrarse"
+            android:background="@drawable/boton_redondo"
+            android:text="@string/registrarse"
             android:textColor="@android:color/white"
-            android:textSize="18sp" />
+            android:textSize="19dp"
+            android:layout_marginHorizontal="25dp"/>
 
         <TextView
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:text="¿QUIERES ENTRAR COMO INVITADO?\n(No tendás acceso a todas las características)"
-            android:textColor="@color/colorPrimaryDark"/>
+            android:text="@string/invitado"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"/>
 
         <com.google.android.gms.common.SignInButton
             android:id="@+id/btnGoogle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"/>
 
 
     </LinearLayout>

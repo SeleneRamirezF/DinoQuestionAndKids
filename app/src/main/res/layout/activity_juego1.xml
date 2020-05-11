@@ -8,7 +8,8 @@
     android:paddingLeft="15dp"
     android:paddingRight="10dp"
     android:paddingTop="30dp"
-    tools:context=".juego.Juego1Activity">
+    tools:context=".juego.Juego1Activity"
+    android:background="@drawable/fondo_preguntas">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,15 +21,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:text="Nombre:"
+            android:text="@string/nombre_juego"
             android:textSize="18sp"
+            android:textColor="@android:color/black"
             android:textStyle="bold" />
 
         <EditText
             android:id="@+id/etNombre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textColor="@android:color/black"/>
     </LinearLayout>
 
     <LinearLayout
@@ -40,15 +43,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:text="Puntos:"
+            android:text="@string/puntos_juego"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@android:color/black"/>
 
         <EditText
             android:id="@+id/etPuntos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textColor="@android:color/black"/>
     </LinearLayout>
 
     <LinearLayout
@@ -60,9 +65,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:text="Vidas:"
+            android:text="@string/vidas_juego"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@android:color/black"/>
 
         <ImageView
             android:id="@+id/ivVidas"
@@ -78,9 +84,10 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:textSize="24sp"
+        android:textColor="@color/colorPrimaryDark"
     android:textStyle="bold"
-    android:hint="NIVEL 1"
-    android:layout_marginTop="15dp"/>
+    android:text="@string/nivel1_juego"
+    android:layout_marginTop="15dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -91,10 +98,10 @@
             android:id="@+id/tvPregunta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Preguntas de cada nivel,
-prueba para ver como se veria un texto la mar de largo"
+            android:text="@string/preguntas_juego"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@android:color/black"/>
 
     </LinearLayout>
 
@@ -104,6 +111,7 @@ prueba para ver como se veria un texto la mar de largo"
         android:layout_marginTop="10dp">
 
         <RadioGroup
+            android:id="@+id/group"
             android:layout_width="match_parent"
             android:layout_height="match_parent" >
 
@@ -111,26 +119,27 @@ prueba para ver como se veria un texto la mar de largo"
                 android:id="@+id/rbUno"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="RadioButton" />
+                android:textColor="@android:color/black"/>
 
             <RadioButton
                 android:id="@+id/rbDos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="RadioButton" />
+                android:textColor="@android:color/black"/>
 
             <RadioButton
                 android:id="@+id/rbTres"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="RadioButton" />
+                android:textColor="@android:color/black"/>
 
             <RadioButton
                 android:id="@+id/rbCuatro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="RadioButton" />
+                android:textColor="@android:color/black"/>
         </RadioGroup>
+
     </LinearLayout>
 
     <LinearLayout
@@ -143,7 +152,10 @@ prueba para ver como se veria un texto la mar de largo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Comprobar" />
+            android:text="@string/comprobar_juego"
+            android:background="@drawable/boton_redondo2"
+            android:textColor="@android:color/white"
+            android:textSize="17dp"/>
     </LinearLayout>
 
 

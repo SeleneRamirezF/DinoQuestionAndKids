@@ -6,6 +6,4 @@
     tools:context=".linea_temporal.fragment.Fragment2"
     android:background="@drawable/linea_temporal2">
 
-
-
 </FrameLayout>

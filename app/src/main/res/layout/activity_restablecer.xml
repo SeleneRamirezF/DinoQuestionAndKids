@@ -15,7 +15,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:hint="@string/correo_hint"
-        android:inputType="textEmailAddress"/>
+        android:inputType="textEmailAddress"
+        android:textColor="@android:color/black"
+        android:textSize="19dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,7 +32,8 @@
             android:text="@string/restablecer_contrasena"
             android:layout_marginBottom="75dp"
             android:background="@drawable/boton_redondo2"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/white"
+            android:textSize="18dp"/>
 
     </LinearLayout>
 
