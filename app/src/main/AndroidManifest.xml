@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".menu.AcercadeActivity"></activity>
         <activity android:name=".puzzle.PuzzleActivity" />
         <activity android:name=".puzzle.Puzzle2Activity" />
         <activity android:name=".juego.PerderActivity" />
@@ -41,10 +42,11 @@
         <activity android:name=".inicio.RegistroActivity" />
         <activity android:name=".inicio.LoginActivity" />
         <activity
-            android:name=".MenuActivity"
-            android:screenOrientation="fullSensor" />
+            android:name=".menu.MenuActivity"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".MainActivity"
+            android:name=".inicio.MainActivity"
             android:screenOrientation="fullSensor"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>

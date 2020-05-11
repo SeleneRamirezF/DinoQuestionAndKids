@@ -5,15 +5,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.dinoquestionandkids.R;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 
 public class PerderActivity extends AppCompatActivity {
 
+    private MediaPlayer mpPerder;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perder);
+
+        mpPerder = MediaPlayer.create(this, R.raw.perder);
+        mpPerder.start();
 
         //poner icono en el actionbar
         getSupportActionBar().setDisplayShowHomeEnabled(true);

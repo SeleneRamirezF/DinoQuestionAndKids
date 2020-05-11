@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.dinoquestionandkids.MenuActivity;
+import com.example.dinoquestionandkids.menu.MenuActivity;
 import com.example.dinoquestionandkids.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -33,7 +33,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        //inicializamos las variables
         cargarViews();
 
         //poner icono en el actionbar
@@ -83,7 +82,7 @@ public class LoginActivity extends AppCompatActivity {
                     startActivity(new Intent(LoginActivity.this, MenuActivity.class));
                     finish();
                 }else{
-                    Toast.makeText(LoginActivity.this, "Usuario o Contraseña erroneos", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, getResources().getText(R.string.datos_erroneos), Toast.LENGTH_SHORT).show();
                 }
             }
         });

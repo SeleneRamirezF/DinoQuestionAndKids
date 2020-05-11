@@ -74,7 +74,7 @@ public class DinosauriosActivity extends AppCompatActivity implements DinoAdapte
     @Override
     public void onListClickItem(int posicion) {
         i = new Intent(DinosauriosActivity.this, DinoInfoActivity.class);
-        i.putExtra("posicion", String.valueOf(posicion));
+        i.putExtra((String) getResources().getText(R.string.pos), String.valueOf(posicion));
         startActivity(i);
     }
 

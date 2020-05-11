@@ -3,6 +3,7 @@ package com.example.dinoquestionandkids.juego;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 
@@ -10,10 +11,15 @@ import com.example.dinoquestionandkids.R;
 
 public class GanarActivity extends AppCompatActivity {
 
+    private MediaPlayer mpGanar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ganar);
+
+        mpGanar = MediaPlayer.create(this, R.raw.ganar);
+        mpGanar.start();
 
         //poner icono en el actionbar
         getSupportActionBar().setDisplayShowHomeEnabled(true);

@@ -42,12 +42,12 @@ public class RestablecerActivity extends AppCompatActivity {
             public void onClick(View v) {
                 correo = etCorreo.getText().toString();
                 if (!correo.isEmpty()){
-                    miDialogo.setMessage("Enviando correo...");
+                    miDialogo.setMessage(getResources().getText(R.string.enviando));
                     miDialogo.setCanceledOnTouchOutside(false);
                     miDialogo.show();
                     restablecerContrasena();
                 }else{
-                    Toast.makeText(RestablecerActivity.this, "Tiene que introducir un correo registrado",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RestablecerActivity.this, getResources().getText(R.string.introducir),Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -64,9 +64,9 @@ public class RestablecerActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()){
-                    Toast.makeText(RestablecerActivity.this, "Se ha enviado un correo para restablecer la contraseña",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RestablecerActivity.this, getResources().getText(R.string.restablecer),Toast.LENGTH_SHORT).show();
                 }else{
-                    Toast.makeText(RestablecerActivity.this, "No se pudo enviar el correo electrónico para restablecer la contraseña",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RestablecerActivity.this, getResources().getText(R.string.no_restablecer),Toast.LENGTH_SHORT).show();
                 }
                 miDialogo.dismiss();
             }

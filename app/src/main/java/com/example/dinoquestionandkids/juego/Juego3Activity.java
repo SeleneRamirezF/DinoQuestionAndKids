@@ -4,18 +4,18 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.dinoquestionandkids.MenuActivity;
 import com.example.dinoquestionandkids.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -42,17 +42,28 @@ public class Juego3Activity extends AppCompatActivity {
     private ImageView ivVidas;
     private TextView tvPregunta;
     private RadioButton rbUno, rbDos, rbTres, rbCuatro;
+    private RadioGroup group;
     private Button btnComprobar;
     private String nivel, pregunta;
     private ArrayList<String> listaNivel3;
     private int contador = 0;
     private int  salto = 5,salto1 = 3;
     private int puntos, vidas, nuevoNivel;
+    private MediaPlayer mp, mpAcierto, mpFallo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_juego3);
+
+        //poner sonido ciclado
+        mp = MediaPlayer.create(this, R.raw.juego_puzzle);
+        mp.start();
+        mp.setLooping(true);
+        mpAcierto = MediaPlayer.create(this, R.raw.juego_acierto);
+        mpFallo = MediaPlayer.create(this, R.raw.juego_fallo);
+
+        group = findViewById(R.id.group);
 
         cargarViews();
 
@@ -89,69 +100,65 @@ public class Juego3Activity extends AppCompatActivity {
                         case 8:
                         case 13:
                             if(rbTres.isChecked()){
-                                Toast.makeText(Juego3Activity.this, "CORRECTA", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Juego3Activity.this, getResources().getText(R.string.correcta), Toast.LENGTH_SHORT).show();
+                                mpAcierto.start();
                                 puntos = puntos+4;
                                 gestionDatos();
-                                rbTres.setChecked(false);
                             }else{
-                                Toast.makeText(Juego3Activity.this, "INCORRECTA", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Juego3Activity.this, getResources().getText(R.string.incorrecta), Toast.LENGTH_SHORT).show();
+                                mpFallo.start();
                                 vidas--;
                                 gestionDatos();
-                                rbUno.setChecked(false);
-                                rbDos.setChecked(false);
-                                rbCuatro.setChecked(false);
                             }
+                            group.clearCheck();
                             break;
                         case 9:
                         case 11:
                             if(rbUno.isChecked()){
-                                Toast.makeText(Juego3Activity.this, "CORRECTA", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Juego3Activity.this,  getResources().getText(R.string.correcta), Toast.LENGTH_SHORT).show();
+                                mpAcierto.start();
                                 puntos = puntos+4;
                                 gestionDatos();
-                                rbUno.setChecked(false);
                             }else{
-                                Toast.makeText(Juego3Activity.this, "INCORRECTA", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Juego3Activity.this, getResources().getText(R.string.incorrecta), Toast.LENGTH_SHORT).show();
+                                mpFallo.start();
                                 vidas--;
                                 gestionDatos();
-                                rbDos.setChecked(false);
-                                rbTres.setChecked(false);
-                                rbCuatro.setChecked(false);
                             }
+                            group.clearCheck();
                             break;
                         case 3:
                         case 6:
                         case 7:
                         case 10:
                             if(rbDos.isChecked()){
-                                Toast.makeText(Juego3Activity.this, "CORRECTA", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Juego3Activity.this,  getResources().getText(R.string.correcta), Toast.LENGTH_SHORT).show();
+                                mpAcierto.start();
                                 puntos = puntos+4;
                                 gestionDatos();
-                                rbDos.setChecked(false);
                             }else{
-                                Toast.makeText(Juego3Activity.this, "INCORRECTA", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Juego3Activity.this, getResources().getText(R.string.incorrecta), Toast.LENGTH_SHORT).show();
+                                mpFallo.start();
                                 vidas--;
                                 gestionDatos();
-                                rbUno.setChecked(false);
-                                rbTres.setChecked(false);
-                                rbCuatro.setChecked(false);
                             }
+                            group.clearCheck();
                             break;
                         case 4:
                         case 5:
                         case 12:
                             if(rbCuatro.isChecked()){
-                                Toast.makeText(Juego3Activity.this, "CORRECTA", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Juego3Activity.this,  getResources().getText(R.string.correcta), Toast.LENGTH_SHORT).show();
+                                mpAcierto.start();
                                 puntos = puntos+4;
                                 gestionDatos();
-                                rbCuatro.setChecked(false);
                             }else{
-                                Toast.makeText(Juego3Activity.this, "INCORRECTA", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Juego3Activity.this, getResources().getText(R.string.incorrecta), Toast.LENGTH_SHORT).show();
+                                mpFallo.start();
                                 vidas--;
                                 gestionDatos();
-                                rbUno.setChecked(false);
-                                rbDos.setChecked(false);
-                                rbTres.setChecked(false);
                             }
+                            group.clearCheck();
                             break;
                     }
                 }
@@ -179,14 +186,14 @@ public class Juego3Activity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(user != null){
                     etNombre.setText(user.getDisplayName());
-                    etPuntos.setText(dataSnapshot.child("puntos").getValue().toString());
-                    puntos = Integer.parseInt(dataSnapshot.child("puntos").getValue().toString());
-                    nivel = dataSnapshot.child("nivel").getValue().toString();
+                    etPuntos.setText(dataSnapshot.child((String) getResources().getText(R.string.puntos)).getValue().toString());
+                    puntos = Integer.parseInt(dataSnapshot.child((String) getResources().getText(R.string.puntos)).getValue().toString());
+                    nivel = dataSnapshot.child((String) getResources().getText(R.string.nivel)).getValue().toString();
                 }
                 if (dataSnapshot.exists()){
                     etNombre.setText(dataSnapshot.child((String) getResources().getText(R.string.nombre)).getValue().toString());
-                    etPuntos.setText(dataSnapshot.child("puntos").getValue().toString());
-                    String vida = dataSnapshot.child("vidas").getValue().toString();
+                    etPuntos.setText(dataSnapshot.child((String) getResources().getText(R.string.puntos)).getValue().toString());
+                    String vida = dataSnapshot.child((String) getResources().getText(R.string.vidas)).getValue().toString();
                     if(vida.equalsIgnoreCase("1")){
                         ivVidas.setImageResource(R.drawable.una_vida1);
                         vidas = 1;
@@ -197,27 +204,27 @@ public class Juego3Activity extends AppCompatActivity {
                         ivVidas.setImageResource(R.drawable.tres_vidas);
                         vidas = 3;
                     }
-                    nivel = dataSnapshot.child("nivel").getValue().toString();
+                    nivel = dataSnapshot.child((String) getResources().getText(R.string.nivel)).getValue().toString();
                 }
-                etNivel.setText("NIVEL " + nivel);
+                etNivel.setText(getResources().getText(R.string.nivel_tipo2) + " " + nivel);
                 //Toast.makeText(JuegoActivity.this, "Estas en el nivel "+nivel, Toast.LENGTH_SHORT).show();
 
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(Juego3Activity.this, "No se ha podido acceder a los datos", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Juego3Activity.this, getResources().getText(R.string.no_acceso_datos), Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     private void obtenerPreguntas(){
-        miBD.child("Preguntas").addValueEventListener(new ValueEventListener() {
+        miBD.child((String) getResources().getText(R.string.preguntas)).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists()){
                     //extraccion de los datos
-                    for (DataSnapshot ds : dataSnapshot.child("nivel3").getChildren()){
+                    for (DataSnapshot ds : dataSnapshot.child((String) getResources().getText(R.string.n3)).getChildren()){
                         pregunta = ds.getValue().toString();
                         listaNivel3.add(pregunta);
                     }
@@ -243,7 +250,7 @@ public class Juego3Activity extends AppCompatActivity {
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(Juego3Activity.this, "No se ha podido acceder a los datos", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Juego3Activity.this, getResources().getText(R.string.no_acceso_datos), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -254,9 +261,9 @@ public class Juego3Activity extends AppCompatActivity {
 
         if(vidas == 0){
             //mandar un mensaje permanente para informar de que ha perdido, quitar toast
-            Toast.makeText(Juego3Activity.this, "HAS PERDIDO, INTENTALO OTRA VEZ", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Juego3Activity.this, getResources().getText(R.string.perder), Toast.LENGTH_SHORT).show();
             actualizarDatosUsuario(0, 3, 1);
-
+            pararMusica();
             startActivity(new Intent(Juego3Activity.this, PerderActivity.class));
             finish();
 
@@ -266,7 +273,8 @@ public class Juego3Activity extends AppCompatActivity {
             salto = 5;
             nuevoNivel = 4;
             actualizarDatosUsuario(puntos, vidas, nuevoNivel);
-            Toast.makeText(Juego3Activity.this, "PASAS DE NIVEL, ENHORABUENA!!!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Juego3Activity.this, getResources().getText(R.string.ganar), Toast.LENGTH_SHORT).show();
+            pararMusica();
             startActivity(new Intent(Juego3Activity.this, Juego4Activity.class));
             finish();
         }
@@ -279,11 +287,11 @@ public class Juego3Activity extends AppCompatActivity {
         //actualizar datos
         String id = miAuth.getCurrentUser().getUid();
         Map<String, Object> map = new HashMap<>();
-        map.put("puntos", puntos);
-        map.put("vidas", vidas);
-        map.put("nivel", nuevoNivel);
+        map.put((String) getResources().getText(R.string.puntos), puntos);
+        map.put((String)getResources().getText(R.string.vidas), vidas);
+        map.put((String)getResources().getText(R.string.nivel), nuevoNivel);
 
-        miBD.child("Usuarios").child(id).updateChildren(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+        miBD.child((String)getResources().getText(R.string.usuarios)).child(id).updateChildren(map).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
                 //Log.d("ACTUALIZACIÓN DATOS", "OK");
@@ -292,13 +300,17 @@ public class Juego3Activity extends AppCompatActivity {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Log.d("ACTUALIZACIÓN DATOS", "ERROR");
+                //Log.d("ACTUALIZACIÓN DATOS", "ERROR");
             }
         });
     }
 
     @Override
     public void onBackPressed() {
+    }
+
+    private void pararMusica(){
+        mp.stop();
     }
 
 }

@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.dinoquestionandkids.menu.MenuActivity;
 import com.example.dinoquestionandkids.R;
 import com.example.dinoquestionandkids.informacion.InformacionActivity;
 import com.example.dinoquestionandkids.ui.main.SectionsPagerAdapter;
@@ -44,7 +45,9 @@ public class LineaTemporalActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //nos manda a un activity de informacion adicional
-                startActivity(new Intent(LineaTemporalActivity.this, InformacionActivity.class));
+                Intent i = new Intent(LineaTemporalActivity.this, InformacionActivity.class);
+                i.putExtra((String) getResources().getText(R.string.activity), getResources().getText(R.string.linea));
+                startActivity(i);
             }
         });
 
@@ -85,4 +88,10 @@ public class LineaTemporalActivity extends AppCompatActivity {
         }
     };
 
+    //anulación del boton de 'atras'
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(LineaTemporalActivity.this, MenuActivity.class));
+
+    }
 }

@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.dinoquestionandkids.MenuActivity;
+import com.example.dinoquestionandkids.menu.MenuActivity;
 import com.example.dinoquestionandkids.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -93,16 +93,16 @@ public class RegistroActivity extends AppCompatActivity {
                     Map<String, Object> map = new HashMap<>();
                     map.put((String)getResources().getText(R.string.nombre), nombre);
                     map.put((String)getResources().getText(R.string.correo), correo);
-                    map.put((String)getResources().getText(R.string.contraseña), contrasena);
-                    map.put((String)"puntos", puntos);
-                    map.put((String)"nivel", nivel);
-                    map.put((String)"vidas", vidas);
+                    map.put((String)getResources().getText(R.string.contrasena), contrasena);
+                    map.put((String)getResources().getText(R.string.puntos), puntos);
+                    map.put((String)getResources().getText(R.string.nivel), nivel);
+                    map.put((String)getResources().getText(R.string.vidas), vidas);
 
                     String id = miauth.getCurrentUser().getUid();
 
                     //usando el objeto creado antes de DatabaseReference, mandamos los datos a la base de datos
                     //creamos la rama de usuarios y guardamos los datos por separado
-                    miBD.child("Usuarios").child(id).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    miBD.child((String)getResources().getText(R.string.usuarios)).child(id).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task2) {
                             if(task2.isSuccessful()) {

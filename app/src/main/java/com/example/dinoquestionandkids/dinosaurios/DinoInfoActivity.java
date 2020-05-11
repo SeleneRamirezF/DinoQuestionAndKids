@@ -3,8 +3,10 @@ package com.example.dinoquestionandkids.dinosaurios;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.util.Log;
+import android.os.Handler;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,8 +18,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
 
 public class DinoInfoActivity extends AppCompatActivity {
 
@@ -38,6 +38,7 @@ public class DinoInfoActivity extends AppCompatActivity {
     private String texto9, textoLimpio9;
     private String texto10, textoLimpio10;
     private String texto11, textoLimpio11;
+    private MediaPlayer mp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +46,7 @@ public class DinoInfoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dinoinfo);
 
         Dinosaurios = FirebaseDatabase.getInstance().getReference();
-        posicion = getIntent().getStringExtra("posicion");
+        posicion = getIntent().getStringExtra(getResources().getString(R.string.pos));
 
         cargarViews();
         cargarDinosauriosDatabase();
@@ -56,6 +57,57 @@ public class DinoInfoActivity extends AppCompatActivity {
 
         tvNombreDino.setKeyListener(null);
         etDescripcionDino.setFocusable(false);
+
+        ivDino.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //eleccion de los sonidos que se tienen que escuchar
+                if(posicion.equalsIgnoreCase("0")){
+                    mp = MediaPlayer.create(DinoInfoActivity.this, R.raw.ankylosaurus);
+                    mp.start();
+                }else if(posicion.equalsIgnoreCase("1")){
+                    mp = MediaPlayer.create(DinoInfoActivity.this, R.raw.carnotaurus);
+                    mp.start();
+                }else if(posicion.equalsIgnoreCase("2")){
+                    mp = MediaPlayer.create(DinoInfoActivity.this, R.raw.compsognathus);
+                    mp.start();
+                }else if(posicion.equalsIgnoreCase("3")){
+                    mp = MediaPlayer.create(DinoInfoActivity.this, R.raw.diplodocus);
+                    mp.start();
+                }else if(posicion.equalsIgnoreCase("4")){
+                    mp = MediaPlayer.create(DinoInfoActivity.this, R.raw.iguanodon);
+                    mp.start();
+                }else if(posicion.equalsIgnoreCase("5")){
+                    mp = MediaPlayer.create(DinoInfoActivity.this, R.raw.microraptor);
+                    mp.start();
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            mp.stop();
+                        }
+                    }, 1250);
+                }else if(posicion.equalsIgnoreCase("6")){
+                    mp = MediaPlayer.create(DinoInfoActivity.this, R.raw.ornithomimus);
+                    mp.start();
+                }else if(posicion.equalsIgnoreCase("7")){
+                    mp = MediaPlayer.create(DinoInfoActivity.this, R.raw.pterodactylus);
+                    mp.start();
+                }else if(posicion.equalsIgnoreCase("8")){
+                    mp = MediaPlayer.create(DinoInfoActivity.this, R.raw.stegosaurus);
+                    mp.start();
+                }else if(posicion.equalsIgnoreCase("9")){
+                    mp = MediaPlayer.create(DinoInfoActivity.this, R.raw.triceratops);
+                    mp.start();
+                }else if(posicion.equalsIgnoreCase("10")){
+                    mp = MediaPlayer.create(DinoInfoActivity.this, R.raw.tyrannosaurus_rex);
+                    mp.start();
+                }else if(posicion.equalsIgnoreCase("11")){
+                    mp = MediaPlayer.create(DinoInfoActivity.this, R.raw.velociraptor);
+                    mp.start();
+                }
+
+            }
+        });
     }
 
     private void cargarViews(){
@@ -65,57 +117,57 @@ public class DinoInfoActivity extends AppCompatActivity {
     }
 
     private void cargarDinosauriosDatabase(){
-        Dinosaurios.child("Dinosaurios").addValueEventListener(new ValueEventListener() {
+        Dinosaurios.child(getResources().getString(R.string.dinos)).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists()){
                     //extraccion de los datos
-                    texto0 = dataSnapshot.child("Ankylosaurus").getKey();
-                    texto00 = dataSnapshot.child("Ankylosaurus").getValue().toString();
+                    texto0 = dataSnapshot.child(getResources().getString(R.string.anky)).getKey();
+                    texto00 = dataSnapshot.child(getResources().getString(R.string.anky)).getValue().toString();
                     textoLimpio0 = texto00.substring(6, texto00.length()-1);
 
-                    texto1 = dataSnapshot.child("Carnotaurus").getKey();
-                    texto00 = dataSnapshot.child("Carnotaurus").getValue().toString();
+                    texto1 = dataSnapshot.child(getResources().getString(R.string.carno)).getKey();
+                    texto00 = dataSnapshot.child(getResources().getString(R.string.carno)).getValue().toString();
                     textoLimpio1 = texto00.substring(6, texto00.length()-1);
 
-                    texto2 = dataSnapshot.child("Compsognathus").getKey();
-                    texto00 = dataSnapshot.child("Compsognathus").getValue().toString();
+                    texto2 = dataSnapshot.child(getResources().getString(R.string.compso)).getKey();
+                    texto00 = dataSnapshot.child(getResources().getString(R.string.compso)).getValue().toString();
                     textoLimpio2 = texto00.substring(6, texto00.length()-1);
 
-                    texto3 = dataSnapshot.child("Diplodocus").getKey();
-                    texto00 = dataSnapshot.child("Diplodocus").getValue().toString();
+                    texto3 = dataSnapshot.child(getResources().getString(R.string.diplo)).getKey();
+                    texto00 = dataSnapshot.child(getResources().getString(R.string.diplo)).getValue().toString();
                     textoLimpio3 = texto00.substring(6, texto00.length()-1);
 
-                    texto4 = dataSnapshot.child("Iguanodon").getKey();
-                    texto00 = dataSnapshot.child("Iguanodon").getValue().toString();
+                    texto4 = dataSnapshot.child(getResources().getString(R.string.igua)).getKey();
+                    texto00 = dataSnapshot.child(getResources().getString(R.string.igua)).getValue().toString();
                     textoLimpio4 = texto00.substring(6, texto00.length()-1);
 
-                    texto5 = dataSnapshot.child("Microraptor").getKey();
-                    texto00 = dataSnapshot.child("Microraptor").getValue().toString();
+                    texto5 = dataSnapshot.child(getResources().getString(R.string.micro)).getKey();
+                    texto00 = dataSnapshot.child(getResources().getString(R.string.micro)).getValue().toString();
                     textoLimpio5 = texto00.substring(6, texto00.length()-1);
 
-                    texto6 = dataSnapshot.child("Ornithomimus").getKey();
-                    texto00 = dataSnapshot.child("Ornithomimus").getValue().toString();
+                    texto6 = dataSnapshot.child(getResources().getString(R.string.orni)).getKey();
+                    texto00 = dataSnapshot.child(getResources().getString(R.string.orni)).getValue().toString();
                     textoLimpio6 = texto00.substring(6, texto00.length()-1);
 
-                    texto7 = dataSnapshot.child("Pterodactylus").getKey();
-                    texto00 = dataSnapshot.child("Pterodactylus").getValue().toString();
+                    texto7 = dataSnapshot.child(getResources().getString(R.string.ptero)).getKey();
+                    texto00 = dataSnapshot.child(getResources().getString(R.string.ptero)).getValue().toString();
                     textoLimpio7 = texto00.substring(6, texto00.length()-1);
 
-                    texto8 = dataSnapshot.child("Stegosaurus").getKey();
-                    texto00 = dataSnapshot.child("Stegosaurus").getValue().toString();
+                    texto8 = dataSnapshot.child(getResources().getString(R.string.stego)).getKey();
+                    texto00 = dataSnapshot.child(getResources().getString(R.string.stego)).getValue().toString();
                     textoLimpio8 = texto00.substring(6, texto00.length()-1);
 
-                    texto9 = dataSnapshot.child("Triceratops").getKey();
-                    texto00 = dataSnapshot.child("Triceratops").getValue().toString();
+                    texto9 = dataSnapshot.child(getResources().getString(R.string.trice)).getKey();
+                    texto00 = dataSnapshot.child(getResources().getString(R.string.trice)).getValue().toString();
                     textoLimpio9 = texto00.substring(6, texto00.length()-1);
 
-                    texto10 = dataSnapshot.child("Tyrannosaurus Rex").getKey();
-                    texto00 = dataSnapshot.child("Tyrannosaurus Rex").getValue().toString();
+                    texto10 = dataSnapshot.child(getResources().getString(R.string.tyra)).getKey();
+                    texto00 = dataSnapshot.child(getResources().getString(R.string.tyra)).getValue().toString();
                     textoLimpio10 = texto00.substring(6, texto00.length()-1);
 
-                    texto11 = dataSnapshot.child("Velociraptor").getKey();
-                    texto00 = dataSnapshot.child("Velociraptor").getValue().toString();
+                    texto11 = dataSnapshot.child(getResources().getString(R.string.velo)).getKey();
+                    texto00 = dataSnapshot.child(getResources().getString(R.string.velo)).getValue().toString();
                     textoLimpio11 = texto00.substring(6, texto00.length()-1);
 
                     //eleccion de los datos que se tienen que mostrar
@@ -173,7 +225,7 @@ public class DinoInfoActivity extends AppCompatActivity {
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(DinoInfoActivity.this, "No se ha podido acceder a los datos", Toast.LENGTH_SHORT).show();
+                Toast.makeText(DinoInfoActivity.this, getResources().getString(R.string.no_acceso_datos), Toast.LENGTH_SHORT).show();
             }
         });
     }
