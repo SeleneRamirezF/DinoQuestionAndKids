@@ -9,13 +9,16 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.emmanuelkehinde.shutdown.Shutdown;
 import com.example.dinoquestionandkids.inicio.MainActivity;
 import com.example.dinoquestionandkids.R;
 import com.example.dinoquestionandkids.dinosaurios.DinosauriosActivity;
@@ -41,6 +44,7 @@ public class MenuActivity extends AppCompatActivity {
     private FirebaseUser user;
     private MediaPlayer mp;
     private Toolbar toolbar;
+    private int cont = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -156,9 +160,24 @@ public class MenuActivity extends AppCompatActivity {
     private void pararMusica(){
         mp.stop();
     }
-    //anulación del boton de 'atras'
+
+    //acciones del boton de 'atras'
     @Override
     public void onBackPressed() {
+        /*
+        if(cont == 1){
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    pararMusica();
+                    MenuActivity.super.onDestroy();
+                }
+            }, 500);
+        }else {
+            Toast.makeText(MenuActivity.this, getResources().getText(R.string.salir_ono), Toast.LENGTH_SHORT).show();
+            cont = 1;
+        }
+         */
     }
 
     @Override
@@ -215,6 +234,5 @@ public class MenuActivity extends AppCompatActivity {
                 .setCancelable(false)
                 .show();
     }
-
 
 }
