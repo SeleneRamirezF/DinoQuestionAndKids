@@ -16,13 +16,13 @@ import java.util.Random;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.dinoquestionandkids.BaseActivity;
 import com.example.dinoquestionandkids.R;
 
 
-public class Puzzle2Activity extends AppCompatActivity {
+public class Puzzle2Activity extends BaseActivity {
 
     private static GestureDetectGridView miGridView;
-
     private static final int COLUMNAS = 3;
     private static final int DIMENSIONES = COLUMNAS * COLUMNAS;
     private static int anchoColumna, altoColumna;
@@ -39,6 +39,8 @@ public class Puzzle2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_puzzle2);
 
+        pantallaCompleta();
+
         mp = MediaPlayer.create(this, R.raw.juego_puzzle);
         mp.start();
         n = getIntent().getIntExtra((String)getResources().getText(R.string.boton), -1);
@@ -52,7 +54,6 @@ public class Puzzle2Activity extends AppCompatActivity {
         setDimensiones();
         comprobarSiResuelto();
     }
-
     private void inicio() {
         miGridView = (GestureDetectGridView) findViewById(R.id.grid);
         miGridView.setNumColumns(COLUMNAS);
@@ -61,7 +62,6 @@ public class Puzzle2Activity extends AppCompatActivity {
             listaPiezas[i] = String.valueOf(i);
         }
     }
-
     private void colocacionPiezas() {
         int indice;
         String cadenaTemp;
@@ -73,7 +73,6 @@ public class Puzzle2Activity extends AppCompatActivity {
             listaPiezas[i] = cadenaTemp;
         }
     }
-
     private void setDimensiones() {
         ViewTreeObserver vto = miGridView.getViewTreeObserver();
         vto.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
@@ -307,7 +306,6 @@ public class Puzzle2Activity extends AppCompatActivity {
             else intercambioPiezas(context, posicion, COLUMNAS);
         }
     }
-
     private static boolean resuelto() {
         boolean resuelto = false;
         for(int i = 0; i < listaPiezas.length; i++){
@@ -317,16 +315,13 @@ public class Puzzle2Activity extends AppCompatActivity {
                 resuelto = false;
                 break;
             }
-        }
-        return resuelto;
+        }return resuelto;
     }
-
     @Override
     public void onBackPressed() {
         mp.stop();
         startActivity(new Intent(Puzzle2Activity.this, PuzzleActivity.class));
     }
-
     private void mostrasDialogo(){
         AlertDialog.Builder builder = new AlertDialog.Builder(Puzzle2Activity.this);
         builder.setTitle(getResources().getText(R.string.puzzle_fin));
@@ -341,16 +336,12 @@ public class Puzzle2Activity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 Toast.makeText(Puzzle2Activity.this, getResources().getText(R.string.puzzle_disfruta), Toast.LENGTH_SHORT).show();
             }
-        })
-                .setCancelable(false)
-                .show();
+        }).setCancelable(false).show();
     }
-
     public void comprobarSiResuelto(){
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             public void run() {
-                // acciones que se ejecutan tras los milisegundos
                 if(resuelto()){
                     mostrasDialogo();
                 }else{
@@ -359,5 +350,4 @@ public class Puzzle2Activity extends AppCompatActivity {
             }
         }, 1000);
     }
-
 }

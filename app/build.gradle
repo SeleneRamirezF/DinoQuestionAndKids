@@ -30,15 +30,14 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:17.0.0'
     implementation 'com.google.firebase:firebase-database:18.0.0'
     implementation 'com.google.firebase:firebase-auth:18.0.0'
-
     //para servicio de google para verificacion de cuentas
     implementation 'com.firebaseui:firebase-ui-auth:6.2.1'
-
     //para el uso de gif en el proyecto
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.1.17'
-
     //para el uso del zoom
     implementation 'com.github.chrisbanes:PhotoView:2.1.0'
+    //para la opcion de no cerrar la app a la primera
+    implementation 'com.emmanuelkehinde:shutdown:1.0.1'
 
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'

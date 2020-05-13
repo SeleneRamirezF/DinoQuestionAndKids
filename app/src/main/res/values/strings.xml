@@ -114,6 +114,7 @@
     <string name="compartir">Compartir</string>
     <string name="listo">Listo</string>
     <string name="info_puzzle">Arrastra las piezas hasta que se forme la imagen</string>
+    <string name="salir_ono">Pulse ota vez para cerrar</string>
 
 
 </resources>

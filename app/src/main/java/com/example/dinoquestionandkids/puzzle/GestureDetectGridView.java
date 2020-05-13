@@ -80,7 +80,6 @@ public class GestureDetectGridView extends GridView {
     public boolean onInterceptTouchEvent(MotionEvent ev) {
         int accion = ev.getActionMasked();
         miGestureDetector.onTouchEvent(ev);
-
         if (accion == MotionEvent.ACTION_CANCEL || accion == MotionEvent.ACTION_UP) {
             movimientoConfirmado = false;
         } else if (accion == MotionEvent.ACTION_DOWN) {

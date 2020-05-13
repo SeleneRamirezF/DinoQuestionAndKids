@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.emmanuelkehinde.shutdown.Shutdown;
 import com.example.dinoquestionandkids.R;
 import com.example.dinoquestionandkids.menu.MenuActivity;
 import com.firebase.ui.auth.AuthUI;
@@ -121,6 +122,7 @@ public class MainActivity extends AppCompatActivity {
     //anulación del boton de 'atras'
     @Override
     public void onBackPressed() {
+        Shutdown.now(this,R.string.salir_ono);
     }
 
 }
