@@ -7,11 +7,11 @@ import android.widget.Button;
 
 import java.util.ArrayList;
 
-public class CustomAdapter extends BaseAdapter {
+public class PuzzleAdapter extends BaseAdapter {
     private ArrayList<Button> misBotones = null;
     private int anchoColumnas, altoColumnas;
 
-    public CustomAdapter(ArrayList<Button> botones, int anchoColumnas, int altoColumnas) {
+    public PuzzleAdapter(ArrayList<Button> botones, int anchoColumnas, int altoColumnas) {
         misBotones = botones;
         this.anchoColumnas = anchoColumnas;
         this.altoColumnas = altoColumnas;

@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.dinoquestionandkids.BaseActivity;
 import com.example.dinoquestionandkids.R;
@@ -22,7 +21,7 @@ import com.example.dinoquestionandkids.R;
 
 public class Puzzle2Activity extends BaseActivity {
 
-    private static GestureDetectGridView miGridView;
+    private static DetectarGestosGridView miGridView;
     private static final int COLUMNAS = 3;
     private static final int DIMENSIONES = COLUMNAS * COLUMNAS;
     private static int anchoColumna, altoColumna;
@@ -43,6 +42,7 @@ public class Puzzle2Activity extends BaseActivity {
 
         mp = MediaPlayer.create(this, R.raw.juego_puzzle);
         mp.start();
+
         n = getIntent().getIntExtra((String)getResources().getText(R.string.boton), -1);
 
         //poner icono en el actionbar
@@ -55,7 +55,7 @@ public class Puzzle2Activity extends BaseActivity {
         comprobarSiResuelto();
     }
     private void inicio() {
-        miGridView = (GestureDetectGridView) findViewById(R.id.grid);
+        miGridView = (DetectarGestosGridView) findViewById(R.id.grid);
         miGridView.setNumColumns(COLUMNAS);
         listaPiezas = new String[DIMENSIONES];
         for (int i = 0; i < DIMENSIONES; i++) {
@@ -242,7 +242,7 @@ public class Puzzle2Activity extends BaseActivity {
                 botones.add(boton);
             }
         }
-        miGridView.setAdapter(new CustomAdapter(botones, anchoColumna, altoColumna));
+        miGridView.setAdapter(new PuzzleAdapter(botones, anchoColumna, altoColumna));
     }
 
     private static void intercambioPiezas(Context context, int posicionActual, int intercambio) {

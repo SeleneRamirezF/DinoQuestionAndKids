@@ -32,7 +32,7 @@ public class JuegoActivity extends AppCompatActivity {
     private Button btnComenzarJuego, btnInfo, btnSonido;
     private MediaPlayer mp;
     private int contador = 0;
-    private int contador2 = (int)(Math.random()*4+1);
+    private int contador2 = (int)(Math.random()*5+1);
     private ImageView imagen;
 
     @Override
@@ -48,7 +48,6 @@ public class JuegoActivity extends AppCompatActivity {
         //poner imagen
         imagen = findViewById(R.id.imagen);
         ponerImagen();
-
 
         miAuth = FirebaseAuth.getInstance();
         miBD = FirebaseDatabase.getInstance().getReference();
@@ -130,9 +129,11 @@ public class JuegoActivity extends AppCompatActivity {
         }else if (contador2 == 2){
             imagen.setImageResource(R.drawable.tyrannosaurusrex);
         }else if (contador2 == 3){
-            imagen.setImageResource(R.drawable.ornithomimus);
+            imagen.setImageResource(R.drawable.iguanodon);
         }else if (contador2 == 4){
             imagen.setImageResource(R.drawable.microraptor);
+        }else if (contador2 == 5){
+            imagen.setImageResource(R.drawable.carnotaurus);
         }
     }
 

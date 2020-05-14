@@ -58,6 +58,7 @@ public class MenuActivity extends AppCompatActivity {
 
         cargarViews();
 
+        //menu barra superior
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -65,6 +66,7 @@ public class MenuActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.drawable.icono_barra);
 
+        //inicializacion variables base de datos
         miAuth = FirebaseAuth.getInstance();
         miBD = FirebaseDatabase.getInstance().getReference();
         user = FirebaseAuth.getInstance().getCurrentUser();
@@ -162,24 +164,25 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     //acciones del boton de 'atras'
+    private boolean canExitApp = false;
     @Override
     public void onBackPressed() {
-        /*
-        if(cont == 1){
+        if (!canExitApp) {
+            canExitApp = true;
+            Toast.makeText(this, "Pulse otra vez para salir", Toast.LENGTH_SHORT).show();
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    pararMusica();
-                    MenuActivity.super.onDestroy();
+                    canExitApp = false;
                 }
-            }, 500);
-        }else {
-            Toast.makeText(MenuActivity.this, getResources().getText(R.string.salir_ono), Toast.LENGTH_SHORT).show();
-            cont = 1;
+            }, 2000);
+        } else {
+            super.onBackPressed();
         }
-         */
     }
 
+
+    //metodos para crear y usar la barra superior para opciones
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflar el menú, esto agrega elementos a la barra de acción si está presente.
@@ -189,24 +192,20 @@ public class MenuActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Maneja los elementos de la barra de acción haciendo clic aquí
-        // La barra de acción maneja automáticamente los clics en el botón Inicio / Arriba,
-        // tanto tiempo al especificar una actividad principal en AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.ajustes) {
             mostrarDialogo();
         }
         if (id == R.id.acercade) {
             startActivity(new Intent(MenuActivity.this, AcercadeActivity.class));
-            //Toast.makeText(MenuActivity.this, "Acerca de ...", Toast.LENGTH_SHORT).show();
         }
         if(id == R.id.compartir){
             try {
                 Intent i = new Intent(Intent.ACTION_SEND);
                 i.setType("text/plain");
                 i.putExtra(Intent.EXTRA_SUBJECT,getResources().getString(R.string.app_name));
-                String aux = (String) getResources().getText(R.string.descarga_url);
-                //direccion de prueba
+                String aux = (String) getResources().getText(R.string.descarga);
+                //direccion de prueba TODO
                 aux = aux + getResources().getText(R.string.descarga_url);
                 i.putExtra(Intent.EXTRA_TEXT, aux);
                 startActivity(i);
@@ -217,6 +216,7 @@ public class MenuActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    //crear dialogo
     private void mostrarDialogo(){
         final AlertDialog.Builder builder = new AlertDialog.Builder(MenuActivity.this);
         builder.setTitle(getResources().getText(R.string.pregunta_sonido));

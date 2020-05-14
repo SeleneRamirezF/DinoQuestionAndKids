@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -119,10 +120,22 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    //anulación del boton de 'atras'
+    //acciones del boton de 'atras'
+    private boolean canExitApp = false;
     @Override
     public void onBackPressed() {
-        Shutdown.now(this,R.string.salir_ono);
+        if (!canExitApp) {
+            canExitApp = true;
+            Toast.makeText(this, "Pulse otra vez para salir", Toast.LENGTH_SHORT).show();
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    canExitApp = false;
+                }
+            }, 2000);
+        } else {
+            super.onBackPressed();
+        }
     }
 
 }

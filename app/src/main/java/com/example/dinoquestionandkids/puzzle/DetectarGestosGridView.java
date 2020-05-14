@@ -8,7 +8,7 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.widget.GridView;
 
-public class GestureDetectGridView extends GridView {
+public class DetectarGestosGridView extends GridView {
     private GestureDetector miGestureDetector;
     private boolean movimientoConfirmado = false;
     private float pulsarX;
@@ -18,24 +18,24 @@ public class GestureDetectGridView extends GridView {
     private static final int DISTANCIA_MAXIMA_PULSACION = 100;
     private static final int LIMITE_VELOCIDAD_PULSACION = 100;
 
-    public GestureDetectGridView(Context context) {
+    public DetectarGestosGridView(Context context) {
         super(context);
         inicio(context);
     }
 
-    public GestureDetectGridView(Context context, AttributeSet attrs) {
+    public DetectarGestosGridView(Context context, AttributeSet attrs) {
         super(context, attrs);
         inicio(context);
     }
 
-    public GestureDetectGridView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public DetectarGestosGridView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         inicio(context);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP) // API 21
-    public GestureDetectGridView(Context context, AttributeSet attrs, int defStyleAttr,
-                                 int defStyleRes) {
+    public DetectarGestosGridView(Context context, AttributeSet attrs, int defStyleAttr,
+                                  int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         inicio(context);
     }
@@ -49,7 +49,7 @@ public class GestureDetectGridView extends GridView {
 
             @Override
             public boolean onFling(MotionEvent e1, MotionEvent e2, float velocidadX, float velocidadY) {
-                final int posicion = GestureDetectGridView.this.pointToPosition
+                final int posicion = DetectarGestosGridView.this.pointToPosition
                         (Math.round(e1.getX()), Math.round(e1.getY()));
                 if (Math.abs(e1.getY() - e2.getY()) > DISTANCIA_MAXIMA_PULSACION) {
                     if (Math.abs(e1.getX() - e2.getX()) > DISTANCIA_MAXIMA_PULSACION
