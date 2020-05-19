@@ -28,7 +28,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center"
-        android:layout_marginHorizontal="17dp">
+        android:layout_marginHorizontal="@dimen/margen_interior_normal">
 
         <TextView
             android:id="@+id/tvBienvenido"
@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:text="@string/bienvenido"
             android:textAlignment="center"
-            android:textSize="43dp"
+            android:textSize="@dimen/letra_grande"
             android:textStyle="bold"
             android:textColor="@android:color/black"/>
 
@@ -45,7 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:textSize="20dp"
+            android:textSize="@dimen/letra_normal_peque"
             android:textStyle="bold"
             android:textColor="@android:color/black"/>
 
@@ -55,55 +55,55 @@
             android:layout_height="wrap_content"
             android:textColor="@android:color/black"
             android:textAlignment="center"
-            android:textSize="18sp" />
+            android:textSize="@dimen/letra_boton1" />
 
         <Button
             android:id="@+id/btn1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_margin="@dimen/margen"
             android:background="@drawable/boton_redondo2"
             android:text="@string/linea_temporal_menu"
             android:textColor="@android:color/white"
-            android:textSize="18dp" />
+            android:textSize="@dimen/letra_boton1" />
 
         <Button
             android:id="@+id/btn2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_margin="@dimen/margen"
             android:background="@drawable/boton_redondo2"
             android:text="@string/dinosaurios_menu"
             android:textColor="@android:color/white"
-            android:textSize="18dp" />
+            android:textSize="@dimen/letra_boton1" />
 
         <Button
             android:id="@+id/btn3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_margin="@dimen/margen"
             android:background="@drawable/boton_redondo2"
             android:text="@string/juego_menu"
             android:textColor="@android:color/white"
-            android:textSize="18dp" />
+            android:textSize="@dimen/letra_boton1" />
 
         <Button
             android:id="@+id/btn4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_margin="@dimen/margen"
             android:background="@drawable/boton_redondo2"
             android:text="@string/puzzle_menu"
             android:textColor="@android:color/white"
-            android:textSize="18dp" />
+            android:textSize="@dimen/letra_boton1" />
 
         <Button
             android:id="@+id/btnCerrarSesion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/cerrar_sesion"
-            android:layout_marginHorizontal="70dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginHorizontal="@dimen/margen_horizontal_grande"
+            android:layout_marginTop="@dimen/margen_superior_peque"
             android:background="@drawable/boton_redondo"
             android:textColor="@android:color/white"/>
 

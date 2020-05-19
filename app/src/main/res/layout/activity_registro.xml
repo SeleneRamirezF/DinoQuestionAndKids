@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="20dp"
+    android:padding="@dimen/margen_interior_normal1"
     android:background="@drawable/fondo"
     tools:context=".inicio.RegistroActivity">
 
@@ -13,31 +13,36 @@
         android:id="@+id/etNombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="@dimen/margen_superior_normal1"
         android:hint="@string/nombre_hint"
-        android:textSize="19dp"
-        android:textColor="@android:color/black"/>
+        android:textSize="@dimen/letra_boton"
+        android:textColor="@android:color/black"
+        android:background="@color/colorFondoTexto"
+        android:padding="@dimen/margen_interior_mini"/>
 
     <EditText
         android:id="@+id/etCorreo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="@dimen/margen_superior_peque"
         android:hint="@string/correo_hint"
-        android:textSize="19dp"
+        android:textSize="@dimen/letra_boton"
         android:inputType="textEmailAddress"
-        android:textColor="@android:color/black"/>
+        android:textColor="@android:color/black"
+        android:background="@color/colorFondoTexto"
+        android:padding="@dimen/margen_interior_mini"/>
 
     <EditText
         android:id="@+id/etContrasena"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="@dimen/margen_superior_peque"
         android:hint="@string/contrasena_hint"
-        android:textSize="19dp"
+        android:textSize="@dimen/letra_boton"
         android:inputType="textPassword"
         android:textColor="@android:color/black"
-        />
+        android:background="@color/colorFondoTexto"
+        android:padding="@dimen/margen_interior_mini"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -51,8 +56,8 @@
             android:layout_height="wrap_content"
             android:text="@string/registrarse"
             android:background="@drawable/boton_redondo2"
-            android:layout_marginBottom="75dp"
-            android:textSize="18dp"
+            android:layout_marginBottom="@dimen/margen_inferior_grande"
+            android:textSize="@dimen/letra_boton1"
             android:textColor="@android:color/white"/>
 
 

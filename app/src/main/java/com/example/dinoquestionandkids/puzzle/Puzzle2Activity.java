@@ -45,10 +45,6 @@ public class Puzzle2Activity extends BaseActivity {
 
         n = getIntent().getIntExtra((String)getResources().getText(R.string.boton), -1);
 
-        //poner icono en el actionbar
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
-
         inicio();
         colocacionPiezas();
         setDimensiones();

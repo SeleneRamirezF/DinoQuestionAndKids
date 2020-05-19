@@ -10,9 +10,6 @@
     <pl.droidsonroids.gif.GifImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/gif_inicio"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp"
-        tools:ignore="MissingConstraints" />
+        android:src="@drawable/gif_inicio" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

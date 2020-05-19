@@ -26,14 +26,14 @@
             android:layout_centerInParent="true"
             android:layout_centerHorizontal="true"
             android:orientation="horizontal"
-            android:padding="10dp" />
+            android:padding="@dimen/margen_interior_peque" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/btnInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="338dp"
-            android:layout_marginTop="75dp"
+            android:layout_marginStart="@dimen/margen_boton_flotante"
+            android:layout_marginTop="@dimen/margen_superior_grande"
             app:backgroundTint="@android:color/holo_red_dark"
             app:srcCompat="@drawable/historia_info" />
 

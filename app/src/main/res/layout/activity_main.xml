@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,11 +12,11 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:src="@drawable/icono_sin_fondo"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="@dimen/margen_superior_peque"/>
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="@dimen/ancho_texto_inicio"
         android:layout_gravity="center"
         android:src="@drawable/titulo_inicio_sin_fondo" />
 
@@ -25,9 +24,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginHorizontal="10dp"
+        android:layout_marginHorizontal="@dimen/margen_horizontal_peque"
         android:orientation="vertical"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="@dimen/margen_superior_peque">
 
         <Button
             android:id="@+id/btnAccesoLogin"
@@ -36,36 +35,34 @@
             android:background="@drawable/boton_redondo2"
             android:text="@string/inicio_sesion"
             android:textColor="@android:color/white"
-            android:textSize="19dp"
-            android:layout_marginHorizontal="25dp"/>
+            android:textSize="@dimen/letra_boton"
+            android:layout_marginHorizontal="@dimen/margen_horizontal_medio"/>
 
         <Button
             android:id="@+id/btnAccesoRegistro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="15dp"
+            android:layout_marginVertical="@dimen/margen_vertical_peque"
             android:background="@drawable/boton_redondo"
             android:text="@string/registrarse"
             android:textColor="@android:color/white"
-            android:textSize="19dp"
-            android:layout_marginHorizontal="25dp"/>
+            android:textSize="@dimen/letra_boton"
+            android:layout_marginHorizontal="@dimen/margen_horizontal_medio"/>
 
         <TextView
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:text="@string/invitado"
             android:textColor="@android:color/black"
-            android:layout_marginTop="10dp"
-            android:textStyle="bold"/>
+            android:layout_marginTop="@dimen/margen_superior_peque"
+            android:textStyle="bold"
+            android:layout_marginLeft="@dimen/margen_izquierdo1"/>
 
         <com.google.android.gms.common.SignInButton
             android:id="@+id/btnGoogle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"/>
-
-
+            android:layout_gravity="center"/>
     </LinearLayout>
 
 </LinearLayout>

@@ -5,4 +5,72 @@
     <dimen name="appbar_padding">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="appbar_padding_top">8dp</dimen>
+
+    <!--Margenes-->
+    <dimen name="margen">20dp</dimen>
+    <dimen name="margen_mini1">5dp</dimen>
+    <dimen name="margen_mini">8dp</dimen>
+    <dimen name="margen_izquierdo1">0dp</dimen>
+    <dimen name="margen_izquierdo">40dp</dimen>
+    <dimen name="margen_superior_mini1">10dp</dimen>
+    <dimen name="margen_superior_mini">15dp</dimen>
+    <dimen name="margen_superior_peque">20dp</dimen>
+    <dimen name="margen_superior_peque2">25dp</dimen>
+    <dimen name="margen_superior_normal">30dp</dimen>
+    <dimen name="margen_superior_normal1">40dp</dimen>
+    <dimen name="margen_superior_grande">75dp</dimen>
+    <dimen name="margen_superior_grande2">100dp</dimen>
+    <dimen name="margen_superior_grande3">300dp</dimen>
+    <dimen name="margen_horizontal_peque">10dp</dimen>
+    <dimen name="margen_horizontal_medio">25dp</dimen>
+    <dimen name="margen_horizontal_medio1">35dp</dimen>
+    <dimen name="margen_horizontal_medio2">40dp</dimen>
+    <dimen name="margen_horizontal_grande">70dp</dimen>
+    <dimen name="margen_vertical_peque1">2dp</dimen>
+    <dimen name="margen_vertical_peque">15dp</dimen>
+    <dimen name="margen_boton_flotante">338dp</dimen>
+    <dimen name="margen_inferior">25dp</dimen>
+    <dimen name="margen_inferior_grande">75dp</dimen>
+
+
+    <dimen name="margen_interior_mini">5dp</dimen>
+    <dimen name="margen_interior_peque">10dp</dimen>
+    <dimen name="margen_interior_normal">17dp</dimen>
+    <dimen name="margen_interior_normal1">20dp</dimen>
+    <dimen name="margen_interior_derecho">10dp</dimen>
+    <dimen name="margen_interior_izquierdo">15dp</dimen>
+    <dimen name="margen_interior_superior">30dp</dimen>
+    <dimen name="margen_interior_horizontal">15dp</dimen>
+    <dimen name="margen_interior_vertical">2dp</dimen>
+
+    <!--Anchos y altos-->
+    <dimen name="alto">30dp</dimen>
+    <dimen name="ancho">30dp</dimen>
+    <dimen name="ancho_volumen">55dp</dimen>
+    <dimen name="alto_puzzle">180dp</dimen>
+    <dimen name="ancho_puzzle">150dp</dimen>
+    <dimen name="alto_minimo">5dp</dimen>
+    <dimen name="ancho_texto_inicio">70dp</dimen>
+    <dimen name="ancho_lista_dino">180dp</dimen>
+    <dimen name="alto_lista_dino">220dp</dimen>
+    <dimen name="alto_imagen_historia">300dp</dimen>
+    <dimen name="ancho_vidas">70dp</dimen>
+    <dimen name="alto_vidas">21dp</dimen>
+    <dimen name="ancho_foto">172dp</dimen>
+    <dimen name="alto_foto">288dp</dimen>
+    <dimen name="anchoYalto_copa">400dp</dimen>
+
+    <!--Tamaño textos-->
+    <dimen name="letra_boton2">16dp</dimen>
+    <dimen name="letra_boton1">18dp</dimen>
+    <dimen name="letra_boton">19dp</dimen>
+    <dimen name="letra_normal_peque">20dp</dimen>
+    <dimen name="letra_normal">24dp</dimen>
+    <dimen name="letra_normal_medio">26dp</dimen>
+    <dimen name="letra_normal_grande">28dp</dimen>
+    <dimen name="letra_grande">43dp</dimen>
+
+    <!--otros-->
+    <dimen name="radio">10dp</dimen>
+
 </resources>

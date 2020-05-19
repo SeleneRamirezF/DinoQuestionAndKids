@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,7 +12,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center"
-        android:layout_marginTop="15dp">
+        android:layout_marginTop="@dimen/margen_superior_mini">
 
         <TextView
             android:id="@+id/textView6"
@@ -21,13 +20,13 @@
             android:layout_height="wrap_content"
             android:text="@string/elige_tu_puzzle"
             android:textColor="@android:color/black"
-            android:textSize="26sp"
+            android:textSize="@dimen/letra_normal_medio"
             android:textStyle="bold" />
 
         <Button
             android:id="@+id/info_puzzle"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="@dimen/ancho"
+            android:layout_height="@dimen/alto"
             android:background="@drawable/ic_info_puzzle" />
     </LinearLayout>
 
@@ -35,64 +34,64 @@
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="7dp">
+        android:layout_marginLeft="@dimen/margen_izquierdo"
+        android:layout_marginTop="@dimen/margen_mini">
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="5dp">
+            android:padding="@dimen/margen_mini1">
 
             <Button
                 android:id="@+id/btnPuzzle1"
-                android:layout_width="150dp"
-                android:layout_height="180dp"
+                android:layout_width="@dimen/ancho_puzzle"
+                android:layout_height="@dimen/alto_puzzle"
                 android:background="@drawable/diplo_puzzle" />
 
             <Button
                 android:id="@+id/btnPuzzle2"
-                android:layout_width="150dp"
-                android:layout_height="180dp"
+                android:layout_width="@dimen/ancho_puzzle"
+                android:layout_height="@dimen/alto_puzzle"
                 android:background="@drawable/stego_puzzle"
-                android:layout_marginLeft="8dp"/>
+                android:layout_marginLeft="@dimen/margen_mini"/>
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="5dp">
+            android:padding="@dimen/margen_mini1">
 
             <Button
                 android:id="@+id/btnPuzzle3"
-                android:layout_width="150dp"
-                android:layout_height="180dp"
+                android:layout_width="@dimen/ancho_puzzle"
+                android:layout_height="@dimen/alto_puzzle"
                 android:background="@drawable/raptor_puzzle" />
 
             <Button
                 android:id="@+id/btnPuzzle4"
-                android:layout_width="150dp"
-                android:layout_height="180dp"
+                android:layout_width="@dimen/ancho_puzzle"
+                android:layout_height="@dimen/alto_puzzle"
                 android:background="@drawable/trice_puzzle"
-                android:layout_marginLeft="8dp"/>
+                android:layout_marginLeft="@dimen/margen_mini"/>
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="5dp">
+            android:padding="@dimen/margen_mini1">
 
             <Button
                 android:id="@+id/btnPuzzle5"
-                android:layout_width="150dp"
-                android:layout_height="180dp"
+                android:layout_width="@dimen/ancho_puzzle"
+                android:layout_height="@dimen/alto_puzzle"
                 android:background="@drawable/diplo_puzzle2" />
 
             <Button
                 android:id="@+id/btnPuzzle6"
-                android:layout_width="150dp"
-                android:layout_height="180dp"
+                android:layout_width="@dimen/ancho_puzzle"
+                android:layout_height="@dimen/alto_puzzle"
                 android:background="@drawable/raptor_puzzle2"
-                android:layout_marginLeft="8dp"/>
+                android:layout_marginLeft="@dimen/margen_mini"/>
         </TableRow>
 
     </TableLayout>

@@ -11,8 +11,7 @@
         android:id="@+id/ivDino"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-         />
+        android:layout_gravity="center" />
 
     <TextView
         android:id="@+id/tvNombreDino"
@@ -21,7 +20,7 @@
         android:gravity="start|top"
         android:hint="Nombre"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="24sp"
+        android:textSize="@dimen/letra_normal_grande"
         android:textStyle="bold" />
 
     <EditText
@@ -29,7 +28,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="start|top"
-        android:hint="@string/descripcion"
+        android:background="@color/colorFondoTexto"
+        android:textStyle="bold"
+        android:text="@string/descripcion"
         android:inputType="textMultiLine"
         android:scrollbars="vertical"/>
 

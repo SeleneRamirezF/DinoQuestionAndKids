@@ -18,6 +18,10 @@ public class AcercadeActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_acercade);
 
+        //poner icono en el actionbar
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.drawable.icono_barra);
+
         fondo = findViewById(R.id.fondo);
         fondo.setOnClickListener(new View.OnClickListener() {
             @Override

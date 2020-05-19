@@ -68,7 +68,7 @@ public class Juego1Activity extends AppCompatActivity {
 
         //poner icono en el actionbar
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
+        getSupportActionBar().setIcon(R.drawable.icono_barra);
 
         miAuth = FirebaseAuth.getInstance();
         miBD = FirebaseDatabase.getInstance().getReference();

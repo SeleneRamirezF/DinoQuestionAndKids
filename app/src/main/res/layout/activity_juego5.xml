@@ -5,24 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingLeft="15dp"
-    android:paddingRight="10dp"
-    android:paddingTop="30dp"
+    android:paddingLeft="@dimen/margen_interior_izquierdo"
+    android:paddingRight="@dimen/margen_interior_derecho"
+    android:paddingTop="@dimen/margen_interior_superior"
     android:background="@drawable/fondo_preguntas"
     tools:context=".juego.Juego5Activity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/margen_superior_normal">
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="5dp"
+            android:padding="@dimen/margen_interior_mini"
             android:text="@string/nombre_juego"
-            android:textSize="18sp"
+            android:textSize="@dimen/letra_boton1"
             android:textStyle="bold"
             android:textColor="@android:color/black" />
 
@@ -42,9 +43,9 @@
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="5dp"
+            android:padding="@dimen/margen_interior_mini"
             android:text="@string/puntos_juego"
-            android:textSize="18sp"
+            android:textSize="@dimen/letra_boton1"
             android:textStyle="bold"
             android:textColor="@android:color/black" />
 
@@ -64,16 +65,16 @@
             android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="5dp"
+            android:padding="@dimen/margen_interior_mini"
             android:text="@string/vidas_juego"
-            android:textSize="18sp"
+            android:textSize="@dimen/letra_boton1"
             android:textStyle="bold"
             android:textColor="@android:color/black" />
 
         <ImageView
             android:id="@+id/ivVidas"
-            android:layout_width="70dp"
-            android:layout_height="21dp"
+            android:layout_width="@dimen/ancho_vidas"
+            android:layout_height="@dimen/alto_vidas"
             android:layout_gravity="center"
             app:srcCompat="@drawable/tres_vidas" />
 
@@ -83,23 +84,23 @@
         android:id="@+id/etNivel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="24sp"
+        android:textSize="@dimen/letra_normal"
         android:textStyle="bold"
         android:text="@string/nivel5_juego"
-        android:layout_marginTop="15dp"
-        android:textColor="@android:color/black" />
+        android:layout_marginTop="@dimen/margen_superior_mini"
+        android:textColor="@color/colorPrimaryDark" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp">
+        android:layout_marginTop="@dimen/margen_superior_peque2">
 
         <TextView
             android:id="@+id/tvPregunta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/preguntas_juego"
-            android:textSize="18sp"
+            android:textSize="@dimen/letra_boton1"
             android:textStyle="bold"
             android:textColor="@android:color/black" />
 
@@ -108,7 +109,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="@dimen/margen_superior_mini1">
 
         <RadioGroup
             android:id="@+id/group"
@@ -153,7 +154,7 @@
             android:layout_weight="1"
             android:text="@string/comprobar_juego"
             android:textColor="@android:color/white"
-            android:textSize="17dp"
+            android:textSize="@dimen/letra_boton1"
             android:background="@drawable/boton_redondo2"/>
     </LinearLayout>
 

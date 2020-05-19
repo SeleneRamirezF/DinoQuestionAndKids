@@ -9,10 +9,10 @@
     android:background="@drawable/fondo4">
 
     <ImageView
-        android:layout_width="400dp"
-        android:layout_height="400dp"
+        android:layout_width="@dimen/anchoYalto_copa"
+        android:layout_height="@dimen/anchoYalto_copa"
         android:src="@drawable/copa"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="@dimen/margen_superior_grande2"
         android:layout_gravity="center_horizontal" />
 
     <LinearLayout
@@ -28,9 +28,9 @@
         android:text="@string/has_ganado"
         android:textColor="@android:color/white"
         android:background="@drawable/boton_redondo2"
-        android:paddingHorizontal="15dp"
-        android:paddingVertical="2dp"
-        android:textSize="28dp"
+        android:paddingHorizontal="@dimen/margen_interior_horizontal"
+        android:paddingVertical="@dimen/margen_interior_vertical"
+        android:textSize="@dimen/letra_normal_grande"
         android:textStyle="bold"
         android:gravity="center_horizontal"
         android:typeface="serif"/>
