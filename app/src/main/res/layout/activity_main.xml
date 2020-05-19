@@ -54,7 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:text="@string/invitado"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@android:color/black"
             android:layout_marginTop="10dp"
             android:textStyle="bold"/>
 
