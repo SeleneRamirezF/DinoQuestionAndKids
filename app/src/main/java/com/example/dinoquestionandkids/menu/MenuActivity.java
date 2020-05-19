@@ -18,7 +18,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.emmanuelkehinde.shutdown.Shutdown;
 import com.example.dinoquestionandkids.inicio.MainActivity;
 import com.example.dinoquestionandkids.R;
 import com.example.dinoquestionandkids.dinosaurios.DinosauriosActivity;
@@ -44,7 +43,8 @@ public class MenuActivity extends AppCompatActivity {
     private FirebaseUser user;
     private MediaPlayer mp;
     private Toolbar toolbar;
-    private int cont = 0;
+    private boolean puedoSalirApp = false;
+    //private int cont = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +74,7 @@ public class MenuActivity extends AppCompatActivity {
         btnCerrarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pararMusica();
+                terminarMusica();
                 miAuth.signOut();
                 startActivity(new Intent(MenuActivity.this, MainActivity.class));
                 finish();
@@ -88,7 +88,7 @@ public class MenuActivity extends AppCompatActivity {
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pararMusica();
+                terminarMusica();
                 startActivity(new Intent(MenuActivity.this, LineaTemporalActivity.class));
             }
         });
@@ -96,7 +96,7 @@ public class MenuActivity extends AppCompatActivity {
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pararMusica();
+                terminarMusica();
                 startActivity(new Intent(MenuActivity.this, DinosauriosActivity.class));
             }
         });
@@ -104,7 +104,7 @@ public class MenuActivity extends AppCompatActivity {
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pararMusica();
+                terminarMusica();
                 startActivity(new Intent(MenuActivity.this, JuegoActivity.class));
             }
         });
@@ -112,7 +112,7 @@ public class MenuActivity extends AppCompatActivity {
         btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pararMusica();
+                terminarMusica();
                 startActivity(new Intent(MenuActivity.this, PuzzleActivity.class));
             }
         });
@@ -159,21 +159,20 @@ public class MenuActivity extends AppCompatActivity {
         });
     }
 
-    private void pararMusica(){
+    private void terminarMusica(){
         mp.stop();
     }
 
     //acciones del boton de 'atras'
-    private boolean canExitApp = false;
     @Override
     public void onBackPressed() {
-        if (!canExitApp) {
-            canExitApp = true;
+        if (!puedoSalirApp) {
+            puedoSalirApp = true;
             Toast.makeText(this, "Pulse otra vez para salir", Toast.LENGTH_SHORT).show();
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    canExitApp = false;
+                    puedoSalirApp = false;
                 }
             }, 2000);
         } else {
@@ -197,6 +196,7 @@ public class MenuActivity extends AppCompatActivity {
             mostrarDialogo();
         }
         if (id == R.id.acercade) {
+            terminarMusica();
             startActivity(new Intent(MenuActivity.this, AcercadeActivity.class));
         }
         if(id == R.id.compartir){
