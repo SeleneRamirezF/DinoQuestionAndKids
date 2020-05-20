@@ -34,7 +34,8 @@
             android:text="@string/jugar"
             android:textSize="@dimen/letra_normal_peque"
             android:textColor="@android:color/white"
-            android:background="@drawable/boton_redondo2"/>
+            android:background="@drawable/boton_redondo2"
+            android:layout_marginTop="@dimen/margen_superior_mini"/>
     </LinearLayout>
 
     <Button

@@ -14,8 +14,14 @@
         app:showAsAction="never" />
     <item
         android:id="@+id/compartir"
-        android:icon="@android:drawable/ic_menu_share"
+        android:icon="@drawable/ic_compartir"
         android:orderInCategory="10"
         android:title="@string/compartir"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/editarPerfil"
+        android:orderInCategory="10"
+        android:icon="@drawable/ic_perfil"
+        android:title="Editar Perfil"
         app:showAsAction="ifRoom" />
 </menu>

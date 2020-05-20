@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.dinoquestionandkids">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,35 +11,79 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".menu.AcercadeActivity" android:configChanges="screenSize|orientation"/>
+        <activity android:name=".PerfilActivity"></activity>
+        <activity
+            android:name=".menu.AcercadeActivity"
+            android:configChanges="screenSize|orientation" />
         <activity android:name=".puzzle.PuzzleActivity" />
-        <activity android:name=".puzzle.Puzzle2Activity" android:configChanges="screenSize|orientation"/>
-        <activity android:name=".juego.PerderActivity" android:configChanges="screenSize|orientation"/>
-        <activity android:name=".juego.GanarActivity" android:configChanges="screenSize|orientation"/>
-        <activity android:name=".juego.JuegoActivity" android:configChanges="screenSize|orientation"/>
-        <activity android:name=".juego.Juego6Activity" android:configChanges="screenSize|orientation"/>
-        <activity android:name=".juego.Juego5Activity" android:configChanges="screenSize|orientation"/>
-        <activity android:name=".juego.Juego4Activity" android:configChanges="screenSize|orientation"/>
-        <activity android:name=".juego.Juego3Activity" android:configChanges="screenSize|orientation"/>
-        <activity android:name=".juego.Juego2Activity" android:configChanges="screenSize|orientation"/>
-        <activity android:name=".dinosaurios.DinoInfoActivity" android:configChanges="screenSize|orientation"/>
-        <activity android:name=".inicio.RestablecerActivity" android:configChanges="screenSize|orientation"/>
-        <activity android:name=".informacion.InformacionActivity" android:configChanges="screenSize|orientation"/>
-        <activity android:name=".linea_temporal.LineaTemporalActivity" android:configChanges="screenSize|orientation" android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".juego.Juego1Activity" android:configChanges="screenSize|orientation"/>
+        <activity
+            android:name=".puzzle.Puzzle2Activity"
+            android:configChanges="screenSize|orientation" />
+        <activity
+            android:name=".juego.PerderActivity"
+            android:configChanges="screenSize|orientation" />
+        <activity
+            android:name=".juego.GanarActivity"
+            android:configChanges="screenSize|orientation" />
+        <activity
+            android:name=".juego.JuegoActivity"
+            android:configChanges="screenSize|orientation" />
+        <activity
+            android:name=".juego.Juego6Activity"
+            android:configChanges="screenSize|orientation" />
+        <activity
+            android:name=".juego.Juego5Activity"
+            android:configChanges="screenSize|orientation" />
+        <activity
+            android:name=".juego.Juego4Activity"
+            android:configChanges="screenSize|orientation" />
+        <activity
+            android:name=".juego.Juego3Activity"
+            android:configChanges="screenSize|orientation" />
+        <activity
+            android:name=".juego.Juego2Activity"
+            android:configChanges="screenSize|orientation" />
+        <activity
+            android:name=".dinosaurios.DinoInfoActivity"
+            android:configChanges="screenSize|orientation" />
+        <activity
+            android:name=".inicio.RestablecerActivity"
+            android:configChanges="screenSize|orientation" />
+        <activity
+            android:name=".informacion.InformacionActivity"
+            android:configChanges="screenSize|orientation" />
+        <activity
+            android:name=".linea_temporal.LineaTemporalActivity"
+            android:configChanges="screenSize|orientation"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".juego.Juego1Activity"
+            android:configChanges="screenSize|orientation" />
         <activity android:name=".dinosaurios.DinosauriosActivity" />
-        <activity android:name=".inicio.CargaActivity" android:configChanges="screenSize|orientation" android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity
+            android:name=".inicio.CargaActivity"
+            android:configChanges="screenSize|orientation"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".inicio.RegistroActivity" android:configChanges="screenSize|orientation"/>
-        <activity android:name=".inicio.LoginActivity" android:configChanges="screenSize|orientation"/>
-        <activity android:name=".menu.MenuActivity" android:configChanges="screenSize|orientation" android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".inicio.MainActivity" android:configChanges="screenSize|orientation" android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".inicio.RegistroActivity"
+            android:configChanges="screenSize|orientation" />
+        <activity
+            android:name=".inicio.LoginActivity"
+            android:configChanges="screenSize|orientation" />
+        <activity
+            android:name=".menu.MenuActivity"
+            android:configChanges="screenSize|orientation"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".inicio.MainActivity"
+            android:configChanges="screenSize|orientation"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>
-    <!--android:screenOrientation="fullSensor"-->
 
 </manifest>

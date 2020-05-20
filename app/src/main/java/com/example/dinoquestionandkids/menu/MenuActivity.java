@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.dinoquestionandkids.PerfilActivity;
 import com.example.dinoquestionandkids.inicio.MainActivity;
 import com.example.dinoquestionandkids.R;
 import com.example.dinoquestionandkids.dinosaurios.DinosauriosActivity;
@@ -212,6 +213,10 @@ public class MenuActivity extends AppCompatActivity {
             }catch(Exception e){
                 Log.d((String) getResources().getText(R.string.error),e.getMessage());
             }
+        }
+        if(id == R.id.editarPerfil){
+            mp.stop();
+            startActivity(new Intent(MenuActivity.this, PerfilActivity.class));
         }
         return super.onOptionsItemSelected(item);
     }

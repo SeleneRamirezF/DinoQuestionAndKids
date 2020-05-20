@@ -39,7 +39,6 @@ public class LoginActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.drawable.icono_barra);
 
-
         miAuth = FirebaseAuth.getInstance();
 
         //creacion al vuelo de la accion de clipar el boton de login

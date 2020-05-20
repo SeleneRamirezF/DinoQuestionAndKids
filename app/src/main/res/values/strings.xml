@@ -115,6 +115,10 @@
     <string name="listo">Listo</string>
     <string name="info_puzzle">Arrastra las piezas hasta que se forme la imagen</string>
     <string name="salir_ono">Pulse ota vez para cerrar</string>
-
+    <string name="nombre_actual">Nombre actual:</string>
+    <string name="correo_actual">Correo actual:</string>
+    <string name="nuevo_nombre">nuevo nombre</string>
+    <string name="nuevo_correo">nuevo correo</string>
+    <string name="pregunta_borrado_perfil">¿Estas seguro de borrar tu perfil?</string>
 
 </resources>
