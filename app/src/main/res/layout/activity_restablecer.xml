@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="@dimen/margen_interior_normal1"
-    android:background="@drawable/fondo"
+    android:background="@drawable/fondo99"
     tools:context=".inicio.RestablecerActivity">
 
     <EditText

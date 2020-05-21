@@ -109,7 +109,7 @@
     <string name="elige_tu_puzzle">ELIGE TU PUZZLE</string>
     <string name="nombre_hint">Nombre</string>
     <string name="restablecer_contrasena">restablecer contraseña</string>
-    <string name="ajustes">Ajustes</string>
+    <string name="ajustes">Ajustes de sonido</string>
     <string name="acerca_de">Acerca de ...</string>
     <string name="compartir">Compartir</string>
     <string name="listo">Listo</string>
@@ -119,6 +119,12 @@
     <string name="correo_actual">Correo actual:</string>
     <string name="nuevo_nombre">nuevo nombre</string>
     <string name="nuevo_correo">nuevo correo</string>
-    <string name="pregunta_borrado_perfil">¿Estas seguro de borrar tu perfil?</string>
+    <string name="pregunta_borrado_perfil">¿Estas seguro de querer eliminar tu perfil?</string>
+    <string name="no_hay_datos">No hay datos para actualizar</string>
+    <string name="sin_nombre">Sin nombre de usuario</string>
+    <string name="usuario_actualizado">Usuario actualizado</string>
+    <string name="usuario_no_actualizado">Usuario no actualizado</string>
+    <string name="usuario_eliminado">Usuario eliminado</string>
+    <string name="usuario_no_eliminado">Usuario no eliminado</string>
 
 </resources>

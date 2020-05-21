@@ -16,6 +16,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -31,8 +32,9 @@ public class RegistroActivity extends AppCompatActivity {
     private Button btnRegistro;
     private String nombre, correo, contrasena;
     private String puntos = "0", nivel = "1", vidas = "3";
-    private FirebaseAuth miauth;
+    private FirebaseAuth miAuth;
     private DatabaseReference miBD;
+    private FirebaseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +42,9 @@ public class RegistroActivity extends AppCompatActivity {
         setContentView(R.layout.activity_registro);
 
         //instances de la base de datos para la autentificacion y para guardar los datos
-        miauth = FirebaseAuth.getInstance();
+        miAuth = FirebaseAuth.getInstance();
         miBD = FirebaseDatabase.getInstance().getReference();
+        user = miAuth.getCurrentUser();
 
         cargarViews();
 
@@ -86,7 +89,7 @@ public class RegistroActivity extends AppCompatActivity {
     //este metodo realiza la comprobacion de si el usuario ya existe y si no existe lo crea
     private void registrarUsuario(){
         //usando el objeto creado antes de FirebaseAuth, mandamos los datos al registro
-        miauth.createUserWithEmailAndPassword(correo, contrasena).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        miAuth.createUserWithEmailAndPassword(correo, contrasena).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
@@ -98,14 +101,14 @@ public class RegistroActivity extends AppCompatActivity {
                     map.put((String)getResources().getText(R.string.nivel), nivel);
                     map.put((String)getResources().getText(R.string.vidas), vidas);
 
-                    String id = miauth.getCurrentUser().getUid();
-
+                    String id = miAuth.getCurrentUser().getUid();
                     //usando el objeto creado antes de DatabaseReference, mandamos los datos a la base de datos
                     //creamos la rama de usuarios y guardamos los datos por separado
                     miBD.child((String)getResources().getText(R.string.usuarios)).child(id).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task2) {
                             if(task2.isSuccessful()) {
+                                //nos vamos al menú
                                 startActivity(new Intent (RegistroActivity.this, MenuActivity.class));
                                 finish();
                             }else{

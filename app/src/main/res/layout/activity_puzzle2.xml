@@ -5,5 +5,5 @@
     android:id="@+id/grid"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondo"
+    android:background="@drawable/fondo99"
     tools:context=".puzzle.Puzzle2Activity" />

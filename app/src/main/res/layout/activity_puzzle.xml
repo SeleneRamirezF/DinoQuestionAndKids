@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".puzzle.PuzzleActivity"
-    android:background="@drawable/fondo">
+    android:background="@drawable/fondo99">
 
     <LinearLayout
         android:layout_width="match_parent"
