@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center"
-        android:layout_marginTop="@dimen/margen_superior_mini">
+        android:layout_marginTop="@dimen/margen_mini1">
 
         <TextView
             android:id="@+id/textView6"

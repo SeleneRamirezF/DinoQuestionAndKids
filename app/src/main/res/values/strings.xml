@@ -3,7 +3,7 @@
 
     <string name="error">ERROR:</string>
     <string name="completarCampos">Todos los campos deben estar completados</string>
-    <string name="niInicioSesion">No se ha podido iniciar sesión</string>
+    <string name="noInicioSesion">No se ha podido iniciar sesión</string>
 
     <string name="usuarios">Usuarios</string>
     <string name="nombre">nombre</string>
@@ -75,7 +75,8 @@
     <string name="puzzle_fin">ENHORABUENA, HAS TERMINADO EL PUZZLE!!!</string>
     <string name="puzzle_elejir">¿Quieres elejir otro puzzle?</string>
     <string name="puzzle_disfruta">Disfruta de tu puzzle terminado</string>
-    <string name="hola">Hola\nMi nombre es Selene y soy la creadora de esta aplicación, espero que te guste y te lo pases muy bien.\n\nEsta app ha sido creada como parte del proyecto de fin de modulo.</string>
+    <string name="hola">Hola\nMi nombre es Selene y soy la creadora de esta aplicación, espero que
+        te guste y te lo pases muy bien.\n\nEsta app ha sido creada como parte del proyecto de fin de modulo.</string>
     <string name="descripcion">Descripción de cada uno de los dinosaurios segun la posicion que sea clicada.</string>
     <string name="has_ganado">¡¡¡ENHORABUENA!!!\nHAS GANADO</string>
     <string name="jugar">jugar</string>
