@@ -76,8 +76,9 @@
     <string name="puzzle_fin">CONGRATULATIONS, YOU HAVE FINISHED THE PUZZLE !!!</string>
     <string name="puzzle_elejir">Do you want to choose another puzzle?</string>
     <string name="puzzle_disfruta">Enjoy your finished puzzle</string>
-    <string name="hola">Hello\nMy name is Selene and I am the creator of this application, I
-        hope you like it and have a great time.\n\nThis app has been created as part of the end of module project.</string>
+    <string name="hola">Hello, My name is Selene and I am the creator of this application, I
+        hope you like it and have a great time.\n\nThis application has been created as part of the end project
+        of Cycle of superior degree Development of Multiplatform Applications.</string>
     <string name="descripcion">Description of each of the dinosaurs according to the position that is clicked.</string>
     <string name="has_ganado">CONGRATULATIONS!!!\nYOU WON</string>
     <string name="jugar">play</string>

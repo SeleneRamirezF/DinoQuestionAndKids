@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.Toast;
@@ -15,7 +17,6 @@ import java.util.Random;
 
 import androidx.appcompat.app.AlertDialog;
 
-import com.example.dinoquestionandkids.BaseActivity;
 import com.example.dinoquestionandkids.R;
 
 
@@ -32,6 +33,8 @@ public class Puzzle2Activity extends BaseActivity {
     private static String[] listaPiezas;
     private static int n;
     private MediaPlayer mp;
+    private Vibrator vibrar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +46,7 @@ public class Puzzle2Activity extends BaseActivity {
         mp = MediaPlayer.create(this, R.raw.juego_puzzle);
         mp.start();
 
+        vibrar = (Vibrator)getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
         n = getIntent().getIntExtra((String)getResources().getText(R.string.boton), -1);
 
         inicio();
@@ -340,6 +344,7 @@ public class Puzzle2Activity extends BaseActivity {
             public void run() {
                 if(resuelto()){
                     mostrasDialogo();
+                    vibrar.vibrate(VibrationEffect.createOneShot(1000, VibrationEffect.DEFAULT_AMPLITUDE));
                 }else{
                     comprobarSiResuelto();
                 }

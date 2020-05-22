@@ -76,9 +76,9 @@
     <string name="puzzle_fin">GLÜCKWÜNSCHE, SIE HABEN DAS PUZZLE BEENDET!!!</string>
     <string name="puzzle_elejir">Möchten Sie ein anderes Puzzle auswählen?</string>
     <string name="puzzle_disfruta">Viel Spaß mit deinem fertigen Puzzle</string>
-    <string name="hola">Hallo\nMein Name ist Selene und ich bin der Schöpfer dieser Anwendung. Ich
-        hoffe es gefällt euch und ich habe eine tolle Zeit.\n\nDiese App wurde als Teil des
-        Projektendes zum Ende des Moduls erstellt.</string>
+    <string name="hola">Hallo, Mein Name ist Selene und ich bin der Schöpfer dieser Anwendung. Ich
+        hoffe es gefällt euch und ich habe eine tolle Zeit.\n\nDiese Anwendung wurde als Teil des
+        Endprojekts erstellt of Cycle of Superior Degree Entwicklung von Multiplattform-Anwendungen.</string>
     <string name="descripcion">Beschreibung der einzelnen Dinosaurier entsprechend der Position, auf die geklickt wird.</string>
     <string name="has_ganado">HERZLICHE GLÜCKWÜNSCHE!!!\nSIE GEWONNEN</string>
     <string name="jugar">spielen</string>

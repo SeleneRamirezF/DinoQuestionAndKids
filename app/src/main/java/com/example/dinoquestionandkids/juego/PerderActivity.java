@@ -4,14 +4,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.dinoquestionandkids.R;
 
+import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 
 public class PerderActivity extends AppCompatActivity {
 
     private MediaPlayer mpPerder;
+    private Vibrator vibrar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +24,9 @@ public class PerderActivity extends AppCompatActivity {
 
         mpPerder = MediaPlayer.create(this, R.raw.perder);
         mpPerder.start();
+
+        vibrar = (Vibrator)getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
+        vibrar.vibrate(VibrationEffect.createOneShot(1000, VibrationEffect.DEFAULT_AMPLITUDE));
 
         //poner icono en el actionbar
         getSupportActionBar().setDisplayShowHomeEnabled(true);

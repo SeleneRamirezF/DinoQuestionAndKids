@@ -18,7 +18,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.dinoquestionandkids.PerfilActivity;
 import com.example.dinoquestionandkids.inicio.MainActivity;
 import com.example.dinoquestionandkids.R;
 import com.example.dinoquestionandkids.dinosaurios.DinosauriosActivity;
@@ -45,12 +44,14 @@ public class MenuActivity extends AppCompatActivity {
     private MediaPlayer mp;
     private Toolbar toolbar;
     private boolean puedoSalirApp = false;
-    //private int cont = 0;
+    private int cont = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+
+        cont = 0;
 
         //codigo para poner sonido en loop (ciclado)
         mp = MediaPlayer.create(this,R.raw.main);
@@ -138,12 +139,14 @@ public class MenuActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 //hacemos la parte de acceso a los datos cuando se inicia con google
                 if(user != null){
+                    cont = 1;
                     btn3.setEnabled(false);
                     btn4.setEnabled(false);
                     tvNombre.setText(user.getDisplayName());
                     tvCorreo.setText(user.getEmail());
                 }
                 if (dataSnapshot.exists()){
+                    cont = 0;
                     btn3.setEnabled(true);
                     btn4.setEnabled(true);
                     String nombre = dataSnapshot.child((String) getResources().getText(R.string.nombre)).getValue().toString();
@@ -215,8 +218,12 @@ public class MenuActivity extends AppCompatActivity {
             }
         }
         if(id == R.id.editarPerfil){
-            mp.stop();
-            startActivity(new Intent(MenuActivity.this, PerfilActivity.class));
+            if(cont == 1){
+                mostrarDialogo2();
+            }else{
+                mp.stop();
+                startActivity(new Intent(MenuActivity.this, PerfilActivity.class));
+            }
         }
         return super.onOptionsItemSelected(item);
     }
@@ -238,6 +245,16 @@ public class MenuActivity extends AppCompatActivity {
         })
                 .setCancelable(false)
                 .show();
+    }
+
+    private void mostrarDialogo2(){
+        final AlertDialog.Builder builder = new AlertDialog.Builder(MenuActivity.this);
+        builder.setTitle("Estas como invitado, no tienes acceso a esta opción");
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        }).setCancelable(false).show();
     }
 
 }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PerfilActivity"
+    tools:context=".menu.PerfilActivity"
     android:orientation="vertical"
     android:padding="@dimen/margen_interior_normal1"
     android:background="@drawable/fondo99">

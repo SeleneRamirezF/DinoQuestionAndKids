@@ -88,7 +88,6 @@ public class LineaTemporalActivity extends AppCompatActivity {
         }
     };
 
-    //anulación del boton de 'atras'
     @Override
     public void onBackPressed() {
         startActivity(new Intent(LineaTemporalActivity.this, MenuActivity.class));

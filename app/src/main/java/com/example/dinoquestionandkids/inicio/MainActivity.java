@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private SignInButton btnGoogle;
     private static final int RC_SIGN_IN = 123;
     private MediaPlayer mp;
+    private FirebaseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == RC_SIGN_IN) {
             IdpResponse response = IdpResponse.fromResultIntent(data);
             if (resultCode == RESULT_OK) {
-                FirebaseUser user = miauth.getCurrentUser();
+                user = miauth.getCurrentUser();
                 //Log.d("DATOS GOOGLE", user.getUid());
                 //Log.d("DATOS GOOGLE", user.getEmail());
                 mp.stop();
@@ -116,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             } else {
                 Toast.makeText(MainActivity.this, getResources().getText(R.string.error) + " " + response.getError().getErrorCode(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Registrate para poder acceder", Toast.LENGTH_SHORT).show();
             }
         }
     }

@@ -32,12 +32,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:textColor="@android:color/black" />
+            android:textColor="@android:color/holo_red_dark" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_width="480dp"
+        android:layout_height="67dp">
 
         <TextView
             android:id="@+id/textView4"
@@ -45,16 +45,16 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/margen_interior_mini"
             android:text="@string/puntos_juego"
+            android:textColor="@android:color/black"
             android:textSize="@dimen/letra_boton1"
-            android:textStyle="bold"
-            android:textColor="@android:color/black" />
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/etPuntos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:textColor="@android:color/black" />
+            android:textColor="@android:color/holo_red_dark" />
     </LinearLayout>
 
     <LinearLayout

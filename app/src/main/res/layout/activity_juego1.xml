@@ -22,6 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="@dimen/margen_interior_mini"
+            android:layout_gravity="bottom"
             android:text="@string/nombre_juego"
             android:textSize="@dimen/letra_boton1"
             android:textColor="@android:color/black"
@@ -33,7 +34,8 @@
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:textColor="@android:color/holo_red_dark"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:layout_gravity="bottom"/>
     </LinearLayout>
 
     <LinearLayout
