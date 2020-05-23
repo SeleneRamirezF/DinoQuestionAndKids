@@ -50,6 +50,7 @@
     <string name="linea">LineaTemporalActivity</string>
     <string name="datos_erroneos">Usuario o Contraseña erroneos</string>
     <string name="puntos">puntos</string>
+    <string name="puntos_maximos">puntos maximos</string>
     <string name="nivel">nivel</string>
     <string name="vidas">vidas</string>
     <string name="enviando">Enviando correo...</string>

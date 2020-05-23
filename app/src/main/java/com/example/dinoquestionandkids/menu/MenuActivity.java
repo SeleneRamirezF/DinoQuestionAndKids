@@ -51,8 +51,6 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        cont = 0;
-
         //codigo para poner sonido en loop (ciclado)
         mp = MediaPlayer.create(this,R.raw.main);
         mp.start();

@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +14,7 @@ import android.widget.Toast;
 import com.example.dinoquestionandkids.menu.MenuActivity;
 import com.example.dinoquestionandkids.R;
 import com.example.dinoquestionandkids.informacion.InformacionActivity;
+import com.example.dinoquestionandkids.ranking.RankingActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -29,7 +29,7 @@ public class JuegoActivity extends AppCompatActivity {
     private DatabaseReference miBD;
     private FirebaseUser user;
     private String nivel;
-    private Button btnComenzarJuego, btnInfo, btnSonido;
+    private Button btnComenzarJuego, btnInfo, btnSonido, btnRanking;
     private MediaPlayer mp;
     private int contador = 0;
     private int contador2 = (int)(Math.random()*5+1);
@@ -53,9 +53,7 @@ public class JuegoActivity extends AppCompatActivity {
         miBD = FirebaseDatabase.getInstance().getReference();
         user = FirebaseAuth.getInstance().getCurrentUser();
 
-        btnComenzarJuego = (Button) findViewById(R.id.btnComenzarJuego);
-        btnInfo = (Button) findViewById(R.id.btnInfo);
-        btnSonido = findViewById(R.id.btnSonido);
+        cargarView();
 
         //poner icono en el actionbar
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -75,6 +73,15 @@ public class JuegoActivity extends AppCompatActivity {
                     btnSonido.setBackgroundResource(R.drawable.ic_volumen_si);
                     mp.start();
                 }
+            }
+        });
+
+        btnRanking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pararMusica();
+                startActivity(new Intent(JuegoActivity.this, RankingActivity.class));
+                finish();
             }
         });
 
@@ -119,6 +126,13 @@ public class JuegoActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void cargarView() {
+        btnComenzarJuego = (Button) findViewById(R.id.btnComenzarJuego);
+        btnInfo = (Button) findViewById(R.id.btnInfo);
+        btnSonido = findViewById(R.id.btnSonido);
+        btnRanking = findViewById(R.id.btnRanking);
     }
 
     private void ponerImagen() {

@@ -31,7 +31,7 @@ public class RegistroActivity extends AppCompatActivity {
     private EditText etContrasena;
     private Button btnRegistro;
     private String nombre, correo, contrasena;
-    private String puntos = "0", nivel = "1", vidas = "3";
+    private String puntos_maximos = "0", puntos = "0", nivel = "1", vidas = "3";
     private FirebaseAuth miAuth;
     private DatabaseReference miBD;
     private FirebaseUser user;
@@ -97,6 +97,7 @@ public class RegistroActivity extends AppCompatActivity {
                     map.put((String)getResources().getText(R.string.nombre), nombre);
                     map.put((String)getResources().getText(R.string.correo), correo);
                     map.put((String)getResources().getText(R.string.contrasena), contrasena);
+                    map.put((String)getResources().getText(R.string.puntos_maximos), puntos_maximos);
                     map.put((String)getResources().getText(R.string.puntos), puntos);
                     map.put((String)getResources().getText(R.string.nivel), nivel);
                     map.put((String)getResources().getText(R.string.vidas), vidas);

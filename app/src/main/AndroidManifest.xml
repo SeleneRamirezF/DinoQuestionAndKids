@@ -12,61 +12,86 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".menu.PerfilActivity"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".menu.AcercadeActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".puzzle.PuzzleActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".puzzle.Puzzle2Activity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".juego.PerderActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".juego.GanarActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".juego.JuegoActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".juego.Juego6Activity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".juego.Juego5Activity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".juego.Juego4Activity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".juego.Juego3Activity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".juego.Juego2Activity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".dinosaurios.DinoInfoActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".inicio.RestablecerActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".informacion.InformacionActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".linea_temporal.LineaTemporalActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".juego.Juego1Activity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".dinosaurios.DinosauriosActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".inicio.CargaActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:screenOrientation="portrait">
+        <activity android:name=".ranking.RankingActivity"></activity>
+        <activity
+            android:name=".menu.PerfilActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".menu.AcercadeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".puzzle.PuzzleActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".puzzle.Puzzle2Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".juego.PerderActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".juego.GanarActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".juego.JuegoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".juego.Juego6Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".juego.Juego5Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".juego.Juego4Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".juego.Juego3Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".juego.Juego2Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".dinosaurios.DinoInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".inicio.RestablecerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".informacion.InformacionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".linea_temporal.LineaTemporalActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".juego.Juego1Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".dinosaurios.DinosauriosActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".inicio.CargaActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".inicio.RegistroActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".inicio.LoginActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".menu.MenuActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".inicio.MainActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".inicio.RegistroActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".inicio.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".menu.MenuActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".inicio.MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>
 
 </manifest>

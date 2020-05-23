@@ -39,6 +39,18 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/btnRanking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margen_superior_normal"
+        android:text="Ranking"
+        android:textSize="@dimen/letra_normal_peque"
+        android:layout_gravity="center"
+        android:textColor="@android:color/white"
+        android:padding="@dimen/margen_mini"
+        android:background="@drawable/boton_redondo2"/>
+
+    <Button
         android:id="@+id/btnInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

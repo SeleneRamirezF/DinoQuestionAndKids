@@ -265,6 +265,7 @@ public class Juego5Activity extends AppCompatActivity {
             //mandar un mensaje permanente para informar de que ha perdido, quitar toast
             Toast.makeText(Juego5Activity.this, getResources().getText(R.string.perder), Toast.LENGTH_SHORT).show();
             actualizarDatosUsuario(0, 3, 1);
+            actualizarPuntosMaximos(puntos);
             pararMusica();
             startActivity(new Intent(Juego5Activity.this, PerderActivity.class));
             finish();
@@ -301,6 +302,26 @@ public class Juego5Activity extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Exception e) {
                 //Log.d("ACTUALIZACIÓN DATOS", "ERROR");
+            }
+        });
+    }
+
+    private void actualizarPuntosMaximos(int puntos_maximos){
+        //actualizar datos
+        String id = miAuth.getCurrentUser().getUid();
+        Map<String, Object> map = new HashMap<>();
+        map.put((String)getResources().getText(R.string.puntos_maximos), puntos_maximos);
+
+        miBD.child((String)getResources().getText(R.string.usuarios)).child(id).updateChildren(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                //Log.d("ACTUALIZACIÓN PUNTUACION MAXIMA", "OK");
+                //Toast.makeText(Juego5Activity.this, "ACTUALIZACIÓN PUNTUACION MAXIMA CORRECTA", Toast.LENGTH_SHORT).show();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                //Log.d("ACTUALIZACIÓN PUNTUACION MAXIMA", "ERROR");
             }
         });
     }

@@ -13,22 +13,18 @@ import java.util.ArrayList;
 public class HistoriaAdapter extends RecyclerView.Adapter<HistoriaAdapter.MiVistaHolder> {
 
     private ArrayList<Historia> historias;
-    //private int resource;
 
     public HistoriaAdapter(ArrayList<Historia> a) {
         historias = a;
-        //this.resource = r;
     }
 
     public class MiVistaHolder extends RecyclerView.ViewHolder {
 
         private TextView nombre,descripcion;
         private ImageView logo;
-        //public View itmView;
 
         public MiVistaHolder(@NonNull View itemView) {
             super(itemView);
-            //this.itmView = itemView;
             descripcion = itemView.findViewById(R.id.tvDescripcion);
             nombre = itemView.findViewById(R.id.tvNombre);
             logo = itemView.findViewById(R.id.tvLogo);
@@ -45,7 +41,6 @@ public class HistoriaAdapter extends RecyclerView.Adapter<HistoriaAdapter.MiVist
 
     @Override
     public void onBindViewHolder(@NonNull HistoriaAdapter.MiVistaHolder holder, int position) {
-        //Historia historia = historias.get(position);
         holder.descripcion.setText(historias.get(position).getDescripcion());
         holder.nombre.setText(historias.get(position).getNombre());
         holder.logo.setImageResource(historias.get(position).getImagen());

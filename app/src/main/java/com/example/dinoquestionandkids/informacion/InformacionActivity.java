@@ -35,7 +35,6 @@ public class InformacionActivity extends AppCompatActivity {
     private DatabaseReference historia;
     private int contador = 0;//7
     private MediaPlayer mp;
-    private String activity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +48,6 @@ public class InformacionActivity extends AppCompatActivity {
 
         recView = (RecyclerView) findViewById(R.id.recView);
         miLista = new ArrayList<>();
-        activity = getIntent().getStringExtra((String) getResources().getText(R.string.activity));
-        //Log.d("ACTIVITY", activity);
 
         //poner icono en el actionbar
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -109,11 +106,13 @@ public class InformacionActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         mp.stop();
+        finish();
+        /*
         if(activity.equalsIgnoreCase((String) getResources().getText(R.string.linea))){
             startActivity(new Intent(InformacionActivity.this, LineaTemporalActivity.class));
         }else{
             startActivity(new Intent(InformacionActivity.this, JuegoActivity.class));
-        }
+        }*/
     }
 
 

@@ -51,6 +51,7 @@
     <string name="linea">LineaTemporalActivity</string>
     <string name="datos_erroneos">Falscher Benutzer oder falsches Passwort</string>
     <string name="puntos">puntos</string>
+    <string name="puntos_maximos">puntos maximos</string>
     <string name="nivel">nivel</string>
     <string name="vidas">vidas</string>
     <string name="enviando">Nachrichten senden...</string>
