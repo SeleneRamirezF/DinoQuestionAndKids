@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cardview ="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_margin="@dimen/margen_mini"
+    cardview:cardCornerRadius="@dimen/radio2">
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/alto_minimo"
-        android:background="@drawable/linea"/>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,26 +17,30 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="@drawable/fonfo_ranking1">
 
             <TextView
                 android:id="@+id/tvNombre"
-                android:text="Selene : "
+                android:text="Puntuacion de Selene"
+                android:layout_marginLeft="@dimen/margen_izquierdo2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@android:color/black"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvPuntos"
-                android:text=" 58 puntos"
+                android:text="58"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margen_izquierdo"
+                android:textSize="@dimen/letra_grande"
+                android:layout_gravity="center_horizontal"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="@android:color/black"/>
+                android:textColor="@color/colorFondoTexto3"
+                android:textStyle="bold"/>
 
         </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+</androidx.cardview.widget.CardView >

@@ -2,7 +2,7 @@ package com.example.dinoquestionandkids.ranking;
 
 import java.io.Serializable;
 
-public class Ranking implements Serializable, Comparable<Ranking> {
+public class Ranking implements Serializable, Comparable<Ranking>{
 
     private String nombre;
     private String puntuacion;
@@ -34,12 +34,9 @@ public class Ranking implements Serializable, Comparable<Ranking> {
 
     @Override
     public int compareTo(Ranking o) {
-        int puntuacion2 = Integer.parseInt(puntuacion);
-        int puntuacion2o = Integer.parseInt(o.puntuacion);
-        if (puntuacion2 < puntuacion2o) {
+        if(Integer.parseInt(o.getPuntuacion()) > Integer.parseInt(puntuacion)){
             return 1;
-        }
-        if (puntuacion2 > puntuacion2o) {
+        }else if((Integer.parseInt(o.getPuntuacion())) < Integer.parseInt(puntuacion)){
             return -1;
         }
         return 0;

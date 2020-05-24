@@ -42,4 +42,7 @@ public class GanarActivity extends AppCompatActivity {
             }
         }, 5000);
     }
+    @Override
+    public void onBackPressed() {
+    }
 }

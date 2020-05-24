@@ -11,6 +11,8 @@
     <dimen name="margen_mini1">5dp</dimen>
     <dimen name="margen_mini">8dp</dimen>
     <dimen name="margen_izquierdo1">0dp</dimen>
+    <dimen name="margen_izquierdo2">10dp</dimen>
+    <dimen name="margen_izquierdo3">15dp</dimen>
     <dimen name="margen_izquierdo">40dp</dimen>
     <dimen name="margen_superior_mini1">10dp</dimen>
     <dimen name="margen_superior_mini">15dp</dimen>
@@ -72,5 +74,6 @@
 
     <!--otros-->
     <dimen name="radio">10dp</dimen>
+    <dimen name="radio2">20dp</dimen>
 
 </resources>

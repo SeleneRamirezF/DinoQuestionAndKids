@@ -6,4 +6,7 @@
     <color name="colorFondoTexto">#A69BD3C9</color>
     <color name="colorBlancoTransparente">#CCCCCC</color>
     <color name="colorBlanco">#FFFFFF</color>
+    <color name="colorFondoTexto2">#04B486</color>
+    <color name="colorFondoTexto3">#a80000</color>
+    <color name="colorFondo">#147888</color>
 </resources>
