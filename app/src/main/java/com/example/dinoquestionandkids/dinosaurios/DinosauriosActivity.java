@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.example.dinoquestionandkids.R;
+import com.example.dinoquestionandkids.menu.MenuActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -76,6 +77,12 @@ public class DinosauriosActivity extends AppCompatActivity implements DinoAdapte
         i = new Intent(DinosauriosActivity.this, DinoInfoActivity.class);
         i.putExtra((String) getResources().getText(R.string.pos), String.valueOf(posicion));
         startActivity(i);
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(DinosauriosActivity.this, MenuActivity.class));
+        finish();
     }
 
 }

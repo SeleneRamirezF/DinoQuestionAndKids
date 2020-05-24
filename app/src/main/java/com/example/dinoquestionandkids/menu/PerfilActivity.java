@@ -236,6 +236,6 @@ public class PerfilActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         startActivity(new Intent(PerfilActivity.this, MenuActivity.class));
-
+        finish();
     }
 }

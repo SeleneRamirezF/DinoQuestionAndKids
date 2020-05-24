@@ -42,7 +42,7 @@
         android:id="@+id/btnRanking"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margen_superior_normal"
+        android:layout_marginTop="@dimen/margen_superior_mini1"
         android:text="Ranking"
         android:textSize="@dimen/letra_normal_peque"
         android:layout_gravity="center"

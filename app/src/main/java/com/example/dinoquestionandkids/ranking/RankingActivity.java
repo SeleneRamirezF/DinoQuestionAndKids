@@ -28,10 +28,6 @@ public class RankingActivity extends AppCompatActivity {
     private ArrayList<Ranking> miLista;
     private DatabaseReference usuarios;
 
-    private ArrayList<Integer> a;
-    private ArrayList<String> b;
-    int contador = 0;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,9 +56,8 @@ public class RankingActivity extends AppCompatActivity {
                     for (DataSnapshot ds : dataSnapshot.getChildren()){
                         String nombre = ds.child((String) getResources().getText(R.string.nombre)).getValue().toString();
                         String puntos_maximos = ds.child((String)getResources().getText(R.string.puntos_maximos)).getValue().toString();
-                        Log.d("Nombre: ", nombre);
-                        Log.d("Puntuacion : ", puntos_maximos);
-
+                        //Log.d("Nombre: ", nombre);
+                        //Log.d("Puntuacion : ", puntos_maximos);
                         miLista.add(new Ranking("Puntuacion de "+nombre, puntos_maximos));
                     }
                     Collections.sort(miLista);

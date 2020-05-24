@@ -41,13 +41,12 @@ public class RegistroActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
 
-        //instances de la base de datos para la autentificacion y para guardar los datos
+        //instances de la base de datos
         miAuth = FirebaseAuth.getInstance();
         miBD = FirebaseDatabase.getInstance().getReference();
         user = miAuth.getCurrentUser();
 
         cargarViews();
-
         //poner icono en el actionbar
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.drawable.icono_barra);

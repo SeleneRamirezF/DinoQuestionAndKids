@@ -91,6 +91,7 @@ public class LineaTemporalActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         startActivity(new Intent(LineaTemporalActivity.this, MenuActivity.class));
-
+        finish();
     }
+
 }

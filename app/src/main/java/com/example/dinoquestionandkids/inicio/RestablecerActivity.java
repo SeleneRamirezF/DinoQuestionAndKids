@@ -32,7 +32,6 @@ public class RestablecerActivity extends AppCompatActivity {
         miDialogo = new ProgressDialog(this);
 
         cargarViews();
-
         //poner icono en el actionbar
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.drawable.icono_barra);

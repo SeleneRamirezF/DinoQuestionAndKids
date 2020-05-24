@@ -320,7 +320,7 @@ public class Puzzle2Activity extends BaseActivity {
     @Override
     public void onBackPressed() {
         mp.stop();
-        startActivity(new Intent(Puzzle2Activity.this, PuzzleActivity.class));
+        finish();
     }
     private void mostrasDialogo(){
         AlertDialog.Builder builder = new AlertDialog.Builder(Puzzle2Activity.this);
@@ -330,6 +330,7 @@ public class Puzzle2Activity extends BaseActivity {
             public void onClick(DialogInterface dialog, int which) {
                 mp.stop();
                 startActivity(new Intent(Puzzle2Activity.this, PuzzleActivity.class));
+                finish();
             }
         }).setNegativeButton(getResources().getText(R.string.no), new DialogInterface.OnClickListener() {
             @Override

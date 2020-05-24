@@ -107,12 +107,6 @@ public class InformacionActivity extends AppCompatActivity {
     public void onBackPressed() {
         mp.stop();
         finish();
-        /*
-        if(activity.equalsIgnoreCase((String) getResources().getText(R.string.linea))){
-            startActivity(new Intent(InformacionActivity.this, LineaTemporalActivity.class));
-        }else{
-            startActivity(new Intent(InformacionActivity.this, JuegoActivity.class));
-        }*/
     }
 
 

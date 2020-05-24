@@ -130,5 +130,6 @@ public class PuzzleActivity extends AppCompatActivity {
 
     public void onBackPressed() {
         startActivity(new Intent(PuzzleActivity.this, MenuActivity.class));
+        finish();
     }
 }

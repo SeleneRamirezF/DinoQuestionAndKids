@@ -57,7 +57,6 @@ public class MenuActivity extends AppCompatActivity {
         mp.setLooping(true);
 
         cargarViews();
-
         //menu barra superior
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

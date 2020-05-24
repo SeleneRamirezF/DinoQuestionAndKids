@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
+import android.widget.Toast;
 
 import com.example.dinoquestionandkids.R;
 
@@ -37,5 +38,22 @@ public class CargaActivity extends AppCompatActivity {
                 finish();
             }
         }, 1700);
+    }
+    //acciones del boton de 'atras'
+    private boolean canExitApp = false;
+    @Override
+    public void onBackPressed() {
+        if (!canExitApp) {
+            canExitApp = true;
+            Toast.makeText(this, "Pulse otra vez para salir", Toast.LENGTH_SHORT).show();
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    canExitApp = false;
+                }
+            }, 2000);
+        } else {
+            super.onBackPressed();
+        }
     }
 }

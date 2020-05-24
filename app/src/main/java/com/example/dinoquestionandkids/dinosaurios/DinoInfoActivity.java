@@ -229,4 +229,11 @@ public class DinoInfoActivity extends AppCompatActivity {
             }
         });
     }
+
+    //acciones del boton de 'atras'
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
+
 }

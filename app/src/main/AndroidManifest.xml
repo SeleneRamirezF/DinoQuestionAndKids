@@ -15,46 +15,46 @@
         <activity android:name=".ranking.RankingActivity"></activity>
         <activity
             android:name=".menu.PerfilActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".menu.AcercadeActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".puzzle.PuzzleActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".puzzle.Puzzle2Activity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".juego.PerderActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".juego.GanarActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".juego.JuegoActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".juego.Juego6Activity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".juego.Juego5Activity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".juego.Juego4Activity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".juego.Juego3Activity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".juego.Juego2Activity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".dinosaurios.DinoInfoActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".inicio.RestablecerActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".informacion.InformacionActivity"
             android:screenOrientation="portrait" />
@@ -64,10 +64,10 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".juego.Juego1Activity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".dinosaurios.DinosauriosActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".inicio.CargaActivity"
             android:screenOrientation="portrait"
@@ -80,10 +80,10 @@
         </activity>
         <activity
             android:name=".inicio.RegistroActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".inicio.LoginActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".menu.MenuActivity"
             android:screenOrientation="portrait"
