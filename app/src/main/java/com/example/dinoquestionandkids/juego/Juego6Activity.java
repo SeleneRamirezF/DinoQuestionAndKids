@@ -222,10 +222,7 @@ public class Juego6Activity extends AppCompatActivity {
                     nivel = dataSnapshot.child((String) getResources().getText(R.string.nivel)).getValue().toString();
                 }
                 etNivel.setText(getResources().getText(R.string.nivel_tipo2) + " " + nivel);
-                //Toast.makeText(JuegoActivity.this, "Estas en el nivel "+nivel, Toast.LENGTH_SHORT).show();
-
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Toast.makeText(Juego6Activity.this, getResources().getText(R.string.no_acceso_datos), Toast.LENGTH_SHORT).show();
@@ -275,9 +272,7 @@ public class Juego6Activity extends AppCompatActivity {
         actualizarDatosUsuario(puntos, vidas, nuevoNivel);
 
         if(vidas == 0){
-            //TODO
-            //mandar un mensaje permanente para informar de que ha perdido, quitar toast
-            Toast.makeText(Juego6Activity.this, getResources().getText(R.string.perder), Toast.LENGTH_SHORT).show();
+            //Toast.makeText(Juego6Activity.this, getResources().getText(R.string.perder), Toast.LENGTH_SHORT).show();
             actualizarDatosUsuario(0, 3, 1);
             actualizarPuntosMaximos(puntos);
             pararMusica();
@@ -286,9 +281,7 @@ public class Juego6Activity extends AppCompatActivity {
 
         }
         if(puntos >= 257){
-            //TODO
-            //mostrar mensage permanente, quitar toast
-            Toast.makeText(Juego6Activity.this, getResources().getText(R.string.ganar_fin), Toast.LENGTH_SHORT).show();
+            //Toast.makeText(Juego6Activity.this, getResources().getText(R.string.ganar_fin), Toast.LENGTH_SHORT).show();
             actualizarDatosUsuario(0, 3, 1);
             pararMusica();
             startActivity(new Intent(Juego6Activity.this, GanarActivity.class));
@@ -298,7 +291,6 @@ public class Juego6Activity extends AppCompatActivity {
     }
 
     private void actualizarDatosUsuario(int puntos, int vidas, int nuevoNivel){
-
         //actualizar datos
         String id = miAuth.getCurrentUser().getUid();
         Map<String, Object> map = new HashMap<>();

@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.dinoquestionandkids.R;
+import com.example.dinoquestionandkids.juego.JuegoActivity;
 import com.example.dinoquestionandkids.menu.MenuActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -72,7 +73,7 @@ public class RankingActivity extends AppCompatActivity {
     }
 
     public void onBackPressed() {
-        startActivity(new Intent(RankingActivity.this, MenuActivity.class));
+        startActivity(new Intent(RankingActivity.this, JuegoActivity.class));
     }
 
 }

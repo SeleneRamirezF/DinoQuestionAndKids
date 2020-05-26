@@ -252,7 +252,7 @@ public class Juego1Activity extends AppCompatActivity {
         actualizarDatosUsuario(puntos, vidas, nuevoNivel);
         if(vidas == 0){
             //mandar un mensaje permanente para informar de que ha perdido, quitar toast
-            Toast.makeText(Juego1Activity.this, getResources().getText(R.string.perder), Toast.LENGTH_SHORT).show();
+            //Toast.makeText(Juego1Activity.this, getResources().getText(R.string.perder), Toast.LENGTH_SHORT).show();
             actualizarDatosUsuario(0, 3, 1);
             actualizarPuntosMaximos(puntos);
             pararMusica();

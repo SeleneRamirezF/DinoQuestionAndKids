@@ -24,6 +24,8 @@ import com.example.dinoquestionandkids.dinosaurios.DinosauriosActivity;
 import com.example.dinoquestionandkids.juego.JuegoActivity;
 import com.example.dinoquestionandkids.linea_temporal.LineaTemporalActivity;
 import com.example.dinoquestionandkids.puzzle.PuzzleActivity;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -82,6 +84,15 @@ public class MenuActivity extends AppCompatActivity {
 
         obtenetInfoUsuario();
 
+        //hacemos la parte de acceso a los datos cuando se inicia con google
+        GoogleSignInAccount signInAccount = GoogleSignIn.getLastSignedInAccount(this);
+        if(signInAccount != null){
+            cont = 1;
+            tvNombre.setText(signInAccount.getDisplayName());
+            tvCorreo.setText(signInAccount.getEmail());
+            btn3.setEnabled(false);
+            btn4.setEnabled(false);
+        }
         //acciones de los botones
         //linea temporal
         btn1.setOnClickListener(new View.OnClickListener() {
@@ -127,21 +138,12 @@ public class MenuActivity extends AppCompatActivity {
         btn3 = (Button) findViewById(R.id.btn3);
         btn4 = (Button) findViewById(R.id.btn4);
     }
-
     //metodo para obtener los datos del usuario
     private void obtenetInfoUsuario(){
         String id = miAuth.getCurrentUser().getUid();
         miBD.child((String) getResources().getText(R.string.usuarios)).child(id).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                //hacemos la parte de acceso a los datos cuando se inicia con google
-                if(user != null){
-                    cont = 1;
-                    btn3.setEnabled(false);
-                    btn4.setEnabled(false);
-                    tvNombre.setText(user.getDisplayName());
-                    tvCorreo.setText(user.getEmail());
-                }
                 if (dataSnapshot.exists()){
                     cont = 0;
                     btn3.setEnabled(true);
@@ -152,10 +154,9 @@ public class MenuActivity extends AppCompatActivity {
                     tvCorreo.setText(correo);
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                Toast.makeText(MenuActivity.this, "No se ha podido conectar con la base de datos", Toast.LENGTH_SHORT).show();
             }
         });
     }
