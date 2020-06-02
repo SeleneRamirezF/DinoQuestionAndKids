@@ -30,8 +30,6 @@ public class RankingAdapter extends RecyclerView.Adapter<RankingAdapter.MiVistaH
             puntuacion = itemView.findViewById(R.id.tvPuntos);
         }
     }
-
-
     @NonNull
     @Override
     public RankingAdapter.MiVistaHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -39,17 +37,13 @@ public class RankingAdapter extends RecyclerView.Adapter<RankingAdapter.MiVistaH
         View v = inflater.inflate(R.layout.lista_ranking, parent, false);
         return new MiVistaHolder(v);
     }
-
     @Override
     public void onBindViewHolder(@NonNull RankingAdapter.MiVistaHolder holder, int position) {
         holder.nombre.setText(puntuaciones.get(position).getNombre());
         holder.puntuacion.setText(puntuaciones.get(position).getPuntuacion());
     }
-
     @Override
     public int getItemCount() {
         return puntuaciones.size();
     }
-
-
 }

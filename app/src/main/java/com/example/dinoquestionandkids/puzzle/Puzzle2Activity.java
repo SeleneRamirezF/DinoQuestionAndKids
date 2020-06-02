@@ -18,6 +18,7 @@ import java.util.Random;
 import androidx.appcompat.app.AlertDialog;
 
 import com.example.dinoquestionandkids.R;
+import com.example.dinoquestionandkids.menu.MenuActivity;
 
 
 public class Puzzle2Activity extends BaseActivity {
@@ -335,7 +336,9 @@ public class Puzzle2Activity extends BaseActivity {
         }).setNegativeButton(getResources().getText(R.string.no), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(Puzzle2Activity.this, getResources().getText(R.string.puzzle_disfruta), Toast.LENGTH_SHORT).show();
+                mp.stop();
+                startActivity(new Intent(Puzzle2Activity.this, MenuActivity.class));
+                finish();
             }
         }).setCancelable(false).show();
     }
@@ -344,7 +347,12 @@ public class Puzzle2Activity extends BaseActivity {
         handler.postDelayed(new Runnable() {
             public void run() {
                 if(resuelto()){
-                    mostrasDialogo();
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        public void run() {
+                            mostrasDialogo();
+                        }
+                    }, 1000);
                     vibrar.vibrate(VibrationEffect.createOneShot(1000, VibrationEffect.DEFAULT_AMPLITUDE));
                 }else{
                     comprobarSiResuelto();

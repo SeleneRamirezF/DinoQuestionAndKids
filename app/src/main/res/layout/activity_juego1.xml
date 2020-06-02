@@ -33,7 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:textColor="@android:color/holo_red_dark"
+            android:textColor="@color/colorFondoTexto3"
             android:textStyle="bold"
             android:layout_gravity="bottom"/>
     </LinearLayout>
@@ -57,7 +57,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:textColor="@android:color/holo_red_dark"
+            android:textColor="@color/colorFondoTexto3"
             android:textStyle="bold"/>
     </LinearLayout>
 

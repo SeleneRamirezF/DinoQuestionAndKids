@@ -36,7 +36,6 @@ dependencies {
     //para el uso de gif en el proyecto
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.1.17'
     //para la opcion de no cerrar la app a la primera
-    implementation 'com.emmanuelkehinde:shutdown:1.0.1'
 
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'

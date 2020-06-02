@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.example.dinoquestionandkids.inicio.MainActivity;
 import com.example.dinoquestionandkids.R;
 import com.example.dinoquestionandkids.dinosaurios.DinosauriosActivity;
+import com.example.dinoquestionandkids.juego.GanarActivity;
 import com.example.dinoquestionandkids.juego.JuegoActivity;
 import com.example.dinoquestionandkids.linea_temporal.LineaTemporalActivity;
 import com.example.dinoquestionandkids.puzzle.PuzzleActivity;
@@ -45,7 +46,6 @@ public class MenuActivity extends AppCompatActivity {
     private FirebaseUser user;
     private MediaPlayer mp;
     private Toolbar toolbar;
-    private boolean puedoSalirApp = false;
     private int cont = 0;
 
     @Override
@@ -166,6 +166,7 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     //acciones del boton de 'atras'
+    private boolean puedoSalirApp = false;
     @Override
     public void onBackPressed() {
         if (!puedoSalirApp) {
@@ -178,10 +179,10 @@ public class MenuActivity extends AppCompatActivity {
                 }
             }, 2000);
         } else {
+            mp.stop();
             super.onBackPressed();
         }
     }
-
 
     //metodos para crear y usar la barra superior para opciones
     @Override

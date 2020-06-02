@@ -31,7 +31,7 @@
             android:id="@+id/etNombre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/holo_red_dark"
+            android:textColor="@color/colorFondoTexto3"
             android:inputType="textPersonName"/>
     </LinearLayout>
 
@@ -47,7 +47,7 @@
             android:text="@string/puntos_juego"
             android:textSize="@dimen/letra_boton1"
             android:textStyle="bold"
-            android:textColor="@android:color/holo_red_dark"/>
+            android:textColor="@color/colorFondoTexto3"/>
 
         <EditText
             android:id="@+id/etPuntos"
