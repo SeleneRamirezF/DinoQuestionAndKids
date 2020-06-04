@@ -20,7 +20,6 @@ import androidx.appcompat.app.AlertDialog;
 import com.example.dinoquestionandkids.R;
 import com.example.dinoquestionandkids.menu.MenuActivity;
 
-
 public class Puzzle2Activity extends BaseActivity {
 
     private static DetectarGestosGridView miGridView;

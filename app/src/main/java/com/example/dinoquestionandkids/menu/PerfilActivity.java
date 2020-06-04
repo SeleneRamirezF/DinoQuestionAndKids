@@ -201,7 +201,6 @@ public class PerfilActivity extends AppCompatActivity {
             }
         });
     }
-
     private void borrarUsuario(){
         AuthCredential credential = EmailAuthProvider
                 .getCredential(correo, contrasena);
@@ -226,13 +225,11 @@ public class PerfilActivity extends AppCompatActivity {
                     }
                 });
     }
-
     private void borrarUsuarioDatabase(){
         String id = miAuth.getCurrentUser().getUid();
         DatabaseReference usuarioABorrar = FirebaseDatabase.getInstance().getReference((String) getResources().getText(R.string.usuarios)).child(id);
         usuarioABorrar.removeValue();
     }
-
     @Override
     public void onBackPressed() {
         startActivity(new Intent(PerfilActivity.this, MenuActivity.class));

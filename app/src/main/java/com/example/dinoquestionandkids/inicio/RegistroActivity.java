@@ -84,7 +84,6 @@ public class RegistroActivity extends AppCompatActivity {
         etContrasena = (EditText) findViewById(R.id.etContrasena);
         btnRegistro = (Button) findViewById(R.id.btnRegistro);
     }
-
     //este metodo realiza la comprobacion de si el usuario ya existe y si no existe lo crea
     private void registrarUsuario(){
         //usando el objeto creado antes de FirebaseAuth, mandamos los datos al registro

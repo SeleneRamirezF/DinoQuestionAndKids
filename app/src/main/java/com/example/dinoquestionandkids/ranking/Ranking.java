@@ -8,7 +8,6 @@ public class Ranking implements Serializable, Comparable<Ranking>{
     private String puntuacion;
 
     public Ranking(){
-
     }
 
     public Ranking(String nombre, String puntuacion) {

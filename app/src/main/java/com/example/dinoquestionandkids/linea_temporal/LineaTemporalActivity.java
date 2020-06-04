@@ -50,10 +50,7 @@ public class LineaTemporalActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
-
     }
-
     //metodo que construye los puntos de posicionamiento
     private void agregarPuntos(int posicion) {
         puntosSlide = new TextView[8];
@@ -74,17 +71,13 @@ public class LineaTemporalActivity extends AppCompatActivity {
     ViewPager.OnPageChangeListener viewListener = new ViewPager.OnPageChangeListener() {
         @Override
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
         }
-
         @Override
         public void onPageSelected(int position) {
             agregarPuntos(position);
         }
-
         @Override
         public void onPageScrollStateChanged(int state) {
-
         }
     };
 

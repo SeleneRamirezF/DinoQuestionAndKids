@@ -1,9 +1,5 @@
 package com.example.dinoquestionandkids.informacion;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
-
 import java.io.Serializable;
 
 public class Historia implements Serializable {

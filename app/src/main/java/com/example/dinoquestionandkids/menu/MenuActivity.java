@@ -21,7 +21,6 @@ import android.widget.Toast;
 import com.example.dinoquestionandkids.inicio.MainActivity;
 import com.example.dinoquestionandkids.R;
 import com.example.dinoquestionandkids.dinosaurios.DinosauriosActivity;
-import com.example.dinoquestionandkids.juego.GanarActivity;
 import com.example.dinoquestionandkids.juego.JuegoActivity;
 import com.example.dinoquestionandkids.linea_temporal.LineaTemporalActivity;
 import com.example.dinoquestionandkids.puzzle.PuzzleActivity;
@@ -81,9 +80,7 @@ public class MenuActivity extends AppCompatActivity {
                 finish();
             }
         });
-
         obtenetInfoUsuario();
-
         //hacemos la parte de acceso a los datos cuando se inicia con google
         GoogleSignInAccount signInAccount = GoogleSignIn.getLastSignedInAccount(this);
         if(signInAccount != null){
@@ -208,7 +205,7 @@ public class MenuActivity extends AppCompatActivity {
                 i.setType("text/plain");
                 i.putExtra(Intent.EXTRA_SUBJECT,getResources().getString(R.string.app_name));
                 String aux = (String) getResources().getText(R.string.descarga);
-                //direccion de prueba TODO
+                //direccion de prueba
                 aux = aux + getResources().getText(R.string.descarga_url);
                 i.putExtra(Intent.EXTRA_TEXT, aux);
                 startActivity(i);
@@ -226,7 +223,6 @@ public class MenuActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
     //crear dialogo
     private void mostrarDialogo(){
         final AlertDialog.Builder builder = new AlertDialog.Builder(MenuActivity.this);

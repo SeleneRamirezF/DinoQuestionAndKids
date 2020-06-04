@@ -11,15 +11,12 @@ import com.example.dinoquestionandkids.R;
 import java.util.ArrayList;
 
 public class HistoriaAdapter extends RecyclerView.Adapter<HistoriaAdapter.MiVistaHolder> {
-
     private ArrayList<Historia> historias;
-
     public HistoriaAdapter(ArrayList<Historia> a) {
         historias = a;
     }
 
     public class MiVistaHolder extends RecyclerView.ViewHolder {
-
         private TextView nombre,descripcion;
         private ImageView logo;
 
@@ -30,7 +27,6 @@ public class HistoriaAdapter extends RecyclerView.Adapter<HistoriaAdapter.MiVist
             logo = itemView.findViewById(R.id.tvLogo);
         }
     }
-
     @NonNull
     @Override
     public HistoriaAdapter.MiVistaHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

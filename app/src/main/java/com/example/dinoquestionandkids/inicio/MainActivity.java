@@ -44,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
 
         cargarViews();
         miAuth = FirebaseAuth.getInstance();
-
         //creacion al vuelo de la accion de clicar el boton de registrar usuario
         btnAccesoRegistro.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,7 +106,6 @@ public class MainActivity extends AppCompatActivity {
                 user = miAuth.getCurrentUser();
                 //Log.d("DATOS GOOGLE", user.getUid());
                 //Log.d("DATOS GOOGLE", user.getEmail());
-
                 mp.stop();
                 startActivity(new Intent(MainActivity.this, MenuActivity.class));
                 finish();

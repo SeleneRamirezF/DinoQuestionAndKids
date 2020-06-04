@@ -16,20 +16,16 @@ public class PuzzleAdapter extends BaseAdapter {
         this.anchoColumnas = anchoColumnas;
         this.altoColumnas = altoColumnas;
     }
-
     @Override
     public int getCount() {
         return misBotones.size();
     }
-
     @Override
     public Object getItem(int posicion) {return (Object) misBotones.get(posicion);}
-
     @Override
     public long getItemId(int posicion) {
         return posicion;
     }
-
     @Override
     public View getView(int posicion, View convertView, ViewGroup parent) {
         Button boton;

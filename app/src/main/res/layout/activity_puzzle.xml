@@ -30,7 +30,6 @@
             android:background="@drawable/ic_info_puzzle" />
     </LinearLayout>
 
-
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

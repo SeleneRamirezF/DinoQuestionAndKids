@@ -68,7 +68,6 @@
             android:layout_height="match_parent"
             android:gravity="bottom"
             android:orientation="vertical">
-
             <Button
                 android:id="@+id/btnEditarPerfil"
                 android:layout_width="match_parent"
@@ -79,7 +78,6 @@
                 android:layout_marginHorizontal="@dimen/margen_horizontal_grande"
                 android:textSize="@dimen/letra_boton2"
                 android:textColor="@android:color/white"/>
-
             <Button
                 android:id="@+id/btnGuardarPerfil"
                 android:layout_width="match_parent"
@@ -100,8 +98,5 @@
                 android:textSize="@dimen/letra_boton2"
                 android:textColor="@android:color/white"
                 android:layout_marginHorizontal="@dimen/margen_horizontal_medio1"/>
-
-
         </LinearLayout>
-
 </LinearLayout>

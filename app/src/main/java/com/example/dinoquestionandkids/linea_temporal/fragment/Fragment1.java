@@ -1,27 +1,21 @@
 package com.example.dinoquestionandkids.linea_temporal.fragment;
-
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.example.dinoquestionandkids.R;
 
 public class Fragment1 extends Fragment {
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    //los parámetros de inicialización de fragmentos
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
     private String mParam1;
     private String mParam2;
 
     public Fragment1() {
-        // Required empty public constructor
+        // Obligatorio constructor por defecto o vacio
     }
-
     public static Fragment1 newInstance(String param1, String param2) {
         Fragment1 fragment = new Fragment1();
         Bundle args = new Bundle();
@@ -30,24 +24,17 @@ public class Fragment1 extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
-
         }
     }
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // Inflar el diseño de este fragmento
         return inflater.inflate(R.layout.fragment_1, container, false);
     }
-
-
-
 }

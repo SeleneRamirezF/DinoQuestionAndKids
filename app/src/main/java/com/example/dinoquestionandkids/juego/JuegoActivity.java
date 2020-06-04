@@ -84,7 +84,6 @@ public class JuegoActivity extends AppCompatActivity {
                 finish();
             }
         });
-
         btnInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,7 +93,6 @@ public class JuegoActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
         btnComenzarJuego.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

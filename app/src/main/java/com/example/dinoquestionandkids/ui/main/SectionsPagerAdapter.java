@@ -29,7 +29,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         //Se llama a getItem para crear una instancia del fragmento para la página dada.
-        // Devuelve un PlaceholderFragment (definido como una clase interna estática a continuación).
+        // Devuelve un PlaceholderFragment (definido como una clase interna estática).
         return PlaceholderFragment.newInstance(position + 1);
     }
 

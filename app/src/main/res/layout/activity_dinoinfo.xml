@@ -6,13 +6,11 @@
     android:orientation="vertical"
     android:background="@drawable/fondo99"
     tools:context=".dinosaurios.DinoInfoActivity">
-
     <ImageView
         android:id="@+id/ivDino"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center" />
-
     <TextView
         android:id="@+id/tvNombreDino"
         android:layout_width="match_parent"
@@ -22,13 +20,11 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/letra_normal_grande"
         android:textStyle="bold" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="(Tócalo para escuchar su rujigo)"
         android:textColor="@android:color/black"/>
-
     <EditText
         android:id="@+id/etDescripcionDino"
         android:layout_width="match_parent"
@@ -39,5 +35,4 @@
         android:text="@string/descripcion"
         android:inputType="textMultiLine"
         android:scrollbars="vertical"/>
-
 </LinearLayout>

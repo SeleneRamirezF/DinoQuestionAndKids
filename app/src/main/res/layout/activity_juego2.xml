@@ -47,14 +47,14 @@
             android:text="@string/puntos_juego"
             android:textSize="@dimen/letra_boton1"
             android:textStyle="bold"
-            android:textColor="@color/colorFondoTexto3"/>
+            android:textColor="@android:color/black"/>
 
         <EditText
             android:id="@+id/etPuntos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:textColor="@android:color/black"/>
+            android:textColor="@color/colorFondoTexto3"/>
     </LinearLayout>
 
     <LinearLayout

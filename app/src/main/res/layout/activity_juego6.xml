@@ -170,6 +170,4 @@
         android:textColor="@android:color/white"
         android:background="@drawable/boton_redondo"/>
 
-
-
 </LinearLayout>

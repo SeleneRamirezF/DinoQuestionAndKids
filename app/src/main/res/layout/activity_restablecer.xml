@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,7 +7,6 @@
     android:padding="@dimen/margen_interior_normal1"
     android:background="@drawable/fondo99"
     tools:context=".inicio.RestablecerActivity">
-
     <EditText
         android:id="@+id/etCorreo"
         android:layout_width="match_parent"
@@ -20,13 +18,11 @@
         android:textSize="19dp"
         android:background="@color/colorFondoTexto"
         android:padding="@dimen/margen_interior_mini"/>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="bottom"
         android:orientation="vertical">
-
         <Button
             android:id="@+id/btnRestablecer"
             android:layout_width="match_parent"
@@ -36,7 +32,5 @@
             android:background="@drawable/boton_redondo2"
             android:textColor="@android:color/white"
             android:textSize="@dimen/letra_boton1"/>
-
     </LinearLayout>
-
 </LinearLayout>

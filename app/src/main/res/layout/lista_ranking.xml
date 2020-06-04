@@ -6,18 +6,15 @@
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/margen_mini"
     cardview:cardCornerRadius="@dimen/radio2">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:background="@drawable/fonfo_ranking1">
-
             <TextView
                 android:id="@+id/tvNombre"
                 android:text="Puntuacion de Selene"
@@ -27,7 +24,6 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textColor="@android:color/black"
                 android:textStyle="bold" />
-
             <TextView
                 android:id="@+id/tvPuntos"
                 android:text="58"
@@ -38,7 +34,6 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@color/colorFondoTexto3"
                 android:textStyle="bold"/>
-
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView >
