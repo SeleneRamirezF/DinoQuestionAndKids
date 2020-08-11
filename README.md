@@ -16,7 +16,8 @@ Lista de Dinosaurios con datos interesantes donde se pueden escuchar sus  sonido
 Juego de preguntas con 6 niveles de dificultad, con bonus 
 
 Puzzles de imagenes de dinosaurios
-------
+
+-----------
 Gestion de la información del perfil
 
 Ajuste de sonido
